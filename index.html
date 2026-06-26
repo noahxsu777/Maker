@@ -1210,6 +1210,37 @@
       transform: translateY(-2px);
       box-shadow: 0 8px 24px rgba(255,56,92,.35);
     }
+    .contact-submit:disabled,
+    .form-submit:disabled {
+      opacity: .65;
+      cursor: not-allowed;
+      transform: none !important;
+      box-shadow: none !important;
+    }
+    .form-success-msg {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #e8f8f0;
+      border: 1px solid #b7e5ce;
+      color: #1a7a47;
+      padding: 13px 16px;
+      border-radius: var(--radius-sm);
+      font-size: .92rem;
+      font-weight: 600;
+    }
+    .form-error-msg {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #fff0f2;
+      border: 1px solid #ffc8d0;
+      color: #c0392b;
+      padding: 13px 16px;
+      border-radius: var(--radius-sm);
+      font-size: .92rem;
+      font-weight: 600;
+    }
 
     /* =====================
        TRUST STRIP
@@ -2653,71 +2684,80 @@
         <div class="insurance-form-card reveal reveal-delay-1" id="insForm">
           <div class="form-title">Cotiza tu seguro ahora</div>
           <div class="form-subtitle">Completamente gratis y sin compromiso</div>
-          <div class="form-row">
-            <div class="form-group">
-              <label>Nombre completo</label>
-              <input type="text" placeholder="Ana García" />
+          <form id="quoteForm" action="https://formspree.io/f/mlgyjyky" method="POST" novalidate>
+            <input type="hidden" name="_subject" value="Nueva cotización de seguro — Money Maker LLC"/>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Nombre completo</label>
+                <input type="text" name="nombre" placeholder="Ana García" required/>
+              </div>
+              <div class="form-group">
+                <label>Teléfono</label>
+                <input type="tel" name="telefono" placeholder="+1 (800) 555-0199"/>
+              </div>
             </div>
             <div class="form-group">
-              <label>Teléfono</label>
-              <input type="tel" placeholder="+1 (800) 555-0199" />
+              <label>Correo electrónico</label>
+              <input type="email" name="email" placeholder="ana@email.com" required/>
             </div>
-          </div>
-          <div class="form-group">
-            <label>Correo electrónico</label>
-            <input type="email" placeholder="ana@email.com" />
-          </div>
-          <div class="form-row">
+            <div class="form-row">
+              <div class="form-group">
+                <label>Marca del vehículo</label>
+                <select name="marca_vehiculo">
+                  <option value="">Seleccionar</option>
+                  <option>Toyota</option>
+                  <option>Honda</option>
+                  <option>Nissan</option>
+                  <option>BMW</option>
+                  <option>Mercedes-Benz</option>
+                  <option>Volkswagen</option>
+                  <option>Otro</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Año del vehículo</label>
+                <select name="anio_vehiculo">
+                  <option>2024</option>
+                  <option>2023</option>
+                  <option>2022</option>
+                  <option>2021</option>
+                  <option>2020</option>
+                  <option>Anterior</option>
+                </select>
+              </div>
+            </div>
             <div class="form-group">
-              <label>Marca del vehículo</label>
-              <select>
-                <option value="">Seleccionar</option>
-                <option>Toyota</option>
-                <option>Honda</option>
-                <option>Nissan</option>
-                <option>BMW</option>
-                <option>Mercedes-Benz</option>
-                <option>Volkswagen</option>
-                <option>Otro</option>
+              <label>Tipo de cobertura</label>
+              <select name="cobertura">
+                <option>Responsabilidad civil básica</option>
+                <option>Cobertura amplia</option>
+                <option>Todo riesgo (premium)</option>
               </select>
             </div>
-            <div class="form-group">
-              <label>Año del vehículo</label>
-              <select>
-                <option>2024</option>
-                <option>2023</option>
-                <option>2022</option>
-                <option>2021</option>
-                <option>2020</option>
-                <option>Anterior</option>
-              </select>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Uso del vehículo</label>
+                <select name="uso_vehiculo">
+                  <option>Particular</option>
+                  <option>Comercial</option>
+                  <option>Transporte de personal</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Código postal</label>
+                <input type="text" name="codigo_postal" placeholder="33131"/>
+              </div>
             </div>
-          </div>
-          <div class="form-group">
-            <label>Tipo de cobertura</label>
-            <select>
-              <option>Responsabilidad civil básica</option>
-              <option>Cobertura amplia</option>
-              <option>Todo riesgo (premium)</option>
-            </select>
-          </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label>Uso del vehículo</label>
-              <select>
-                <option>Particular</option>
-                <option>Comercial</option>
-                <option>Transporte de personal</option>
-              </select>
+            <button type="submit" class="form-submit" id="quoteBtn">
+              <i class="fa-solid fa-shield-halved"></i> Obtener cotización gratuita
+            </button>
+            <div id="quoteSuccess" class="form-success-msg" style="display:none">
+              <i class="fa-solid fa-circle-check"></i> ¡Cotización enviada! Te contactaremos muy pronto.
             </div>
-            <div class="form-group">
-              <label>Código postal</label>
-              <input type="text" placeholder="33131" />
+            <div id="quoteError" class="form-error-msg" style="display:none">
+              <i class="fa-solid fa-triangle-exclamation"></i> Hubo un error. Por favor intenta de nuevo.
             </div>
-          </div>
-          <button class="form-submit" onclick="showToast('¡Cotización enviada! Te contactaremos pronto.')">
-            <i class="fa-solid fa-shield-halved"></i> Obtener cotización gratuita
-          </button>
+          </form>
           <div class="form-note">
             <i class="fa-solid fa-lock"></i> Tus datos están seguros. Nunca los compartimos.
           </div>
@@ -3146,41 +3186,50 @@
         <div class="contact-form-card reveal reveal-delay-1">
           <h3 style="font-size:1.3rem;font-weight:800;margin-bottom:6px;">Escríbenos</h3>
           <p style="font-size:.88rem;color:var(--gray);margin-bottom:24px;">Cuéntanos qué necesitas y te respondemos pronto.</p>
-          <div class="form-row">
-            <div class="form-group">
-              <label>Nombre</label>
-              <input type="text" placeholder="Tu nombre" />
+          <form id="contactForm" action="https://formspree.io/f/mlgyjyky" method="POST" novalidate>
+            <input type="hidden" name="_subject" value="Nuevo mensaje de contacto — Money Maker LLC"/>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Nombre</label>
+                <input type="text" name="nombre" placeholder="Tu nombre" required/>
+              </div>
+              <div class="form-group">
+                <label>Apellido</label>
+                <input type="text" name="apellido" placeholder="Tu apellido" required/>
+              </div>
             </div>
             <div class="form-group">
-              <label>Apellido</label>
-              <input type="text" placeholder="Tu apellido" />
+              <label>Correo electrónico</label>
+              <input type="email" name="email" placeholder="tu@email.com" required/>
             </div>
-          </div>
-          <div class="form-group">
-            <label>Correo electrónico</label>
-            <input type="email" placeholder="tu@email.com" />
-          </div>
-          <div class="form-group">
-            <label>Teléfono (opcional)</label>
-            <input type="tel" placeholder="+1 (800) 555-0199" />
-          </div>
-          <div class="form-group">
-            <label>Asunto</label>
-            <select>
-              <option>Información sobre paquetes</option>
-              <option>Cotización seguro de auto</option>
-              <option>Cambio o cancelación</option>
-              <option>Reclamación</option>
-              <option>Otro</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label>Mensaje</label>
-            <textarea placeholder="Cuéntanos cómo podemos ayudarte..."></textarea>
-          </div>
-          <button class="contact-submit" onclick="showToast('¡Mensaje enviado! Te responderemos pronto.')">
-            <i class="fa-solid fa-paper-plane"></i> &nbsp;Enviar mensaje
-          </button>
+            <div class="form-group">
+              <label>Teléfono (opcional)</label>
+              <input type="tel" name="telefono" placeholder="+1 (800) 555-0199"/>
+            </div>
+            <div class="form-group">
+              <label>Asunto</label>
+              <select name="asunto">
+                <option>Información sobre paquetes</option>
+                <option>Cotización seguro de auto</option>
+                <option>Cambio o cancelación</option>
+                <option>Reclamación</option>
+                <option>Otro</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Mensaje</label>
+              <textarea name="mensaje" placeholder="Cuéntanos cómo podemos ayudarte..."></textarea>
+            </div>
+            <button type="submit" class="contact-submit" id="contactBtn">
+              <i class="fa-solid fa-paper-plane"></i> &nbsp;Enviar mensaje
+            </button>
+            <div id="contactSuccess" class="form-success-msg" style="display:none;margin-top:14px">
+              <i class="fa-solid fa-circle-check"></i> ¡Mensaje enviado! Te responderemos pronto.
+            </div>
+            <div id="contactError" class="form-error-msg" style="display:none;margin-top:14px">
+              <i class="fa-solid fa-triangle-exclamation"></i> Hubo un error. Por favor intenta de nuevo.
+            </div>
+          </form>
         </div>
       </div>
     </div>
@@ -3393,6 +3442,49 @@
     function scrollTo(selector) {
       document.querySelector(selector).scrollIntoView({ behavior: 'smooth' });
     }
+
+    // ===== FORMSPREE AJAX HANDLER =====
+    async function submitFormspree(formEl, btnEl, successEl, errorEl) {
+      btnEl.disabled = true;
+      const originalHTML = btnEl.innerHTML;
+      btnEl.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Enviando...';
+      successEl.style.display = 'none';
+      errorEl.style.display = 'none';
+      try {
+        const res = await fetch(formEl.action, {
+          method: 'POST',
+          body: new FormData(formEl),
+          headers: { Accept: 'application/json' }
+        });
+        if (res.ok) {
+          formEl.reset();
+          successEl.style.display = 'flex';
+        } else {
+          errorEl.style.display = 'flex';
+        }
+      } catch (_) {
+        errorEl.style.display = 'flex';
+      } finally {
+        btnEl.disabled = false;
+        btnEl.innerHTML = originalHTML;
+      }
+    }
+
+    document.getElementById('quoteForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      submitFormspree(this,
+        document.getElementById('quoteBtn'),
+        document.getElementById('quoteSuccess'),
+        document.getElementById('quoteError'));
+    });
+
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      submitFormspree(this,
+        document.getElementById('contactBtn'),
+        document.getElementById('contactSuccess'),
+        document.getElementById('contactError'));
+    });
 
     // ===== ACTIVE NAV ON SCROLL =====
     const sections = document.querySelectorAll('section[id]');
