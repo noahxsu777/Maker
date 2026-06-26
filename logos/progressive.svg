@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 60" width="240" height="60">
+  <rect width="240" height="60" fill="white"/>
+  <!-- Progressive blue bar accent -->
+  <rect x="0" y="0" width="8" height="60" fill="#0066CC"/>
+  <!-- Progressive wordmark -->
+  <text x="22" y="38" font-family="Arial, Helvetica, sans-serif" font-weight="900" font-size="26" fill="#0066CC">Progressive</text>
+</svg>

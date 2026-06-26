@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 60" width="260" height="60">
+  <rect width="260" height="60" fill="white"/>
+  <!-- Liberty Mutual statue of liberty torch icon -->
+  <g transform="translate(8,4)">
+    <!-- Torch flame -->
+    <ellipse cx="18" cy="8" rx="5" ry="7" fill="#F7B731"/>
+    <ellipse cx="18" cy="10" rx="3" ry="5" fill="#E67E22"/>
+    <!-- Torch handle -->
+    <rect x="16" y="13" width="4" height="14" rx="2" fill="#007A33"/>
+    <!-- Hand holding torch -->
+    <rect x="13" y="23" width="10" height="5" rx="2" fill="#007A33"/>
+    <!-- Body -->
+    <rect x="15" y="28" width="6" height="16" rx="1" fill="#007A33"/>
+    <!-- Crown rays -->
+    <line x1="18" y1="4" x2="10" y2="0" stroke="#F7B731" stroke-width="1.5"/>
+    <line x1="18" y1="4" x2="18" y2="-1" stroke="#F7B731" stroke-width="1.5"/>
+    <line x1="18" y1="4" x2="26" y2="0" stroke="#F7B731" stroke-width="1.5"/>
+  </g>
+  <!-- Liberty Mutual text -->
+  <text x="56" y="25" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="12" fill="#007A33">LIBERTY</text>
+  <text x="56" y="41" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="12" fill="#007A33">MUTUAL</text>
+  <text x="56" y="54" font-family="Arial, Helvetica, sans-serif" font-weight="400" font-size="9" fill="#555">INSURANCE</text>
+</svg>

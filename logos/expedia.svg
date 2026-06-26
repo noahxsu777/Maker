@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 60" width="220" height="60">
+  <rect width="220" height="60" fill="white"/>
+  <!-- Expedia compass/circle icon -->
+  <g transform="translate(8,8)">
+    <!-- Outer circle -->
+    <circle cx="22" cy="22" r="20" fill="#FFC72C"/>
+    <!-- Inner circle -->
+    <circle cx="22" cy="22" r="14" fill="#003087"/>
+    <!-- Compass center dot -->
+    <circle cx="22" cy="22" r="3" fill="#FFC72C"/>
+    <!-- Compass arrows -->
+    <polygon points="22,10 19,20 25,20" fill="#FFC72C"/>
+    <polygon points="22,34 19,24 25,24" fill="white"/>
+    <polygon points="10,22 20,19 20,25" fill="white"/>
+    <polygon points="34,22 24,19 24,25" fill="#FFC72C"/>
+  </g>
+  <!-- Expedia wordmark -->
+  <text x="58" y="38" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="24" fill="#003087">expedia</text>
+</svg>

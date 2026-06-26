@@ -1222,56 +1222,42 @@
     }
     .trust-inner {
       display: flex;
+      flex-direction: column;
       align-items: center;
-      justify-content: space-between;
-      gap: 32px;
-      flex-wrap: wrap;
+      gap: 28px;
     }
     .trust-label {
       font-size: .8rem;
       font-weight: 700;
       color: var(--gray);
       white-space: nowrap;
-      letter-spacing: .06em;
+      letter-spacing: .1em;
       text-transform: uppercase;
     }
     .trust-logos {
       display: flex;
       align-items: center;
-      gap: 10px;
+      justify-content: center;
+      gap: 40px;
       flex-wrap: wrap;
     }
     .trust-logo {
       display: inline-flex;
       align-items: center;
-      gap: 7px;
-      background: var(--bg-light);
-      border: 1px solid var(--light-gray);
-      border-radius: 10px;
-      padding: 9px 18px;
-      font-size: .82rem;
-      font-weight: 800;
-      color: #888;
-      letter-spacing: .04em;
-      text-transform: uppercase;
       transition: all var(--transition);
+      opacity: .7;
+      filter: grayscale(1);
     }
     .trust-logo:hover {
-      border-color: #bbb;
-      color: #444;
-      background: #fff;
-      box-shadow: var(--shadow-sm);
+      opacity: 1;
+      filter: grayscale(0);
       transform: translateY(-2px);
     }
-    .trust-logo i { font-size: 1rem; }
-    .trust-logo.geico    { color: #0078B4; }
-    .trust-logo.statefarm{ color: #CC0000; }
-    .trust-logo.progressive{ color: #0066CC; }
-    .trust-logo.allstate  { color: #0050A5; }
-    .trust-logo.delta     { color: #003366; }
-    .trust-logo.american  { color: #1B1F5F; }
-    .trust-logo.expedia   { color: #FFC72C; background:#fff8e1; }
-    .trust-logo.liberty   { color: #007A33; }
+    .trust-logo img {
+      height: 44px;
+      width: auto;
+      display: block;
+    }
 
     /* =====================
        NEWSLETTER
@@ -2381,16 +2367,16 @@
   <div class="trust-strip">
     <div class="container">
       <div class="trust-inner">
-        <span class="trust-label">Trusted partners</span>
+        <span class="trust-label">Trusted partners &amp; carriers</span>
         <div class="trust-logos">
-          <span class="trust-logo geico"><i class="fa-solid fa-shield-halved"></i>GEICO</span>
-          <span class="trust-logo statefarm"><i class="fa-solid fa-house"></i>State Farm</span>
-          <span class="trust-logo progressive"><i class="fa-solid fa-car"></i>Progressive</span>
-          <span class="trust-logo allstate"><i class="fa-solid fa-hands-holding"></i>Allstate</span>
-          <span class="trust-logo liberty"><i class="fa-solid fa-landmark"></i>Liberty Mutual</span>
-          <span class="trust-logo delta"><i class="fa-solid fa-plane"></i>Delta</span>
-          <span class="trust-logo american"><i class="fa-solid fa-plane-departure"></i>American</span>
-          <span class="trust-logo expedia"><i class="fa-solid fa-earth-americas"></i>Expedia</span>
+          <a href="#" class="trust-logo"><img src="logos/geico.svg" alt="GEICO"/></a>
+          <a href="#" class="trust-logo"><img src="logos/statefarm.svg" alt="State Farm"/></a>
+          <a href="#" class="trust-logo"><img src="logos/progressive.svg" alt="Progressive"/></a>
+          <a href="#" class="trust-logo"><img src="logos/allstate.svg" alt="Allstate"/></a>
+          <a href="#" class="trust-logo"><img src="logos/libertymutual.svg" alt="Liberty Mutual"/></a>
+          <a href="#" class="trust-logo"><img src="logos/delta.svg" alt="Delta"/></a>
+          <a href="#" class="trust-logo"><img src="logos/american.svg" alt="American Airlines"/></a>
+          <a href="#" class="trust-logo"><img src="logos/expedia.svg" alt="Expedia"/></a>
         </div>
       </div>
     </div>
