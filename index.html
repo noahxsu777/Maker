@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ViajeSeguro — Viajes & Seguros Premium</title>
+  <title>Money Maker LLC — Viajes & Seguros Premium</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600;1,700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
@@ -1528,6 +1528,229 @@
       .offers-grid { grid-template-columns: 1fr; }
       .benefits-grid { grid-template-columns: 1fr 1fr; }
     }
+
+    /* =====================
+       ENHANCED OFFER CARDS
+    ===================== */
+    .offer-img-wrap { height: 230px; }
+    .offer-card { border: 1px solid rgba(221,221,221,.4); }
+    .offer-card:hover { box-shadow: 0 16px 48px rgba(0,0,0,.14); }
+    .offer-card-hover-cta {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 28px 18px 16px;
+      background: linear-gradient(to top, rgba(255,56,92,.92) 0%, transparent 100%);
+      color: #fff;
+      font-size: .88rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transform: translateY(100%);
+      transition: transform .3s cubic-bezier(.4,0,.2,1);
+      letter-spacing: .02em;
+    }
+    .offer-card:hover .offer-card-hover-cta { transform: translateY(0); }
+    .offer-price strong {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--primary);
+    }
+    .offer-divider {
+      height: 1px;
+      background: var(--bg-light);
+      margin: 10px 0 12px;
+    }
+    .offer-rating {
+      background: #fffbf0;
+      padding: 4px 10px;
+      border-radius: 20px;
+      border: 1px solid #ffe9b0;
+      font-size: .82rem;
+      font-weight: 700;
+      color: #b45309;
+    }
+
+    /* =====================
+       ENHANCED DESTINATION CARDS
+    ===================== */
+    .dest-name {
+      font-family: 'Playfair Display', Georgia, serif;
+      letter-spacing: .01em;
+    }
+    .dest-card-overlay { transition: background .35s ease; }
+    .dest-card:hover .dest-card-overlay {
+      background: linear-gradient(to top, rgba(0,0,0,.82) 0%, rgba(0,0,0,.15) 60%);
+    }
+    .dest-explore-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #fff;
+      color: var(--dark);
+      font-size: .78rem;
+      font-weight: 700;
+      padding: 7px 14px;
+      border-radius: 20px;
+      margin-top: 12px;
+      opacity: 0;
+      transform: translateY(8px);
+      transition: opacity .3s ease, transform .3s ease;
+    }
+    .dest-card:hover .dest-explore-btn {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* =====================
+       ENHANCED BENEFIT CARDS
+    ===================== */
+    .benefit-card {
+      border-top: 3px solid transparent;
+      text-align: left;
+      position: relative;
+      overflow: hidden;
+    }
+    .benefit-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255,56,92,.03), transparent);
+      opacity: 0;
+      transition: opacity var(--transition);
+    }
+    .benefit-card:hover::after { opacity: 1; }
+    .benefit-card:hover { border-top-color: var(--primary); }
+    .benefit-card:nth-child(2):hover { border-top-color: var(--secondary); }
+    .benefit-card:nth-child(3):hover { border-top-color: #F4A261; }
+    .benefit-card:nth-child(4):hover { border-top-color: #4895EF; }
+    .benefit-card:nth-child(5):hover { border-top-color: #22C55E; }
+    .benefit-card:nth-child(6):hover { border-top-color: #A855F7; }
+    .benefit-icon { margin: 0 0 20px; }
+    .benefit-num {
+      position: absolute;
+      top: 16px;
+      right: 18px;
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: rgba(0,0,0,.04);
+      line-height: 1;
+      font-family: 'Playfair Display', Georgia, serif;
+    }
+    .benefit-card h3 { font-size: 1.02rem; }
+
+    /* =====================
+       ENHANCED TESTIMONIAL CARDS
+    ===================== */
+    .testimonial-card {
+      position: relative;
+      overflow: hidden;
+      border-left: 4px solid transparent;
+      transition: border-color var(--transition), box-shadow var(--transition), transform .3s ease;
+    }
+    .testimonial-card:hover {
+      border-left-color: var(--primary);
+      box-shadow: var(--shadow-md);
+      transform: translateY(-4px);
+    }
+    .testimonial-card::before {
+      content: '\201C';
+      position: absolute;
+      top: -12px;
+      right: 18px;
+      font-size: 7rem;
+      font-family: 'Playfair Display', Georgia, serif;
+      color: rgba(255,56,92,.07);
+      line-height: 1;
+      pointer-events: none;
+    }
+    .testi-verified {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: #f0fdf4;
+      color: #16a34a;
+      font-size: .7rem;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 20px;
+      margin-top: 2px;
+    }
+    .testi-verified i { font-size: .65rem; }
+    .testi-trip {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: .78rem;
+      color: var(--gray);
+      margin-bottom: 14px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--bg-light);
+    }
+    .testi-trip i { color: var(--primary); font-size: .7rem; }
+
+    /* =====================
+       ENHANCED BLOG CARDS
+    ===================== */
+    .blog-card { border: 1px solid rgba(221,221,221,.4); }
+    .blog-card:hover { box-shadow: 0 16px 48px rgba(0,0,0,.12); }
+    .blog-read-time {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: rgba(0,0,0,.55);
+      backdrop-filter: blur(6px);
+      color: #fff;
+      font-size: .72rem;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .blog-img { position: relative; }
+    .blog-category {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: #fff0f3;
+      color: var(--primary);
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .blog-read-more {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: .82rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-top: 4px;
+      transition: gap var(--transition);
+    }
+    .blog-card:hover .blog-read-more { gap: 10px; }
+
+    /* =====================
+       LOGO REFINEMENT
+    ===================== */
+    .logo-text-main { color: var(--primary); }
+    .logo-text-sub { color: var(--dark); }
+    .logo-text-llc {
+      font-size: .6rem;
+      font-weight: 600;
+      color: var(--gray);
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      margin-left: 2px;
+      vertical-align: super;
+    }
   </style>
 </head>
 <body>
@@ -1546,8 +1769,8 @@
     <div class="container">
       <div class="navbar-inner">
         <a href="#" class="logo">
-          <div class="logo-icon"><i class="fa-solid fa-plane-departure"></i></div>
-          Viaje<span>Seguro</span>
+          <div class="logo-icon"><i class="fa-solid fa-dollar-sign"></i></div>
+          <span class="logo-text-main">Money</span><span class="logo-text-sub">Maker</span><span class="logo-text-llc">LLC</span>
         </a>
         <ul class="nav-links">
           <li><a href="#offers" class="active">Vuelos</a></li>
@@ -1868,6 +2091,7 @@
             <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80" alt="Santorini" loading="lazy" />
             <span class="offer-badge">-30% OFF</span>
             <span class="offer-wish" onclick="toggleWish(this)"><i class="fa-regular fa-heart"></i></span>
+            <div class="offer-card-hover-cta"><i class="fa-solid fa-arrow-right"></i> Ver detalles del paquete</div>
           </div>
           <div class="offer-body">
             <div class="offer-location"><i class="fa-solid fa-location-dot"></i> Grecia</div>
@@ -1876,15 +2100,13 @@
               <span><i class="fa-solid fa-plane"></i> Vuelo incluido</span>
               <span><i class="fa-solid fa-moon"></i> 7 noches</span>
             </div>
+            <div class="offer-divider"></div>
             <div class="offer-footer">
               <div class="offer-price">
-                <strong>$1,890</strong>
-                <s>$2,700</s>
+                <strong>$1,890</strong> <s>$2,700</s>
                 <div class="per">por persona</div>
               </div>
-              <div class="offer-rating">
-                <span class="stars">★★★★★</span> 4.9
-              </div>
+              <div class="offer-rating"><span class="stars">★</span> 4.9</div>
             </div>
           </div>
         </div>
@@ -1895,6 +2117,7 @@
             <img src="https://images.unsplash.com/photo-1552832230-c0197dd311b5?w=600&q=80" alt="Roma" loading="lazy" />
             <span class="offer-badge green">Todo incluido</span>
             <span class="offer-wish" onclick="toggleWish(this)"><i class="fa-regular fa-heart"></i></span>
+            <div class="offer-card-hover-cta"><i class="fa-solid fa-arrow-right"></i> Ver detalles del paquete</div>
           </div>
           <div class="offer-body">
             <div class="offer-location"><i class="fa-solid fa-location-dot"></i> Italia</div>
@@ -1903,14 +2126,13 @@
               <span><i class="fa-solid fa-plane"></i> Vuelo incluido</span>
               <span><i class="fa-solid fa-moon"></i> 10 noches</span>
             </div>
+            <div class="offer-divider"></div>
             <div class="offer-footer">
               <div class="offer-price">
                 <strong>$2,450</strong>
                 <div class="per">por persona</div>
               </div>
-              <div class="offer-rating">
-                <span class="stars">★★★★★</span> 4.8
-              </div>
+              <div class="offer-rating"><span class="stars">★</span> 4.8</div>
             </div>
           </div>
         </div>
@@ -1921,6 +2143,7 @@
             <img src="https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?w=600&q=80" alt="Tokio" loading="lazy" />
             <span class="offer-badge gold">Luna de miel</span>
             <span class="offer-wish" onclick="toggleWish(this)"><i class="fa-regular fa-heart"></i></span>
+            <div class="offer-card-hover-cta"><i class="fa-solid fa-arrow-right"></i> Ver detalles del paquete</div>
           </div>
           <div class="offer-body">
             <div class="offer-location"><i class="fa-solid fa-location-dot"></i> Japón</div>
@@ -1929,14 +2152,13 @@
               <span><i class="fa-solid fa-plane"></i> Vuelo incluido</span>
               <span><i class="fa-solid fa-moon"></i> 12 noches</span>
             </div>
+            <div class="offer-divider"></div>
             <div class="offer-footer">
               <div class="offer-price">
                 <strong>$3,200</strong>
                 <div class="per">por persona</div>
               </div>
-              <div class="offer-rating">
-                <span class="stars">★★★★★</span> 5.0
-              </div>
+              <div class="offer-rating"><span class="stars">★</span> 5.0</div>
             </div>
           </div>
         </div>
@@ -1947,6 +2169,7 @@
             <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=80" alt="Cancún" loading="lazy" />
             <span class="offer-badge">-25% OFF</span>
             <span class="offer-wish" onclick="toggleWish(this)"><i class="fa-regular fa-heart"></i></span>
+            <div class="offer-card-hover-cta"><i class="fa-solid fa-arrow-right"></i> Ver detalles del paquete</div>
           </div>
           <div class="offer-body">
             <div class="offer-location"><i class="fa-solid fa-location-dot"></i> México</div>
@@ -1955,15 +2178,13 @@
               <span><i class="fa-solid fa-plane"></i> Vuelo incluido</span>
               <span><i class="fa-solid fa-moon"></i> 5 noches</span>
             </div>
+            <div class="offer-divider"></div>
             <div class="offer-footer">
               <div class="offer-price">
-                <strong>$899</strong>
-                <s>$1,200</s>
+                <strong>$899</strong> <s>$1,200</s>
                 <div class="per">por persona</div>
               </div>
-              <div class="offer-rating">
-                <span class="stars">★★★★☆</span> 4.7
-              </div>
+              <div class="offer-rating"><span class="stars">★</span> 4.7</div>
             </div>
           </div>
         </div>
@@ -1989,6 +2210,7 @@
             <div class="dest-name">París</div>
             <div class="dest-country">Francia</div>
             <span class="dest-price">Desde $1,200</span>
+            <span class="dest-explore-btn"><i class="fa-solid fa-arrow-right"></i> Explorar</span>
           </div>
         </div>
         <div class="dest-card">
@@ -1997,6 +2219,7 @@
             <div class="dest-name">Nueva York</div>
             <div class="dest-country">Estados Unidos</div>
             <span class="dest-price">Desde $850</span>
+            <span class="dest-explore-btn"><i class="fa-solid fa-arrow-right"></i> Explorar</span>
           </div>
         </div>
         <div class="dest-card">
@@ -2005,6 +2228,7 @@
             <div class="dest-name">Bali</div>
             <div class="dest-country">Indonesia</div>
             <span class="dest-price">Desde $1,450</span>
+            <span class="dest-explore-btn"><i class="fa-solid fa-arrow-right"></i> Explorar</span>
           </div>
         </div>
         <div class="dest-card">
@@ -2013,6 +2237,7 @@
             <div class="dest-name">Machu Picchu</div>
             <div class="dest-country">Perú</div>
             <span class="dest-price">Desde $980</span>
+            <span class="dest-explore-btn"><i class="fa-solid fa-arrow-right"></i> Explorar</span>
           </div>
         </div>
         <div class="dest-card">
@@ -2021,6 +2246,7 @@
             <div class="dest-name">Dubai</div>
             <div class="dest-country">Emiratos Árabes</div>
             <span class="dest-price">Desde $2,100</span>
+            <span class="dest-explore-btn"><i class="fa-solid fa-arrow-right"></i> Explorar</span>
           </div>
         </div>
       </div>
@@ -2061,7 +2287,7 @@
               <div class="ins-icon"><i class="fa-solid fa-percent"></i></div>
               <div class="ins-text">
                 <h4>Hasta 35% de descuento</h4>
-                <p>Beneficios exclusivos por ser cliente de ViajeSeguro.</p>
+                <p>Beneficios exclusivos por ser cliente de Money Maker.</p>
               </div>
             </div>
           </div>
@@ -2162,31 +2388,37 @@
       </div>
       <div class="benefits-grid">
         <div class="benefit-card reveal">
+          <span class="benefit-num">01</span>
           <div class="benefit-icon red"><i class="fa-solid fa-award"></i></div>
           <h3>Calidad garantizada</h3>
           <p>Seleccionamos cuidadosamente cada hotel, aerolínea y experiencia para asegurar lo mejor.</p>
         </div>
         <div class="benefit-card reveal reveal-delay-1">
+          <span class="benefit-num">02</span>
           <div class="benefit-icon teal"><i class="fa-solid fa-tags"></i></div>
           <h3>Mejor precio</h3>
           <p>Si encuentras algo más barato, te igualamos el precio. Sin preguntas.</p>
         </div>
         <div class="benefit-card reveal reveal-delay-2">
+          <span class="benefit-num">03</span>
           <div class="benefit-icon gold"><i class="fa-solid fa-headset"></i></div>
           <h3>Soporte 24/7</h3>
           <p>Nuestro equipo está disponible las 24 horas, todos los días, donde estés en el mundo.</p>
         </div>
         <div class="benefit-card reveal reveal-delay-3">
+          <span class="benefit-num">04</span>
           <div class="benefit-icon blue"><i class="fa-solid fa-lock"></i></div>
           <h3>Pago seguro</h3>
           <p>Transacciones encriptadas con los más altos estándares de seguridad bancaria.</p>
         </div>
         <div class="benefit-card reveal reveal-delay-1">
+          <span class="benefit-num">05</span>
           <div class="benefit-icon green"><i class="fa-solid fa-rotate-left"></i></div>
           <h3>Cancelación flexible</h3>
           <p>Planes adaptables a tus necesidades. Cancela hasta 48 horas antes sin cargo.</p>
         </div>
         <div class="benefit-card reveal reveal-delay-2">
+          <span class="benefit-num">06</span>
           <div class="benefit-icon purple"><i class="fa-solid fa-star"></i></div>
           <h3>Programa de lealtad</h3>
           <p>Acumula puntos en cada viaje y canjéalos por descuentos y upgrades exclusivos.</p>
@@ -2213,11 +2445,12 @@
               <img class="testi-avatar" src="https://images.unsplash.com/photo-1494790108755-2616b612a5d4?w=100&q=80" alt="María" />
               <div class="testi-info">
                 <h4>María González</h4>
-                <span>Viajó a Grecia · Jun 2025</span>
+                <span class="testi-verified"><i class="fa-solid fa-circle-check"></i> Cliente verificada</span>
               </div>
             </div>
+            <div class="testi-trip"><i class="fa-solid fa-plane"></i> Santorini, Grecia · Jun 2025</div>
             <div class="testi-stars">★★★★★</div>
-            <p class="testi-text">El viaje a Santorini fue absolutamente mágico. ViajeSeguro se encargó de cada detalle: vuelos, hotel con vista al mar, tours privados... Superó todas mis expectativas. Ya estoy planeando mi próxima aventura con ellos.</p>
+            <p class="testi-text">El viaje fue absolutamente mágico. Money Maker LLC se encargó de cada detalle: vuelos, hotel con vista al mar, tours privados... Superó todas mis expectativas. Ya estoy planeando mi próxima aventura con ellos.</p>
           </div>
 
           <div class="testimonial-card">
@@ -2225,9 +2458,10 @@
               <img class="testi-avatar" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80" alt="Carlos" />
               <div class="testi-info">
                 <h4>Carlos Mendoza</h4>
-                <span>Seguro de auto · May 2025</span>
+                <span class="testi-verified"><i class="fa-solid fa-circle-check"></i> Cliente verificado</span>
               </div>
             </div>
+            <div class="testi-trip"><i class="fa-solid fa-car"></i> Seguro de auto · May 2025</div>
             <div class="testi-stars">★★★★★</div>
             <p class="testi-text">Contraté el seguro de auto en minutos. Cuando tuve un accidente menor, la asistencia llegó en 20 minutos. El proceso de reclamación fue muy sencillo. Totalmente recomendable para quienes valoran tranquilidad.</p>
           </div>
@@ -2237,11 +2471,12 @@
               <img class="testi-avatar" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&q=80" alt="Lucía" />
               <div class="testi-info">
                 <h4>Lucía Fernández</h4>
-                <span>Viajó a Japón · Abr 2025</span>
+                <span class="testi-verified"><i class="fa-solid fa-circle-check"></i> Cliente verificada</span>
               </div>
             </div>
+            <div class="testi-trip"><i class="fa-solid fa-plane"></i> Tokio, Japón · Abr 2025</div>
             <div class="testi-stars">★★★★★</div>
-            <p class="testi-text">Nunca había viajado sola y el equipo de ViajeSeguro me acompañó en todo. La guía en Tokio era fantástica, el hotel en Kioto era de ensueño. Me sentí protegida y mimada durante todo el viaje.</p>
+            <p class="testi-text">Nunca había viajado sola y el equipo de Money Maker LLC me acompañó en todo. La guía en Tokio era fantástica, el hotel en Kioto era de ensueño. Me sentí protegida y mimada durante todo el viaje.</p>
           </div>
 
           <div class="testimonial-card">
@@ -2249,9 +2484,10 @@
               <img class="testi-avatar" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&q=80" alt="Roberto" />
               <div class="testi-info">
                 <h4>Roberto Silva</h4>
-                <span>Paquete familiar · Mar 2025</span>
+                <span class="testi-verified"><i class="fa-solid fa-circle-check"></i> Cliente verificado</span>
               </div>
             </div>
+            <div class="testi-trip"><i class="fa-solid fa-people-group"></i> Paquete familiar · Mar 2025</div>
             <div class="testi-stars">★★★★★</div>
             <p class="testi-text">Viajamos en familia a Cancún: padres, esposa e hijos. El paquete todo incluido fue perfecto. Los niños disfrutaron los parques, nosotros la playa. El precio fue imbatible. ¡Repetiríamos sin dudarlo!</p>
           </div>
@@ -2261,11 +2497,12 @@
               <img class="testi-avatar" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&q=80" alt="Sofía" />
               <div class="testi-info">
                 <h4>Sofía Ramírez</h4>
-                <span>Luna de miel · Feb 2025</span>
+                <span class="testi-verified"><i class="fa-solid fa-circle-check"></i> Cliente verificada</span>
               </div>
             </div>
+            <div class="testi-trip"><i class="fa-solid fa-heart"></i> Luna de miel en Bali · Feb 2025</div>
             <div class="testi-stars">★★★★★</div>
-            <p class="testi-text">Nuestro paquete de luna de miel en Bali fue de película. ViajeSeguro coordinó cada sorpresa: cenas románticas, spa privado, tour en barco al atardecer. Un servicio de lujo a un precio justo. Eternamente agradecidas.</p>
+            <p class="testi-text">Nuestro paquete de luna de miel en Bali fue de película. Money Maker LLC coordinó cada sorpresa: cenas románticas, spa privado, tour en barco al atardecer. Un servicio de lujo a un precio justo. Eternamente agradecidas.</p>
           </div>
 
         </div>
@@ -2293,11 +2530,13 @@
         <div class="blog-card reveal">
           <div class="blog-img">
             <img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=600&q=80" alt="Blog" loading="lazy" />
+            <span class="blog-read-time"><i class="fa-solid fa-clock"></i> 5 min</span>
           </div>
           <div class="blog-body">
-            <div class="blog-category">Consejos de viaje</div>
+            <div class="blog-category"><i class="fa-solid fa-compass"></i> Consejos de viaje</div>
             <div class="blog-title">Los 10 errores que debes evitar al planificar tu próximo viaje</div>
             <div class="blog-excerpt">Desde no comparar precios hasta olvidar el seguro de viaje, estos son los errores más comunes que cometen los viajeros novatos.</div>
+            <a href="#" class="blog-read-more">Leer artículo <i class="fa-solid fa-arrow-right"></i></a>
             <div class="blog-footer">
               <div class="blog-author">
                 <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=60&q=80" alt="Autor" />
@@ -2311,11 +2550,13 @@
         <div class="blog-card reveal reveal-delay-1">
           <div class="blog-img">
             <img src="https://images.unsplash.com/photo-1605128506103-59c5a87c0e05?w=600&q=80" alt="Blog" loading="lazy" />
+            <span class="blog-read-time"><i class="fa-solid fa-clock"></i> 7 min</span>
           </div>
           <div class="blog-body">
-            <div class="blog-category">Seguros</div>
+            <div class="blog-category"><i class="fa-solid fa-shield-halved"></i> Seguros</div>
             <div class="blog-title">¿Por qué necesitas un seguro de auto con cobertura ampliada en 2025?</div>
             <div class="blog-excerpt">Con el aumento de costos de reparación y piezas importadas, la cobertura básica ya no es suficiente. Te explicamos cómo elegir bien.</div>
+            <a href="#" class="blog-read-more">Leer artículo <i class="fa-solid fa-arrow-right"></i></a>
             <div class="blog-footer">
               <div class="blog-author">
                 <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=60&q=80" alt="Autor" />
@@ -2329,11 +2570,13 @@
         <div class="blog-card reveal reveal-delay-2">
           <div class="blog-img">
             <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?w=600&q=80" alt="Blog" loading="lazy" />
+            <span class="blog-read-time"><i class="fa-solid fa-clock"></i> 6 min</span>
           </div>
           <div class="blog-body">
-            <div class="blog-category">Destinos</div>
+            <div class="blog-category"><i class="fa-solid fa-earth-europe"></i> Destinos</div>
             <div class="blog-title">Europa en otoño: por qué es la mejor época para viajar al Viejo Continente</div>
             <div class="blog-excerpt">Menos turistas, precios más bajos y paisajes espectaculares. Descubre las ciudades europeas que brillan en septiembre y octubre.</div>
+            <a href="#" class="blog-read-more">Leer artículo <i class="fa-solid fa-arrow-right"></i></a>
             <div class="blog-footer">
               <div class="blog-author">
                 <img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?w=60&q=80" alt="Autor" />
@@ -2453,7 +2696,7 @@
               <div class="contact-method-icon"><i class="fa-solid fa-envelope"></i></div>
               <div class="contact-method-text">
                 <h4>Correo electrónico</h4>
-                <p>hola@viajeseguro.com</p>
+                <p>hola@moneymaker.com</p>
               </div>
             </div>
             <div class="contact-method">
@@ -2541,10 +2784,10 @@
       <div class="footer-top">
         <div class="footer-brand">
           <a href="#" class="logo">
-            <div class="logo-icon"><i class="fa-solid fa-plane-departure"></i></div>
-            Viaje<span style="color:rgba(255,255,255,.6)">Seguro</span>
+            <div class="logo-icon"><i class="fa-solid fa-dollar-sign"></i></div>
+            <span style="color:#fff">Money</span><span style="color:rgba(255,255,255,.55)">Maker</span><span class="logo-text-llc" style="color:rgba(255,255,255,.35)">LLC</span>
           </a>
-          <p>Tu compañero de viaje de confianza desde 2009. Vuelos, hoteles, paquetes y seguros de auto para toda Latinoamérica.</p>
+          <p>Tu socio estratégico en viajes y seguros desde 2009. Vuelos, hoteles, paquetes y seguros de auto para toda Latinoamérica.</p>
           <div class="footer-social">
             <a class="social-btn" href="#"><i class="fa-brands fa-instagram"></i></a>
             <a class="social-btn" href="#"><i class="fa-brands fa-facebook-f"></i></a>
@@ -2592,7 +2835,7 @@
       </div>
 
       <div class="footer-bottom">
-        <p>© 2025 ViajeSeguro. Todos los derechos reservados.</p>
+        <p>© 2025 Money Maker LLC. Todos los derechos reservados.</p>
         <div class="footer-bottom-links">
           <a href="#">Términos de uso</a>
           <a href="#">Privacidad</a>
