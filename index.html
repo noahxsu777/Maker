@@ -2090,6 +2090,216 @@
       margin-left: 2px;
       vertical-align: super;
     }
+
+  /* ==========================================
+     3D EFFECTS
+  ========================================== */
+
+  /* --- Keyframe animations --- */
+  @keyframes float3d {
+    0%,100% { transform: translateY(0) rotateX(0deg) rotateY(0deg); }
+    30%     { transform: translateY(-22px) rotateX(12deg) rotateY(8deg); }
+    60%     { transform: translateY(-14px) rotateX(-8deg) rotateY(15deg); }
+  }
+  @keyframes float3d-slow {
+    0%,100% { transform: translateY(0) rotateZ(0deg) scale(1); }
+    40%     { transform: translateY(-30px) rotateZ(90deg) scale(1.05); }
+    80%     { transform: translateY(-12px) rotateZ(200deg) scale(.97); }
+  }
+  @keyframes float3d-rev {
+    0%,100% { transform: translateY(0) rotateX(10deg) rotateZ(0deg); }
+    35%     { transform: translateY(-18px) rotateX(-12deg) rotateZ(-30deg); }
+    70%     { transform: translateY(-28px) rotateX(6deg) rotateZ(20deg); }
+  }
+  @keyframes spinXY {
+    0%   { transform: perspective(400px) rotateX(0deg) rotateY(0deg) rotateZ(0deg); }
+    100% { transform: perspective(400px) rotateX(360deg) rotateY(360deg) rotateZ(120deg); }
+  }
+
+  /* --- Hero floating orbs --- */
+  .hero-shape { position: absolute; pointer-events: none; z-index: 1; }
+  .hero-orb-1 {
+    width: 280px; height: 280px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,56,92,.30) 0%, transparent 70%);
+    top: 8%; left: 4%;
+    animation: float3d 9s ease-in-out infinite;
+    filter: blur(28px);
+  }
+  .hero-orb-2 {
+    width: 380px; height: 380px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(0,166,153,.22) 0%, transparent 70%);
+    top: 12%; right: 2%;
+    animation: float3d-rev 12s ease-in-out infinite;
+    filter: blur(35px);
+  }
+  .hero-orb-3 {
+    width: 190px; height: 190px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,200,50,.2) 0%, transparent 70%);
+    bottom: 22%; left: 26%;
+    animation: float3d-slow 8s ease-in-out infinite;
+    filter: blur(20px);
+  }
+
+  /* --- Hero wireframe geometrics --- */
+  .geo {
+    position: absolute; pointer-events: none; z-index: 1;
+  }
+  .geo-a {
+    width: 56px; height: 56px;
+    border: 2px solid rgba(255,255,255,.20);
+    border-radius: 6px;
+    top: 14%; right: 13%;
+    animation: float3d 8s ease-in-out infinite, spinXY 24s linear infinite;
+  }
+  .geo-b {
+    width: 32px; height: 32px;
+    border: 2px solid rgba(255,56,92,.40);
+    top: 62%; left: 7%;
+    transform: rotate(45deg);
+    animation: float3d-rev 10s ease-in-out infinite;
+  }
+  .geo-c {
+    width: 72px; height: 72px;
+    border: 2.5px solid rgba(0,166,153,.30);
+    border-radius: 50%;
+    bottom: 16%; right: 20%;
+    animation: float3d-slow 13s ease-in-out infinite;
+  }
+  .geo-d {
+    width: 22px; height: 22px;
+    border: 2px solid rgba(255,255,255,.28);
+    border-radius: 4px;
+    bottom: 38%; left: 16%;
+    animation: float3d 6s ease-in-out infinite 2s, spinXY 18s linear infinite;
+  }
+  .geo-e {
+    width: 44px; height: 44px;
+    border: 2px solid rgba(255,200,50,.28);
+    border-radius: 50%;
+    top: 42%; right: 5%;
+    animation: float3d-rev 9s ease-in-out infinite 1s;
+  }
+  .geo-f {
+    width: 18px; height: 18px;
+    border: 2px solid rgba(255,255,255,.22);
+    border-radius: 3px;
+    top: 30%; left: 2%;
+    animation: float3d-slow 11s ease-in-out infinite 3s, spinXY 20s linear infinite;
+  }
+
+  /* --- Insurance section 3D shapes --- */
+  .ins-shape { position: absolute; pointer-events: none; z-index: 0; }
+  .ins-orb-1 {
+    width: 380px; height: 380px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(0,166,153,.20) 0%, transparent 70%);
+    top: -80px; right: -80px;
+    animation: float3d-slow 14s ease-in-out infinite;
+    filter: blur(50px);
+  }
+  .ins-orb-2 {
+    width: 220px; height: 220px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,56,92,.14) 0%, transparent 70%);
+    bottom: 10px; left: -40px;
+    animation: float3d 11s ease-in-out infinite 3s;
+    filter: blur(35px);
+  }
+  .ins-geo-1 {
+    width: 70px; height: 70px;
+    border: 2px solid rgba(255,255,255,.08);
+    border-radius: 6px;
+    top: 18%; left: 46%;
+    animation: float3d-rev 16s ease-in-out infinite, spinXY 32s linear infinite;
+  }
+  .ins-geo-2 {
+    width: 36px; height: 36px;
+    border: 2px solid rgba(0,166,153,.22);
+    border-radius: 50%;
+    bottom: 22%; right: 4%;
+    animation: float3d 9s ease-in-out infinite 1.5s;
+  }
+
+  /* --- Interactive 3D tilt on cards --- */
+  .tilt-card {
+    transform-style: preserve-3d;
+    transition: transform .12s ease, box-shadow .2s ease;
+    will-change: transform;
+  }
+  .tilt-card:hover { box-shadow: 0 32px 64px rgba(0,0,0,.18) !important; }
+  .tilt-shine {
+    position: absolute; inset: 0; border-radius: inherit;
+    background: radial-gradient(circle at 50% 50%, rgba(255,255,255,.14) 0%, transparent 55%);
+    pointer-events: none; opacity: 0;
+    transition: opacity .2s;
+    z-index: 10;
+  }
+  .tilt-card:hover .tilt-shine { opacity: 1; }
+
+  /* --- 3D depth on hero H1 --- */
+  .hero h1 { filter: drop-shadow(2px 5px 8px rgba(0,0,0,.40)); }
+
+  /* --- 3D button press --- */
+  .btn:active,
+  .form-submit:active,
+  .contact-submit:active,
+  .search-submit:active {
+    transform: scale(.97) translateY(2px) !important;
+    transition: transform .07s !important;
+    box-shadow: none !important;
+  }
+
+  /* --- Hero stats 3D hover pop --- */
+  .hero-stat {
+    transition: transform .32s cubic-bezier(.34,1.56,.64,1), box-shadow .3s ease;
+  }
+  .hero-stat:hover {
+    transform: perspective(600px) translateZ(22px) scale(1.07);
+    box-shadow: 0 18px 44px rgba(0,0,0,.28);
+  }
+
+  /* --- 3D section title depth --- */
+  .section-title {
+    text-shadow: 0 2px 4px rgba(0,0,0,.06);
+  }
+
+  /* --- Reveal with 3D entry angle --- */
+  .reveal-3d {
+    opacity: 0;
+    transform: perspective(900px) translateY(36px) rotateX(7deg);
+    transition: opacity .7s ease, transform .75s cubic-bezier(.22,1,.36,1);
+  }
+  .reveal-3d.visible {
+    opacity: 1;
+    transform: perspective(900px) translateY(0) rotateX(0);
+  }
+
+  /* --- How-step 3D number pop on hover --- */
+  .how-step-num {
+    transition: transform .3s cubic-bezier(.34,1.56,.64,1);
+  }
+  .how-step:hover .how-step-num {
+    transform: perspective(400px) translateZ(16px) scale(1.1);
+  }
+
+  /* --- Plan card popular 3D pulse --- */
+  @keyframes pulse3d {
+    0%,100% { box-shadow: 0 0 0 0 rgba(255,56,92,.25), var(--shadow-lg); }
+    50%     { box-shadow: 0 0 0 10px rgba(255,56,92,.0), 0 24px 60px rgba(255,56,92,.22); }
+  }
+  .plan-card.popular { animation: pulse3d 3s ease-in-out infinite; }
+  .plan-card.popular:hover { animation: none; }
+
+  /* --- Trust logo 3D scale --- */
+  .trust-logo { transition: transform .3s cubic-bezier(.34,1.56,.64,1), opacity .3s, filter .3s; }
+  .trust-logo:hover { transform: perspective(400px) translateZ(14px) scale(1.12); }
+
+  /* --- Benefit card icon 3D spin on hover --- */
+  .benefit-icon {
+    transition: transform .4s cubic-bezier(.34,1.56,.64,1);
+  }
+  .benefit-card:hover .benefit-icon {
+    transform: perspective(300px) rotateY(180deg) scale(1.1);
+  }
+
   </style>
 </head>
 <body>
@@ -2146,6 +2356,16 @@
   <section class="hero" id="home">
     <div class="hero-bg"></div>
     <div class="hero-overlay"></div>
+    <!-- 3D floating shapes -->
+    <div class="hero-shape hero-orb-1"></div>
+    <div class="hero-shape hero-orb-2"></div>
+    <div class="hero-shape hero-orb-3"></div>
+    <div class="hero-shape geo geo-a"></div>
+    <div class="hero-shape geo geo-b"></div>
+    <div class="hero-shape geo geo-c"></div>
+    <div class="hero-shape geo geo-d"></div>
+    <div class="hero-shape geo geo-e"></div>
+    <div class="hero-shape geo geo-f"></div>
     <div class="hero-content">
       <div class="hero-tag">
         <i class="fa-solid fa-star"></i> #1 Insurance & Travel Agency in the USA
@@ -2611,7 +2831,7 @@
           </div>
         </div>
         <div class="dest-card">
-          <img src="https://images.unsplash.com/photo-1559564325-7fc2d95e9f7c?w=600&q=80" alt="Machu Picchu" loading="lazy" />
+          <img src="https://images.unsplash.com/photo-1526392060635-9d6019884377?w=600&q=80" alt="Machu Picchu" loading="lazy" style="object-position: center 30%"/>
           <div class="dest-card-overlay">
             <div class="dest-name">Machu Picchu</div>
             <div class="dest-country">Perú</div>
@@ -2634,6 +2854,10 @@
 
   <!-- CAR INSURANCE -->
   <section class="insurance-section" id="insurance">
+    <div class="ins-shape ins-orb-1"></div>
+    <div class="ins-shape ins-orb-2"></div>
+    <div class="ins-shape ins-geo-1"></div>
+    <div class="ins-shape ins-geo-2"></div>
     <div class="container">
       <div class="insurance-inner">
         <div class="insurance-content reveal">
@@ -3436,12 +3660,54 @@
       });
     }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
 
-    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+    document.querySelectorAll('.reveal, .reveal-3d').forEach(el => revealObserver.observe(el));
 
     // ===== SMOOTH SCROLL HELPER =====
     function scrollTo(selector) {
       document.querySelector(selector).scrollIntoView({ behavior: 'smooth' });
     }
+
+    // ===== 3D CARD TILT =====
+    const tiltSelectors = [
+      '.offer-card', '.dest-card', '.benefit-card', '.plan-card',
+      '.blog-card', '.testimonial-card', '.how-step',
+      '.contact-form-card', '.insurance-form-card', '.hero-stat'
+    ];
+    document.querySelectorAll(tiltSelectors.join(',')).forEach(card => {
+      card.classList.add('tilt-card');
+      if (!card.querySelector('.tilt-shine')) {
+        const shine = document.createElement('div');
+        shine.className = 'tilt-shine';
+        card.style.position = card.style.position || 'relative';
+        card.appendChild(shine);
+      }
+      card.addEventListener('mousemove', e => {
+        const r = card.getBoundingClientRect();
+        const x = e.clientX - r.left;
+        const y = e.clientY - r.top;
+        const rX = ((y - r.height / 2) / r.height) * -14;
+        const rY = ((x - r.width / 2)  / r.width)  *  14;
+        card.style.transform = `perspective(900px) rotateX(${rX}deg) rotateY(${rY}deg) scale3d(1.025,1.025,1.025)`;
+        const shine = card.querySelector('.tilt-shine');
+        if (shine) {
+          shine.style.background = `radial-gradient(circle at ${(x/r.width)*100}% ${(y/r.height)*100}%, rgba(255,255,255,.16) 0%, transparent 55%)`;
+        }
+      });
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = '';
+      });
+    });
+
+    // ===== HERO PARALLAX =====
+    const heroBg = document.querySelector('.hero-bg');
+    window.addEventListener('scroll', () => {
+      if (heroBg && window.scrollY < window.innerHeight * 1.2) {
+        heroBg.style.transform = `translateY(${window.scrollY * 0.35}px)`;
+      }
+    }, { passive: true });
+
+    // ===== REVEAL 3D (add to existing reveal logic) =====
+    document.querySelectorAll('.reveal').forEach(el => el.classList.add('reveal-3d'));
 
     // ===== FORMSPREE AJAX HANDLER =====
     async function submitFormspree(formEl, btnEl, successEl, errorEl) {
