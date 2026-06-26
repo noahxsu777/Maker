@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Money Maker LLC — Viajes & Seguros Premium</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600;1,700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
     /* ===== RESET & BASE ===== */
@@ -48,11 +48,12 @@
     /* ===== UTILITIES ===== */
     .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
     .section-title {
-      font-size: clamp(1.6rem, 3vw, 2.4rem);
-      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-family: 'Cormorant Garamond', Georgia, serif;
       font-weight: 700;
       color: var(--dark);
-      line-height: 1.2;
+      line-height: 1.1;
+      letter-spacing: -.01em;
     }
     .section-subtitle {
       font-size: 1.05rem;
@@ -302,12 +303,13 @@
       margin-bottom: 24px;
     }
     .hero h1 {
-      font-size: clamp(2.4rem, 6vw, 5rem);
-      font-family: 'Playfair Display', Georgia, serif;
-      font-weight: 800;
-      line-height: 1.1;
+      font-size: clamp(3.2rem, 7.5vw, 7rem);
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-weight: 700;
+      line-height: 1.0;
       margin-bottom: 20px;
-      text-shadow: 0 2px 20px rgba(0,0,0,.3);
+      letter-spacing: -.02em;
+      text-shadow: 0 2px 30px rgba(0,0,0,.25);
     }
     .hero h1 em {
       font-style: normal;
@@ -563,12 +565,13 @@
       margin-bottom: 6px;
     }
     .offer-title {
-      font-size: 1.05rem;
-      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.3rem;
+      font-family: 'Cormorant Garamond', Georgia, serif;
       font-weight: 700;
       color: var(--dark);
       margin-bottom: 8px;
-      line-height: 1.3;
+      line-height: 1.2;
+      letter-spacing: -.01em;
     }
     .offer-meta {
       display: flex;
@@ -743,11 +746,13 @@
       box-shadow: var(--shadow-lg);
     }
     .form-title {
-      font-size: 1.3rem;
-      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.8rem;
+      font-family: 'Cormorant Garamond', Georgia, serif;
       font-weight: 700;
       color: var(--dark);
       margin-bottom: 6px;
+      letter-spacing: -.02em;
+      line-height: 1.1;
     }
     .form-subtitle {
       font-size: .88rem;
@@ -1003,12 +1008,13 @@
       margin-bottom: 8px;
     }
     .blog-title {
-      font-size: 1.05rem;
-      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.35rem;
+      font-family: 'Cormorant Garamond', Georgia, serif;
       font-weight: 700;
       color: var(--dark);
       margin-bottom: 10px;
-      line-height: 1.3;
+      line-height: 1.2;
+      letter-spacing: -.01em;
     }
     .blog-excerpt {
       font-size: .85rem;
@@ -1576,7 +1582,7 @@
        ENHANCED DESTINATION CARDS
     ===================== */
     .dest-name {
-      font-family: 'Playfair Display', Georgia, serif;
+      font-family: 'Cormorant Garamond', Georgia, serif;
       letter-spacing: .01em;
     }
     .dest-card-overlay { transition: background .35s ease; }
@@ -1636,7 +1642,7 @@
       font-weight: 800;
       color: rgba(0,0,0,.04);
       line-height: 1;
-      font-family: 'Playfair Display', Georgia, serif;
+      font-family: 'Cormorant Garamond', Georgia, serif;
     }
     .benefit-card h3 { font-size: 1.02rem; }
 
@@ -1660,7 +1666,7 @@
       top: -12px;
       right: 18px;
       font-size: 7rem;
-      font-family: 'Playfair Display', Georgia, serif;
+      font-family: 'Cormorant Garamond', Georgia, serif;
       color: rgba(255,56,92,.07);
       line-height: 1;
       pointer-events: none;
@@ -1738,6 +1744,297 @@
     .blog-card:hover .blog-read-more { gap: 10px; }
 
     /* =====================
+       GLASSMORPHISM HERO STATS
+    ===================== */
+    .hero-stats { gap: 16px; }
+    .hero-stat {
+      background: rgba(255,255,255,.12);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(255,255,255,.22);
+      border-radius: 20px;
+      padding: 18px 28px;
+      min-width: 120px;
+    }
+    .hero-stat strong {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 2.6rem;
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: -.03em;
+      display: block;
+    }
+    .hero-stat span {
+      font-size: .78rem;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      opacity: .75;
+      margin-top: 4px;
+      display: block;
+    }
+
+    /* =====================
+       HOW IT WORKS
+    ===================== */
+    .how-section {
+      padding: 96px 0;
+      background: #fff;
+      position: relative;
+    }
+    .how-section::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 80px;
+      background: var(--bg-light);
+      clip-path: ellipse(55% 100% at 50% 100%);
+    }
+    .how-steps {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 0;
+      margin-top: 60px;
+      position: relative;
+    }
+    .how-steps::before {
+      content: '';
+      position: absolute;
+      top: 36px;
+      left: calc(16.666% + 20px);
+      right: calc(16.666% + 20px);
+      height: 2px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      z-index: 0;
+    }
+    .how-step {
+      text-align: center;
+      padding: 0 32px;
+      position: relative;
+      z-index: 1;
+    }
+    .how-step-num {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      position: relative;
+      transition: transform .3s ease;
+    }
+    .how-step:hover .how-step-num { transform: scale(1.1); }
+    .how-step:nth-child(1) .how-step-num { background: #fff0f3; color: var(--primary); border: 2px solid var(--primary); }
+    .how-step:nth-child(2) .how-step-num { background: var(--primary); color: #fff; border: 2px solid var(--primary); box-shadow: 0 8px 24px rgba(255,56,92,.35); }
+    .how-step:nth-child(3) .how-step-num { background: #e6f7f6; color: var(--secondary); border: 2px solid var(--secondary); }
+    .how-step-icon {
+      position: absolute;
+      bottom: -6px;
+      right: -6px;
+      width: 24px;
+      height: 24px;
+      background: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .65rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,.12);
+    }
+    .how-step h3 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 12px;
+      letter-spacing: -.01em;
+    }
+    .how-step p {
+      font-size: .88rem;
+      color: var(--gray);
+      line-height: 1.65;
+      max-width: 240px;
+      margin: 0 auto;
+    }
+
+    /* =====================
+       INSURANCE PLANS
+    ===================== */
+    .plans-section {
+      padding: 96px 0;
+      background: var(--bg-light);
+      position: relative;
+      overflow: hidden;
+    }
+    .plans-section::before {
+      content: '';
+      position: absolute;
+      width: 500px; height: 500px;
+      border-radius: 50%;
+      background: rgba(255,56,92,.04);
+      top: -200px; right: -100px;
+    }
+    .plans-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 56px;
+      position: relative;
+      z-index: 1;
+    }
+    .plan-card {
+      background: #fff;
+      border-radius: var(--radius-lg);
+      padding: 36px 32px 40px;
+      border: 2px solid transparent;
+      box-shadow: var(--shadow-sm);
+      position: relative;
+      transition: all .35s ease;
+      overflow: hidden;
+    }
+    .plan-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: var(--light-gray);
+      transition: background .35s ease;
+    }
+    .plan-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); }
+    .plan-card.popular {
+      border-color: var(--primary);
+      transform: scale(1.03);
+    }
+    .plan-card.popular::before { background: linear-gradient(90deg, var(--primary), var(--primary-light)); }
+    .plan-card.popular:hover { transform: scale(1.03) translateY(-6px); }
+    .plan-popular-badge {
+      position: absolute;
+      top: 20px; right: 20px;
+      background: var(--primary);
+      color: #fff;
+      font-size: .7rem;
+      font-weight: 700;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 20px;
+    }
+    .plan-name {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 6px;
+      letter-spacing: -.01em;
+    }
+    .plan-desc {
+      font-size: .85rem;
+      color: var(--gray);
+      margin-bottom: 28px;
+      line-height: 1.5;
+    }
+    .plan-price {
+      margin-bottom: 28px;
+    }
+    .plan-price-amount {
+      font-size: 3rem;
+      font-weight: 800;
+      color: var(--dark);
+      line-height: 1;
+      letter-spacing: -.04em;
+    }
+    .plan-price-amount sup {
+      font-size: 1.2rem;
+      font-weight: 700;
+      vertical-align: super;
+      letter-spacing: 0;
+    }
+    .plan-card.popular .plan-price-amount { color: var(--primary); }
+    .plan-price-period {
+      font-size: .8rem;
+      color: var(--gray);
+      margin-top: 4px;
+    }
+    .plan-features {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 32px;
+    }
+    .plan-feature {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: .88rem;
+      color: var(--dark);
+    }
+    .plan-feature i {
+      color: var(--secondary);
+      font-size: .85rem;
+      margin-top: 2px;
+      flex-shrink: 0;
+    }
+    .plan-feature.missing i { color: var(--light-gray); }
+    .plan-feature.missing span { color: var(--gray); }
+    .plan-cta {
+      width: 100%;
+      padding: 15px;
+      border-radius: var(--radius-sm);
+      font-size: .95rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all var(--transition);
+      border: 2px solid var(--light-gray);
+      background: transparent;
+      color: var(--dark);
+    }
+    .plan-cta:hover { border-color: var(--dark); background: var(--dark); color: #fff; transform: translateY(-2px); }
+    .plan-card.popular .plan-cta {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: #fff;
+    }
+    .plan-card.popular .plan-cta:hover {
+      background: var(--primary-dark);
+      border-color: var(--primary-dark);
+      box-shadow: 0 6px 20px rgba(255,56,92,.35);
+    }
+    .plan-divider {
+      height: 1px;
+      background: var(--bg-light);
+      margin-bottom: 28px;
+    }
+
+    /* =====================
+       SECTION ACCENT LINE
+    ===================== */
+    .accent-line {
+      display: inline-block;
+      width: 48px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--primary), var(--primary-light));
+      border-radius: 2px;
+      margin-bottom: 16px;
+    }
+
+    /* =====================
+       RESPONSIVE NEW SECTIONS
+    ===================== */
+    @media (max-width: 1024px) {
+      .plans-grid { grid-template-columns: 1fr; gap: 20px; }
+      .plan-card.popular { transform: none; }
+      .plan-card.popular:hover { transform: translateY(-8px); }
+    }
+    @media (max-width: 768px) {
+      .how-steps { grid-template-columns: 1fr; gap: 40px; }
+      .how-steps::before { display: none; }
+      .plans-grid { grid-template-columns: 1fr; }
+    }
+
+    /* =====================
        LOGO REFINEMENT
     ===================== */
     .logo-text-main { color: var(--primary); }
@@ -1812,10 +2109,10 @@
         <i class="fa-solid fa-star"></i> Agencia #1 en Latinoamérica
       </div>
       <h1>Explora el mundo<br/>con <em>total confianza</em></h1>
-      <p>Viajes premium, seguros inteligentes y experiencias que recordarás para siempre. Tu aventura empieza aquí.</p>
+      <p>Viajes premium, seguros inteligentes y experiencias que recordarás para siempre. Tu aventura comienza aquí.</p>
       <div class="hero-stats">
         <div class="hero-stat">
-          <strong>+50K</strong>
+          <strong>50K+</strong>
           <span>Viajeros felices</span>
         </div>
         <div class="hero-stat">
@@ -1828,7 +2125,7 @@
         </div>
         <div class="hero-stat">
           <strong>24/7</strong>
-          <span>Soporte</span>
+          <span>Soporte global</span>
         </div>
       </div>
 
@@ -2071,6 +2368,44 @@
       </div>
     </div>
   </div>
+
+  <!-- HOW IT WORKS -->
+  <section class="how-section">
+    <div class="container">
+      <div class="reveal" style="text-align:center;max-width:640px;margin:0 auto;">
+        <div class="accent-line"></div>
+        <div class="badge">¿Cómo funciona?</div>
+        <h2 class="section-title">Tu viaje en 3 simples pasos</h2>
+        <p class="section-subtitle">Reservar o cotizar tu seguro nunca había sido tan fácil y rápido</p>
+      </div>
+      <div class="how-steps">
+        <div class="how-step reveal">
+          <div class="how-step-num">
+            01
+            <span class="how-step-icon"><i class="fa-solid fa-search" style="color:var(--primary)"></i></span>
+          </div>
+          <h3>Busca y compara</h3>
+          <p>Usa nuestro buscador inteligente para encontrar vuelos, hoteles, paquetes o cotizaciones de seguro al mejor precio del mercado.</p>
+        </div>
+        <div class="how-step reveal reveal-delay-1">
+          <div class="how-step-num">
+            02
+            <span class="how-step-icon"><i class="fa-solid fa-check" style="color:#fff;background:var(--primary);border-radius:50%;width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:.55rem"></i></span>
+          </div>
+          <h3>Elige tu plan</h3>
+          <p>Selecciona la opción que mejor se adapte a tus necesidades y presupuesto. Transparencia total, sin sorpresas ocultas.</p>
+        </div>
+        <div class="how-step reveal reveal-delay-2">
+          <div class="how-step-num">
+            03
+            <span class="how-step-icon"><i class="fa-solid fa-plane-departure" style="color:var(--secondary)"></i></span>
+          </div>
+          <h3>Viaja tranquilo</h3>
+          <p>Confirma tu reserva en segundos y recibe todo en tu correo. Nuestro equipo estará contigo en cada etapa del viaje.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- FEATURED OFFERS -->
   <section class="offers-section" id="offers">
@@ -2374,6 +2709,85 @@
             <i class="fa-solid fa-lock"></i> Tus datos están seguros. Nunca los compartimos.
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INSURANCE PLANS -->
+  <section class="plans-section">
+    <div class="container">
+      <div class="reveal" style="text-align:center;max-width:640px;margin:0 auto;">
+        <div class="accent-line"></div>
+        <div class="badge">Nuestros planes</div>
+        <h2 class="section-title">Cobertura a tu medida</h2>
+        <p class="section-subtitle">Elige el plan de seguro de auto perfecto para tu tranquilidad y la de tu familia</p>
+      </div>
+      <div class="plans-grid">
+
+        <!-- Plan Básico -->
+        <div class="plan-card reveal">
+          <div class="plan-name">Básico</div>
+          <div class="plan-desc">Protección esencial para conductores responsables</div>
+          <div class="plan-price">
+            <div class="plan-price-amount"><sup>$</sup>299</div>
+            <div class="plan-price-period">por año · pago único</div>
+          </div>
+          <div class="plan-divider"></div>
+          <div class="plan-features">
+            <div class="plan-feature"><i class="fa-solid fa-check"></i><span>Responsabilidad civil</span></div>
+            <div class="plan-feature"><i class="fa-solid fa-check"></i><span>Daños a terceros</span></div>
+            <div class="plan-feature"><i class="fa-solid fa-check"></i><span>Asistencia vial básica</span></div>
+            <div class="plan-feature"><i class="fa-solid fa-check"></i><span>Defensa legal básica</span></div>
+            <div class="plan-feature missing"><i class="fa-solid fa-xmark"></i><span>Daños propios</span></div>
+            <div class="plan-feature missing"><i class="fa-solid fa-xmark"></i><span>Robo total</span></div>
+            <div class="plan-feature missing"><i class="fa-solid fa-xmark"></i><span>Gastos médicos amplios</span></div>
+          </div>
+          <button class="plan-cta" onclick="showToast('Cotizando plan Básico...')">Contratar Básico</button>
+        </div>
+
+        <!-- Plan Estándar — POPULAR -->
+        <div class="plan-card popular reveal reveal-delay-1">
+          <div class="plan-popular-badge">Más popular</div>
+          <div class="plan-name">Estándar</div>
+          <div class="plan-desc">La mejor relación precio-cobertura del mercado</div>
+          <div class="plan-price">
+            <div class="plan-price-amount"><sup>$</sup>599</div>
+            <div class="plan-price-period">por año · o $52/mes</div>
+          </div>
+          <div class="plan-divider"></div>
+          <div class="plan-features">
+            <div class="plan-feature"><i class="fa-solid fa-check"></i><span>Todo lo del plan Básico</span></div>
+            <div class="plan-feature"><i class="fa-solid fa-check"></i><span>Daños propios</span></div>
+            <div class="plan-feature"><i class="fa-solid fa-check"></i><span>Robo total</span></div>
+            <div class="plan-feature"><i class="fa-solid fa-check"></i><span>Gastos médicos amplios</span></div>
+            <div class="plan-feature"><i class="fa-solid fa-check"></i><span>Auto sustituto (7 días)</span></div>
+            <div class="plan-feature"><i class="fa-solid fa-check"></i><span>Desastres naturales</span></div>
+            <div class="plan-feature missing"><i class="fa-solid fa-xmark"></i><span>Cobertura en EE.UU. y Canadá</span></div>
+          </div>
+          <button class="plan-cta" onclick="showToast('¡Excelente elección! Cotizando plan Estándar...')">Contratar Estándar</button>
+        </div>
+
+        <!-- Plan Premium -->
+        <div class="plan-card reveal reveal-delay-2">
+          <div class="plan-name">Premium</div>
+          <div class="plan-desc">Protección total sin límites para tu tranquilidad máxima</div>
+          <div class="plan-price">
+            <div class="plan-price-amount"><sup>$</sup>999</div>
+            <div class="plan-price-period">por año · o $85/mes</div>
+          </div>
+          <div class="plan-divider"></div>
+          <div class="plan-features">
+            <div class="plan-feature"><i class="fa-solid fa-check"></i><span>Todo lo del plan Estándar</span></div>
+            <div class="plan-feature"><i class="fa-solid fa-check"></i><span>Cobertura en EE.UU. y Canadá</span></div>
+            <div class="plan-feature"><i class="fa-solid fa-check"></i><span>Auto sustituto ilimitado</span></div>
+            <div class="plan-feature"><i class="fa-solid fa-check"></i><span>Cristales y neumáticos</span></div>
+            <div class="plan-feature"><i class="fa-solid fa-check"></i><span>Conductor designado</span></div>
+            <div class="plan-feature"><i class="fa-solid fa-check"></i><span>Asistencia VIP 24/7</span></div>
+            <div class="plan-feature"><i class="fa-solid fa-check"></i><span>Indemnización valor factual</span></div>
+          </div>
+          <button class="plan-cta" onclick="showToast('Cotizando plan Premium...')">Contratar Premium</button>
+        </div>
+
       </div>
     </div>
   </section>
