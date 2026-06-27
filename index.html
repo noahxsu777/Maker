@@ -3487,25 +3487,110 @@
                 <label>Marca del vehículo</label>
                 <select name="marca_vehiculo">
                   <option value="">Seleccionar</option>
-                  <option>Toyota</option>
-                  <option>Honda</option>
-                  <option>Nissan</option>
-                  <option>BMW</option>
-                  <option>Mercedes-Benz</option>
-                  <option>Volkswagen</option>
-                  <option>Otro</option>
+                  <optgroup label="— Americanas">
+                    <option>Chevrolet</option>
+                    <option>Ford</option>
+                    <option>GMC</option>
+                    <option>Ram</option>
+                    <option>Dodge</option>
+                    <option>Jeep</option>
+                    <option>Cadillac</option>
+                    <option>Buick</option>
+                    <option>Lincoln</option>
+                    <option>Chrysler</option>
+                    <option>Tesla</option>
+                  </optgroup>
+                  <optgroup label="— Japonesas">
+                    <option>Toyota</option>
+                    <option>Honda</option>
+                    <option>Nissan</option>
+                    <option>Mazda</option>
+                    <option>Subaru</option>
+                    <option>Mitsubishi</option>
+                    <option>Lexus</option>
+                    <option>Acura</option>
+                    <option>Infiniti</option>
+                  </optgroup>
+                  <optgroup label="— Coreanas">
+                    <option>Hyundai</option>
+                    <option>Kia</option>
+                    <option>Genesis</option>
+                  </optgroup>
+                  <optgroup label="— Alemanas">
+                    <option>BMW</option>
+                    <option>Mercedes-Benz</option>
+                    <option>Volkswagen</option>
+                    <option>Audi</option>
+                    <option>Porsche</option>
+                  </optgroup>
+                  <optgroup label="— Europeas / Otras">
+                    <option>Volvo</option>
+                    <option>Land Rover</option>
+                    <option>Jaguar</option>
+                    <option>Alfa Romeo</option>
+                    <option>Fiat</option>
+                  </optgroup>
+                  <option value="Otro">Otra marca</option>
                 </select>
               </div>
               <div class="form-group">
+                <label>Modelo</label>
+                <input type="text" name="modelo_vehiculo" placeholder="Ej: Camry, F-150, Civic"/>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
                 <label>Año del vehículo</label>
                 <select name="anio_vehiculo">
+                  <option value="">Seleccionar</option>
+                  <option>2025</option>
                   <option>2024</option>
                   <option>2023</option>
                   <option>2022</option>
                   <option>2021</option>
                   <option>2020</option>
-                  <option>Anterior</option>
+                  <option>2019</option>
+                  <option>2018</option>
+                  <option>2017</option>
+                  <option>2016</option>
+                  <option>2015</option>
+                  <option>2014</option>
+                  <option>2013</option>
+                  <option>2012</option>
+                  <option>2011</option>
+                  <option>2010</option>
+                  <option>2009</option>
+                  <option>2008</option>
+                  <option>2007</option>
+                  <option>2006</option>
+                  <option>2005</option>
+                  <option>2004</option>
+                  <option>2003</option>
+                  <option>2002</option>
+                  <option>2001</option>
+                  <option>2000</option>
+                  <option>Anterior a 2000</option>
                 </select>
+              </div>
+              <div class="form-group">
+                <label>¿Ha tenido accidentes previos?</label>
+                <select name="accidentes_previos">
+                  <option value="">Seleccionar</option>
+                  <option value="no">No, ninguno</option>
+                  <option value="1">Sí, 1 accidente</option>
+                  <option value="2">Sí, 2 accidentes</option>
+                  <option value="3+">Sí, 3 o más</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Edad del conductor principal</label>
+                <input type="number" name="edad_conductor" placeholder="Ej: 32" min="16" max="99"/>
+              </div>
+              <div class="form-group">
+                <label>Código postal</label>
+                <input type="text" name="codigo_postal" placeholder="33131"/>
               </div>
             </div>
             <div class="form-group">
@@ -3516,19 +3601,13 @@
                 <option>Todo riesgo (premium)</option>
               </select>
             </div>
-            <div class="form-row">
-              <div class="form-group">
-                <label>Uso del vehículo</label>
-                <select name="uso_vehiculo">
-                  <option>Particular</option>
-                  <option>Comercial</option>
-                  <option>Transporte de personal</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label>Código postal</label>
-                <input type="text" name="codigo_postal" placeholder="33131"/>
-              </div>
+            <div class="form-group">
+              <label>Uso del vehículo</label>
+              <select name="uso_vehiculo">
+                <option>Particular</option>
+                <option>Comercial</option>
+                <option>Transporte de personal</option>
+              </select>
             </div>
             <button type="submit" class="form-submit" id="quoteBtn">
               <i class="fa-solid fa-shield-halved"></i> Obtener cotización gratuita
@@ -4120,7 +4199,7 @@
               <div class="contact-method-icon"><i class="fa-solid fa-phone"></i></div>
               <div class="contact-method-text">
                 <h4>Teléfono & WhatsApp</h4>
-                <p>+1 (800) 626-6397</p>
+                <p>+1 (860) 319-4587</p>
               </div>
             </div>
             <div class="contact-method">
@@ -4166,15 +4245,22 @@
               <label>Correo electrónico</label>
               <input type="email" name="email" placeholder="tu@email.com" required/>
             </div>
-            <div class="form-group">
-              <label>Teléfono (opcional)</label>
-              <input type="tel" name="telefono" placeholder="+1 (800) 555-0199"/>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Teléfono (opcional)</label>
+                <input type="tel" name="telefono" placeholder="+1 (860) 319-4587"/>
+              </div>
+              <div class="form-group">
+                <label>Edad</label>
+                <input type="number" name="edad" placeholder="Ej: 28" min="1" max="120"/>
+              </div>
             </div>
             <div class="form-group">
               <label>Asunto</label>
               <select name="asunto">
-                <option>Información sobre paquetes</option>
+                <option>Información sobre paquetes de viaje</option>
                 <option>Cotización seguro de auto</option>
+                <option>Reserva de vuelo o hotel</option>
                 <option>Cambio o cancelación</option>
                 <option>Reclamación</option>
                 <option>Otro</option>
