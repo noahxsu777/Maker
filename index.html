@@ -3162,6 +3162,156 @@
     50%       { box-shadow: 0 4px 30px rgba(37,211,102,.75), 0 0 0 10px rgba(37,211,102,.07); }
   }
 
+  /* ==========================================
+     COMPREHENSIVE MOBILE RESPONSIVE
+  ========================================== */
+
+  /* --- Tablet: 768px --- */
+  @media (max-width: 768px) {
+    .container { padding: 0 16px; }
+
+    /* Hero */
+    .hero-content { padding: 100px 16px 60px; text-align: center; }
+    .hero h1 { font-size: 2.2rem; line-height: 1.2; }
+    .hero p { font-size: 1rem; }
+    .hero-tag { font-size: .78rem; padding: 6px 14px; }
+    .hero-actions { flex-direction: column; align-items: center; gap: 12px; }
+    .hero-actions .btn { width: 100%; max-width: 320px; justify-content: center; }
+    .hero-stats { gap: 10px; }
+    .hero-stat { min-width: 90px; padding: 14px 16px; }
+    .hero-stat strong { font-size: 1.9rem; }
+    .hero-stat span { font-size: .7rem; }
+
+    /* Trust strip */
+    .trust-logo { padding: 8px 14px; font-size: .75rem; }
+
+    /* Offers */
+    .offers-grid { grid-template-columns: 1fr; }
+    .offer-card-hover-cta { transform: translateY(0); }
+
+    /* Destinations */
+    .destinations-grid { grid-template-columns: 1fr 1fr; }
+    .dest-card:nth-child(1) { grid-column: span 2; height: 220px; }
+    .dest-card { height: 180px; }
+
+    /* How it works */
+    .how-steps { grid-template-columns: 1fr; }
+
+    /* Insurance */
+    .insurance-inner { grid-template-columns: 1fr; gap: 32px; }
+    .insurance-form-card { padding: 24px 18px; }
+    .form-row { grid-template-columns: 1fr; gap: 12px; }
+    .ins-state-notice { flex-direction: column; gap: 8px; text-align: center; align-items: center; }
+
+    /* VIN */
+    .vin-inner { flex-direction: column; gap: 32px; }
+    .vin-header-content { text-align: center; }
+    .vin-input-row { flex-direction: column; gap: 10px; }
+    .vin-scan-btn { width: 100%; justify-content: center; }
+    .vin-preview-grid { grid-template-columns: 1fr 1fr; }
+    .vin-scanner-card { padding: 22px 16px; }
+
+    /* Plans */
+    .plans-grid { grid-template-columns: 1fr; }
+    .plan-card.popular { transform: none; }
+
+    /* Contact */
+    .contact-inner { grid-template-columns: 1fr; gap: 32px; }
+    .contact-form-card { padding: 24px 18px; }
+    .contact-info-list { gap: 14px; }
+
+    /* Testimonials */
+    .testimonial-card { flex: 0 0 88vw; max-width: 88vw; }
+
+    /* Blog */
+    .blog-grid { grid-template-columns: 1fr; }
+
+    /* Footer */
+    .footer-top { grid-template-columns: 1fr 1fr; gap: 28px; }
+    .footer-brand { grid-column: span 2; }
+    .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+    .footer-bottom-links { flex-wrap: wrap; justify-content: center; }
+
+    /* Newsletter */
+    .newsletter-form { flex-direction: column; gap: 10px; }
+    .newsletter-form input { width: 100%; }
+    .newsletter-form .btn { width: 100%; justify-content: center; }
+
+    /* Benefits */
+    .benefits-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+
+    /* Section headers */
+    .section-header { flex-direction: column; align-items: flex-start; gap: 12px; }
+    .section-title { font-size: 1.7rem; }
+
+    /* WhatsApp FAB */
+    .wa-fab { bottom: 16px; right: 16px; width: 50px; height: 50px; font-size: 1.3rem; }
+  }
+
+  /* --- Mobile: 480px --- */
+  @media (max-width: 480px) {
+    /* Hero */
+    .hero h1 { font-size: 1.8rem; }
+    .hero-stats { flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 8px; }
+    .hero-stat { min-width: calc(50% - 8px); flex: 1 1 calc(50% - 8px); }
+
+    /* Destinations */
+    .destinations-grid { grid-template-columns: 1fr; }
+    .dest-card:nth-child(1) { grid-column: span 1; height: 200px; }
+    .dest-card { height: 180px; }
+
+    /* Offers */
+    .offer-img-wrap { height: 200px; }
+
+    /* Insurance / Contact form rows */
+    .form-row { grid-template-columns: 1fr; }
+
+    /* VIN preview */
+    .vin-preview-grid { grid-template-columns: 1fr; }
+    .vin-report-rows { gap: 6px; }
+
+    /* Benefits */
+    .benefits-grid { grid-template-columns: 1fr; }
+
+    /* Footer */
+    .footer-top { grid-template-columns: 1fr; }
+    .footer-brand { grid-column: span 1; }
+
+    /* Trust strip — smaller gap */
+    .trust-logos-track { gap: 10px; }
+    .trust-logo { padding: 7px 12px; font-size: .72rem; }
+
+    /* Section */
+    .section-title { font-size: 1.5rem; }
+    .badge { font-size: .72rem; }
+
+    /* Promo banner */
+    .promo-banner { font-size: .75rem; padding: 8px 12px; }
+    .promo-banner .promo-close { padding: 0 8px; }
+
+    /* Logo wordmark hide on very small */
+    .logo-wordmark { display: none; }
+
+    /* How step */
+    .how-step { padding: 24px 18px; }
+    .how-step-num { font-size: 3rem; }
+
+    /* Plans */
+    .plan-card { padding: 28px 20px; }
+
+    /* Modal */
+    .sub-modal { padding: 24px 16px; margin: 0 12px; }
+    .modal-features { grid-template-columns: 1fr; }
+  }
+
+  /* --- Very small: 360px --- */
+  @media (max-width: 360px) {
+    .hero h1 { font-size: 1.6rem; }
+    .hero-stat { min-width: calc(50% - 6px); }
+    .logo-img { height: 30px; }
+    .trust-logo { padding: 6px 10px; font-size: .7rem; gap: 5px; }
+  }
+
   </style>
 </head>
 <body>
