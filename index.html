@@ -1300,8 +1300,8 @@
     .trust-logo {
       display: inline-flex;
       align-items: center;
-      justify-content: center;
-      padding: 10px 20px;
+      gap: 9px;
+      padding: 9px 18px;
       border-radius: 12px;
       background: #fff;
       border: 1.5px solid #e8eaed;
@@ -1311,27 +1311,13 @@
       flex-shrink: 0;
     }
     .trust-logo img {
-      height: 36px;
-      width: auto;
-      max-width: 110px;
-      object-fit: contain;
       display: block;
-      filter: grayscale(1) opacity(.7);
-      transition: filter var(--transition);
+      flex-shrink: 0;
     }
     .trust-logo:hover {
-      border-color: #c5c8ce;
+      border-color: #bdc1c6;
       transform: translateY(-2px);
       box-shadow: 0 6px 18px rgba(0,0,0,.10);
-    }
-    .trust-logo:hover img {
-      filter: grayscale(0) opacity(1);
-    }
-    .tl-fb {
-      font-size: .8rem;
-      font-weight: 700;
-      color: #444;
-      white-space: nowrap;
     }
 
     /* =====================
@@ -3495,29 +3481,23 @@
       { name: 'United Airlines',  domain: 'united.com',           color: '#002244' },
       { name: 'Amica',            domain: 'amica.com',            color: '#00457c' },
     ];
-    const sources = [
-      d => `https://logo.clearbit.com/${d}`,
-      d => `https://img.logo.dev/${d}?token=sk_FbaSBTjpTIK_oxSrsJk1Lg`,
-      d => `https://www.google.com/s2/favicons?domain=${d}&sz=128`,
-    ];
     const track = document.getElementById('trustTrack');
     function makeCard(p) {
       const a = document.createElement('a');
       a.href = '#'; a.className = 'trust-logo';
       const img = document.createElement('img');
-      img.alt = p.name; img.height = 36;
-      let srcIdx = 0;
-      function tryNext() {
-        if (srcIdx >= sources.length) {
-          // all image sources failed — show branded text
-          a.innerHTML = `<span style="font-size:.82rem;font-weight:800;color:${p.color};white-space:nowrap">${p.name}</span>`;
-          return;
-        }
-        img.src = sources[srcIdx++](p.domain);
-      }
-      img.onerror = tryNext;
-      tryNext();
+      img.alt = p.name;
+      img.width = 32; img.height = 32;
+      img.style.borderRadius = '6px';
+      img.src = `https://www.google.com/s2/favicons?domain=${p.domain}&sz=128`;
+      img.onerror = () => {
+        a.innerHTML = `<span style="font-size:.82rem;font-weight:800;color:${p.color};white-space:nowrap">${p.name}</span>`;
+      };
+      const label = document.createElement('span');
+      label.textContent = p.name;
+      label.style.cssText = 'font-size:.78rem;font-weight:700;color:#333;white-space:nowrap';
       a.appendChild(img);
+      a.appendChild(label);
       return a;
     }
     // build set once, then duplicate for seamless marquee
