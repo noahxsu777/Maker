@@ -1301,25 +1301,31 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
-      padding: 11px 24px;
-      border: 2px solid #d1d5db;
+      padding: 10px 20px;
       border-radius: 12px;
-      background: #ffffff;
-      font-size: .85rem;
-      font-weight: 800;
-      letter-spacing: .02em;
-      color: #222;
-      white-space: nowrap;
+      background: #fff;
+      border: 1.5px solid #e8eaed;
       text-decoration: none;
       transition: all var(--transition);
-      box-shadow: 0 1px 4px rgba(0,0,0,.06);
+      box-shadow: 0 1px 4px rgba(0,0,0,.05);
+      flex-shrink: 0;
+    }
+    .trust-logo img {
+      height: 36px;
+      width: auto;
+      max-width: 110px;
+      object-fit: contain;
+      display: block;
+      filter: grayscale(1) opacity(.7);
+      transition: filter var(--transition);
     }
     .trust-logo:hover {
-      border-color: var(--primary);
-      color: var(--primary);
+      border-color: #c5c8ce;
       transform: translateY(-2px);
-      box-shadow: 0 6px 16px rgba(255,56,92,.15);
+      box-shadow: 0 6px 18px rgba(0,0,0,.10);
+    }
+    .trust-logo:hover img {
+      filter: grayscale(0) opacity(1);
     }
 
     /* =====================
@@ -3185,7 +3191,8 @@
     .hero-stat span { font-size: .7rem; }
 
     /* Trust strip */
-    .trust-logo { padding: 8px 14px; font-size: .75rem; }
+    .trust-logo { padding: 8px 14px; }
+    .trust-logo img { height: 28px; }
 
     /* Offers */
     .offers-grid { grid-template-columns: 1fr; }
@@ -3281,7 +3288,8 @@
 
     /* Trust strip — smaller gap */
     .trust-logos-track { gap: 10px; }
-    .trust-logo { padding: 7px 12px; font-size: .72rem; }
+    .trust-logo { padding: 7px 12px; }
+    .trust-logo img { height: 24px; }
 
     /* Section */
     .section-title { font-size: 1.5rem; }
@@ -3461,27 +3469,31 @@
         <span class="trust-label">Trusted partners &amp; carriers</span>
         <div class="trust-logos">
           <div class="trust-logos-track">
-            <a href="#" class="trust-logo"><i class="fa-solid fa-shield-halved" style="color:#00a0c6"></i> GEICO</a>
-            <a href="#" class="trust-logo"><i class="fa-solid fa-shield-halved" style="color:#c8102e"></i> State Farm</a>
-            <a href="#" class="trust-logo"><i class="fa-solid fa-shield-halved" style="color:#0066b2"></i> Progressive</a>
-            <a href="#" class="trust-logo"><i class="fa-solid fa-shield-halved" style="color:#0033a0"></i> Allstate</a>
-            <a href="#" class="trust-logo"><i class="fa-solid fa-shield-halved" style="color:#ffd100"></i> Liberty Mutual</a>
-            <a href="#" class="trust-logo"><i class="fa-solid fa-plane" style="color:#003366"></i> Delta</a>
-            <a href="#" class="trust-logo"><i class="fa-solid fa-plane" style="color:#b41e8e"></i> American Airlines</a>
-            <a href="#" class="trust-logo"><i class="fa-solid fa-globe" style="color:#f5a623"></i> Expedia</a>
-            <a href="#" class="trust-logo"><i class="fa-solid fa-umbrella" style="color:#0077b6"></i> Travelers</a>
-            <a href="#" class="trust-logo"><i class="fa-solid fa-plane" style="color:#002244"></i> United Airlines</a>
+            <a href="#" class="trust-logo"><img src="https://logo.clearbit.com/geico.com" alt="GEICO" /></a>
+            <a href="#" class="trust-logo"><img src="https://logo.clearbit.com/statefarm.com" alt="State Farm" /></a>
+            <a href="#" class="trust-logo"><img src="https://logo.clearbit.com/progressive.com" alt="Progressive" /></a>
+            <a href="#" class="trust-logo"><img src="https://logo.clearbit.com/allstate.com" alt="Allstate" /></a>
+            <a href="#" class="trust-logo"><img src="https://logo.clearbit.com/libertymutual.com" alt="Liberty Mutual" /></a>
+            <a href="#" class="trust-logo"><img src="https://logo.clearbit.com/travelers.com" alt="Travelers" /></a>
+            <a href="#" class="trust-logo"><img src="https://logo.clearbit.com/nationwide.com" alt="Nationwide" /></a>
+            <a href="#" class="trust-logo"><img src="https://logo.clearbit.com/amica.com" alt="Amica" /></a>
+            <a href="#" class="trust-logo"><img src="https://logo.clearbit.com/delta.com" alt="Delta" /></a>
+            <a href="#" class="trust-logo"><img src="https://logo.clearbit.com/aa.com" alt="American Airlines" /></a>
+            <a href="#" class="trust-logo"><img src="https://logo.clearbit.com/expedia.com" alt="Expedia" /></a>
+            <a href="#" class="trust-logo"><img src="https://logo.clearbit.com/united.com" alt="United Airlines" /></a>
             <!-- duplicate for seamless loop -->
-            <a href="#" class="trust-logo"><i class="fa-solid fa-shield-halved" style="color:#00a0c6"></i> GEICO</a>
-            <a href="#" class="trust-logo"><i class="fa-solid fa-shield-halved" style="color:#c8102e"></i> State Farm</a>
-            <a href="#" class="trust-logo"><i class="fa-solid fa-shield-halved" style="color:#0066b2"></i> Progressive</a>
-            <a href="#" class="trust-logo"><i class="fa-solid fa-shield-halved" style="color:#0033a0"></i> Allstate</a>
-            <a href="#" class="trust-logo"><i class="fa-solid fa-shield-halved" style="color:#ffd100"></i> Liberty Mutual</a>
-            <a href="#" class="trust-logo"><i class="fa-solid fa-plane" style="color:#003366"></i> Delta</a>
-            <a href="#" class="trust-logo"><i class="fa-solid fa-plane" style="color:#b41e8e"></i> American Airlines</a>
-            <a href="#" class="trust-logo"><i class="fa-solid fa-globe" style="color:#f5a623"></i> Expedia</a>
-            <a href="#" class="trust-logo"><i class="fa-solid fa-umbrella" style="color:#0077b6"></i> Travelers</a>
-            <a href="#" class="trust-logo"><i class="fa-solid fa-plane" style="color:#002244"></i> United Airlines</a>
+            <a href="#" class="trust-logo"><img src="https://logo.clearbit.com/geico.com" alt="GEICO" /></a>
+            <a href="#" class="trust-logo"><img src="https://logo.clearbit.com/statefarm.com" alt="State Farm" /></a>
+            <a href="#" class="trust-logo"><img src="https://logo.clearbit.com/progressive.com" alt="Progressive" /></a>
+            <a href="#" class="trust-logo"><img src="https://logo.clearbit.com/allstate.com" alt="Allstate" /></a>
+            <a href="#" class="trust-logo"><img src="https://logo.clearbit.com/libertymutual.com" alt="Liberty Mutual" /></a>
+            <a href="#" class="trust-logo"><img src="https://logo.clearbit.com/travelers.com" alt="Travelers" /></a>
+            <a href="#" class="trust-logo"><img src="https://logo.clearbit.com/nationwide.com" alt="Nationwide" /></a>
+            <a href="#" class="trust-logo"><img src="https://logo.clearbit.com/amica.com" alt="Amica" /></a>
+            <a href="#" class="trust-logo"><img src="https://logo.clearbit.com/delta.com" alt="Delta" /></a>
+            <a href="#" class="trust-logo"><img src="https://logo.clearbit.com/aa.com" alt="American Airlines" /></a>
+            <a href="#" class="trust-logo"><img src="https://logo.clearbit.com/expedia.com" alt="Expedia" /></a>
+            <a href="#" class="trust-logo"><img src="https://logo.clearbit.com/united.com" alt="United Airlines" /></a>
           </div>
         </div>
       </div>
