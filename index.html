@@ -3474,35 +3474,58 @@
       <div class="trust-inner">
         <span class="trust-label">Trusted partners &amp; carriers</span>
         <div class="trust-logos">
-          <div class="trust-logos-track" id="trustTrack">
-            <a href="#" class="trust-logo"><img src="https://logo.clearbit.com/geico.com" alt="GEICO" onerror="this.parentElement.innerHTML='<span class=tl-fb>GEICO</span>'" /></a>
-            <a href="#" class="trust-logo"><img src="https://logo.clearbit.com/statefarm.com" alt="State Farm" onerror="this.parentElement.innerHTML='<span class=tl-fb>State Farm</span>'" /></a>
-            <a href="#" class="trust-logo"><img src="https://logo.clearbit.com/progressive.com" alt="Progressive" onerror="this.parentElement.innerHTML='<span class=tl-fb>Progressive</span>'" /></a>
-            <a href="#" class="trust-logo"><img src="https://logo.clearbit.com/allstate.com" alt="Allstate" onerror="this.parentElement.innerHTML='<span class=tl-fb>Allstate</span>'" /></a>
-            <a href="#" class="trust-logo"><img src="https://logo.clearbit.com/libertymutual.com" alt="Liberty Mutual" onerror="this.parentElement.innerHTML='<span class=tl-fb>Liberty Mutual</span>'" /></a>
-            <a href="#" class="trust-logo"><img src="https://logo.clearbit.com/travelers.com" alt="Travelers" onerror="this.parentElement.innerHTML='<span class=tl-fb>Travelers</span>'" /></a>
-            <a href="#" class="trust-logo"><img src="https://logo.clearbit.com/nationwide.com" alt="Nationwide" onerror="this.parentElement.innerHTML='<span class=tl-fb>Nationwide</span>'" /></a>
-            <a href="#" class="trust-logo"><img src="https://logo.clearbit.com/delta.com" alt="Delta" onerror="this.parentElement.innerHTML='<span class=tl-fb>Delta</span>'" /></a>
-            <a href="#" class="trust-logo"><img src="https://logo.clearbit.com/americanairlines.com" alt="American Airlines" onerror="this.parentElement.innerHTML='<span class=tl-fb>American Airlines</span>'" /></a>
-            <a href="#" class="trust-logo"><img src="https://logo.clearbit.com/expedia.com" alt="Expedia" onerror="this.parentElement.innerHTML='<span class=tl-fb>Expedia</span>'" /></a>
-            <a href="#" class="trust-logo"><img src="https://logo.clearbit.com/united.com" alt="United Airlines" onerror="this.parentElement.innerHTML='<span class=tl-fb>United</span>'" /></a>
-            <!-- duplicate for seamless loop -->
-            <a href="#" class="trust-logo"><img src="https://logo.clearbit.com/geico.com" alt="GEICO" onerror="this.parentElement.innerHTML='<span class=tl-fb>GEICO</span>'" /></a>
-            <a href="#" class="trust-logo"><img src="https://logo.clearbit.com/statefarm.com" alt="State Farm" onerror="this.parentElement.innerHTML='<span class=tl-fb>State Farm</span>'" /></a>
-            <a href="#" class="trust-logo"><img src="https://logo.clearbit.com/progressive.com" alt="Progressive" onerror="this.parentElement.innerHTML='<span class=tl-fb>Progressive</span>'" /></a>
-            <a href="#" class="trust-logo"><img src="https://logo.clearbit.com/allstate.com" alt="Allstate" onerror="this.parentElement.innerHTML='<span class=tl-fb>Allstate</span>'" /></a>
-            <a href="#" class="trust-logo"><img src="https://logo.clearbit.com/libertymutual.com" alt="Liberty Mutual" onerror="this.parentElement.innerHTML='<span class=tl-fb>Liberty Mutual</span>'" /></a>
-            <a href="#" class="trust-logo"><img src="https://logo.clearbit.com/travelers.com" alt="Travelers" onerror="this.parentElement.innerHTML='<span class=tl-fb>Travelers</span>'" /></a>
-            <a href="#" class="trust-logo"><img src="https://logo.clearbit.com/nationwide.com" alt="Nationwide" onerror="this.parentElement.innerHTML='<span class=tl-fb>Nationwide</span>'" /></a>
-            <a href="#" class="trust-logo"><img src="https://logo.clearbit.com/delta.com" alt="Delta" onerror="this.parentElement.innerHTML='<span class=tl-fb>Delta</span>'" /></a>
-            <a href="#" class="trust-logo"><img src="https://logo.clearbit.com/americanairlines.com" alt="American Airlines" onerror="this.parentElement.innerHTML='<span class=tl-fb>American Airlines</span>'" /></a>
-            <a href="#" class="trust-logo"><img src="https://logo.clearbit.com/expedia.com" alt="Expedia" onerror="this.parentElement.innerHTML='<span class=tl-fb>Expedia</span>'" /></a>
-            <a href="#" class="trust-logo"><img src="https://logo.clearbit.com/united.com" alt="United Airlines" onerror="this.parentElement.innerHTML='<span class=tl-fb>United</span>'" /></a>
-          </div>
+          <div class="trust-logos-track" id="trustTrack"></div>
         </div>
       </div>
     </div>
   </div>
+  <script>
+  (function() {
+    const partners = [
+      { name: 'GEICO',            domain: 'geico.com',            color: '#00adef' },
+      { name: 'State Farm',       domain: 'statefarm.com',        color: '#cc0000' },
+      { name: 'Progressive',      domain: 'progressive.com',      color: '#0066cc' },
+      { name: 'Allstate',         domain: 'allstate.com',         color: '#0033a0' },
+      { name: 'Liberty Mutual',   domain: 'libertymutual.com',    color: '#ffb81c' },
+      { name: 'Travelers',        domain: 'travelers.com',        color: '#c8102e' },
+      { name: 'Nationwide',       domain: 'nationwide.com',       color: '#1a1b4b' },
+      { name: 'Delta',            domain: 'delta.com',            color: '#c01933' },
+      { name: 'American Airlines',domain: 'americanairlines.com', color: '#0078d2' },
+      { name: 'Expedia',          domain: 'expedia.com',          color: '#ffc72c' },
+      { name: 'United Airlines',  domain: 'united.com',           color: '#002244' },
+      { name: 'Amica',            domain: 'amica.com',            color: '#00457c' },
+    ];
+    const sources = [
+      d => `https://logo.clearbit.com/${d}`,
+      d => `https://img.logo.dev/${d}?token=sk_FbaSBTjpTIK_oxSrsJk1Lg`,
+      d => `https://www.google.com/s2/favicons?domain=${d}&sz=128`,
+    ];
+    const track = document.getElementById('trustTrack');
+    function makeCard(p) {
+      const a = document.createElement('a');
+      a.href = '#'; a.className = 'trust-logo';
+      const img = document.createElement('img');
+      img.alt = p.name; img.height = 36;
+      let srcIdx = 0;
+      function tryNext() {
+        if (srcIdx >= sources.length) {
+          // all image sources failed — show branded text
+          a.innerHTML = `<span style="font-size:.82rem;font-weight:800;color:${p.color};white-space:nowrap">${p.name}</span>`;
+          return;
+        }
+        img.src = sources[srcIdx++](p.domain);
+      }
+      img.onerror = tryNext;
+      tryNext();
+      a.appendChild(img);
+      return a;
+    }
+    // build set once, then duplicate for seamless marquee
+    const set = partners.map(makeCard);
+    const dup = partners.map(makeCard);
+    [...set, ...dup].forEach(el => track.appendChild(el));
+  })();
+  </script>
 
   <!-- HOW IT WORKS -->
   <section class="how-section">
