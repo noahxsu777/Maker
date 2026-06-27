@@ -3080,6 +3080,108 @@
   }
 
   /* ==========================================
+     ¿SABÍAS QUE? SECTION
+  ========================================== */
+  .facts-section {
+    padding: 90px 0 80px;
+    background: #f7f8fa;
+    position: relative;
+    overflow: hidden;
+  }
+  .facts-section::before {
+    content: '';
+    position: absolute;
+    top: -80px; left: 50%;
+    transform: translateX(-50%);
+    width: 700px; height: 700px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,56,92,.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .facts-header {
+    text-align: center;
+    margin-bottom: 52px;
+  }
+  .facts-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+  }
+  @media (max-width: 900px) { .facts-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 560px) { .facts-grid { grid-template-columns: 1fr; } }
+
+  .fact-card {
+    background: #fff;
+    border-radius: 20px;
+    padding: 28px 24px 24px;
+    border: 1px solid #eee;
+    box-shadow: 0 2px 12px rgba(0,0,0,.05);
+    position: relative;
+    overflow: hidden;
+    transition: transform .32s cubic-bezier(.34,1.56,.64,1), box-shadow .28s ease;
+    cursor: default;
+  }
+  .fact-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--fact-color, var(--primary));
+  }
+  .fact-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 18px 44px rgba(0,0,0,.1);
+  }
+  .fact-card-flag {
+    font-size: 2.6rem;
+    line-height: 1;
+    margin-bottom: 12px;
+    display: block;
+  }
+  .fact-card-country {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: .68rem;
+    font-weight: 800;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--fact-color, var(--primary));
+    margin-bottom: 10px;
+  }
+  .fact-card-country i { font-size: .6rem; }
+  .fact-card-label {
+    font-size: .65rem;
+    font-weight: 800;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: #bbb;
+    margin-bottom: 8px;
+  }
+  .fact-card-text {
+    font-size: .9rem;
+    line-height: 1.65;
+    color: #444;
+  }
+  .fact-card-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 16px;
+    font-size: .76rem;
+    font-weight: 700;
+    color: var(--fact-color, var(--primary));
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    opacity: .85;
+    transition: opacity .2s, gap .2s;
+  }
+  .fact-card-cta:hover { opacity: 1; gap: 9px; }
+  .fact-card-cta i { font-size: .7rem; }
+
+  /* ==========================================
      EXTRA ANIMATIONS
   ========================================== */
 
@@ -3605,6 +3707,101 @@
             <span class="dest-explore-btn"><i class="fa-brands fa-whatsapp"></i> Consultar</span>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ¿SABÍAS QUE? -->
+  <section class="facts-section">
+    <div class="container">
+      <div class="facts-header reveal">
+        <div class="badge">Turismo &amp; Cultura</div>
+        <h2 class="section-title">¿Sabías que...?</h2>
+        <p class="section-subtitle">Curiosidades fascinantes sobre los destinos más increíbles del mundo</p>
+      </div>
+      <div class="facts-grid">
+
+        <!-- Grecia -->
+        <div class="fact-card reveal" style="--fact-color:#1a9be8">
+          <span class="fact-card-flag">🇬🇷</span>
+          <div class="fact-card-country"><i class="fa-solid fa-location-dot"></i> Grecia</div>
+          <div class="fact-card-label">¿Sabías que?</div>
+          <p class="fact-card-text">Grecia tiene más de <strong>6,000 islas</strong>, aunque solo 227 están habitadas. Santorini fue formada por una de las erupciones volcánicas más grandes de la historia, lo que le dio su icónica forma de media luna.</p>
+          <button class="fact-card-cta" onclick="openWhatsApp('Santorini, Grecia')"><i class="fa-brands fa-whatsapp"></i> Consultar paquete <i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+
+        <!-- Italia -->
+        <div class="fact-card reveal reveal-delay-1" style="--fact-color:#e84a1a">
+          <span class="fact-card-flag">🇮🇹</span>
+          <div class="fact-card-country"><i class="fa-solid fa-location-dot"></i> Italia</div>
+          <div class="fact-card-label">¿Sabías que?</div>
+          <p class="fact-card-text">Italia tiene <strong>más sitios UNESCO</strong> que cualquier otro país del mundo — 58 en total. Roma fue fundada hace más de 2,750 años y tiene más fuentes monumentales que cualquier otra ciudad del planeta.</p>
+          <button class="fact-card-cta" onclick="openWhatsApp('Roma & Florencia, Italia')"><i class="fa-brands fa-whatsapp"></i> Consultar paquete <i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+
+        <!-- Japón -->
+        <div class="fact-card reveal reveal-delay-2" style="--fact-color:#bc002d">
+          <span class="fact-card-flag">🇯🇵</span>
+          <div class="fact-card-country"><i class="fa-solid fa-location-dot"></i> Japón</div>
+          <div class="fact-card-label">¿Sabías que?</div>
+          <p class="fact-card-text">El metro de Tokio transporta más de <strong>13 millones de pasajeros al día</strong>, siendo el más concurrido del mundo. Japón tiene más de <strong>1,500 terremotos al año</strong> y los edificios están diseñados para resistirlos.</p>
+          <button class="fact-card-cta" onclick="openWhatsApp('Tokio, Japón')"><i class="fa-brands fa-whatsapp"></i> Consultar paquete <i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+
+        <!-- México -->
+        <div class="fact-card reveal" style="--fact-color:#006847">
+          <span class="fact-card-flag">🇲🇽</span>
+          <div class="fact-card-country"><i class="fa-solid fa-location-dot"></i> México</div>
+          <div class="fact-card-label">¿Sabías que?</div>
+          <p class="fact-card-text">Cancún era una <strong>isla deshabitada en 1974</strong>. El gobierno mexicano la eligió para desarrollarla como destino turístico y hoy recibe más de 6 millones de visitantes al año. Bajo su mar hay el <strong>segundo arrecife de coral más grande del mundo</strong>.</p>
+          <button class="fact-card-cta" onclick="openWhatsApp('Cancún, México')"><i class="fa-brands fa-whatsapp"></i> Consultar paquete <i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+
+        <!-- Francia -->
+        <div class="fact-card reveal reveal-delay-1" style="--fact-color:#0055a4">
+          <span class="fact-card-flag">🇫🇷</span>
+          <div class="fact-card-country"><i class="fa-solid fa-location-dot"></i> Francia</div>
+          <div class="fact-card-label">¿Sabías que?</div>
+          <p class="fact-card-text">Francia es el <strong>país más visitado del mundo</strong> con más de 89 millones de turistas al año. La Torre Eiffel crece hasta <strong>15 cm en verano</strong> debido a la expansión térmica del metal con el calor.</p>
+          <button class="fact-card-cta" onclick="openWhatsApp('París, Francia')"><i class="fa-brands fa-whatsapp"></i> Consultar paquete <i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+
+        <!-- Tailandia -->
+        <div class="fact-card reveal reveal-delay-2" style="--fact-color:#a51931">
+          <span class="fact-card-flag">🇹🇭</span>
+          <div class="fact-card-country"><i class="fa-solid fa-location-dot"></i> Tailandia</div>
+          <div class="fact-card-label">¿Sabías que?</div>
+          <p class="fact-card-text">Bangkok tiene el <strong>nombre oficial más largo del mundo</strong>: "Krung Thep Maha Nakhon…" con 169 letras en tailandés. Tailandia tiene más de <strong>1,430 islas</strong> y más de 40,000 templos budistas.</p>
+          <button class="fact-card-cta" onclick="openWhatsApp('Tailandia — Bangkok & Phuket')"><i class="fa-brands fa-whatsapp"></i> Consultar paquete <i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+
+        <!-- Perú -->
+        <div class="fact-card reveal" style="--fact-color:#d91023">
+          <span class="fact-card-flag">🇵🇪</span>
+          <div class="fact-card-country"><i class="fa-solid fa-location-dot"></i> Perú</div>
+          <div class="fact-card-label">¿Sabías que?</div>
+          <p class="fact-card-text">Machu Picchu fue construida hacia <strong>1450 por los incas</strong> y permaneció desconocida para el mundo hasta 1911. Está a 2,430 metros de altura y sus piedras encajan tan perfectamente que <strong>ni una hoja de papel cabe entre ellas</strong>.</p>
+          <button class="fact-card-cta" onclick="openWhatsApp('Machu Picchu, Perú')"><i class="fa-brands fa-whatsapp"></i> Consultar paquete <i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+
+        <!-- Dubai -->
+        <div class="fact-card reveal reveal-delay-1" style="--fact-color:#cf8d2e">
+          <span class="fact-card-flag">🇦🇪</span>
+          <div class="fact-card-country"><i class="fa-solid fa-location-dot"></i> Emiratos Árabes</div>
+          <div class="fact-card-label">¿Sabías que?</div>
+          <p class="fact-card-text">El Burj Khalifa de Dubai es el <strong>edificio más alto del mundo con 828 metros</strong>. En los años 60, Dubai era un pequeño pueblo pesquero. Hoy tiene el <strong>centro comercial más grande del mundo</strong> y un parque de nieve bajo techo en pleno desierto.</p>
+          <button class="fact-card-cta" onclick="openWhatsApp('Dubai, Emiratos Árabes')"><i class="fa-brands fa-whatsapp"></i> Consultar paquete <i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+
+        <!-- Nueva York -->
+        <div class="fact-card reveal reveal-delay-2" style="--fact-color:#003087">
+          <span class="fact-card-flag">🇺🇸</span>
+          <div class="fact-card-country"><i class="fa-solid fa-location-dot"></i> Estados Unidos</div>
+          <div class="fact-card-label">¿Sabías que?</div>
+          <p class="fact-card-text">Nueva York tiene más de <strong>800 idiomas hablados</strong>, siendo la ciudad más lingüísticamente diversa del planeta. La Estatua de la Libertad fue un regalo de Francia en 1886 y sus pies miden <strong>talla 879</strong> en calzado estándar.</p>
+          <button class="fact-card-cta" onclick="openWhatsApp('Nueva York, Estados Unidos')"><i class="fa-brands fa-whatsapp"></i> Consultar paquete <i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+
       </div>
     </div>
   </section>
