@@ -1545,7 +1545,7 @@
       .dest-card:nth-child(4) { grid-column: span 6; }
       .dest-card:nth-child(5) { grid-column: span 6; }
       .insurance-inner { grid-template-columns: 1fr; gap: 40px; }
-      .vin-inner { grid-template-columns: 1fr; gap: 40px; }
+
       .contact-inner { grid-template-columns: 1fr; gap: 40px; }
       .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; }
     }
@@ -2093,331 +2093,391 @@
     }
 
   /* ==========================================
-     VIN REPORT SECTION
+     VIN REPORT SECTION  — mobile-first
   ========================================== */
   .vin-section {
-    padding: 90px 0;
-    background: #0a0a0a;
+    padding: 96px 0 80px;
+    background: linear-gradient(160deg, #090c10 0%, #0d1117 50%, #0a0a0f 100%);
     position: relative;
     overflow: hidden;
   }
   .vin-section::before {
     content: '';
     position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse 70% 60% at 50% 110%, rgba(255,56,92,.12) 0%, transparent 70%);
+    width: 700px; height: 700px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,56,92,.14) 0%, transparent 65%);
+    bottom: -200px; left: 50%;
+    transform: translateX(-50%);
     pointer-events: none;
   }
-  .vin-inner {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 64px;
-    align-items: center;
+  .vin-section::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.018'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    pointer-events: none;
+    opacity: .5;
   }
-  .vin-content .badge { margin-bottom: 16px; }
-  .vin-content .section-title { color: #fff; margin-bottom: 14px; }
-  .vin-content p { color: rgba(255,255,255,.6); font-size: .98rem; line-height: 1.7; margin-bottom: 32px; }
-  .vin-features {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    margin-bottom: 32px;
-  }
-  .vin-feature {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    color: rgba(255,255,255,.8);
-    font-size: .9rem;
-    font-weight: 500;
-  }
-  .vin-feature i { color: var(--primary); font-size: .85rem; }
 
-  /* Scanner card */
-  .vin-card {
+  /* App branding header */
+  .vin-app-brand {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+  .vin-app-icon {
+    width: 44px; height: 44px;
+    background: linear-gradient(135deg, var(--primary) 0%, #ff6b35 100%);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 1.1rem;
+    box-shadow: 0 8px 24px rgba(255,56,92,.35);
+  }
+  .vin-app-name {
+    font-size: 1rem;
+    font-weight: 700;
+    color: rgba(255,255,255,.55);
+    letter-spacing: .02em;
+  }
+  .vin-app-name strong { color: #fff; }
+
+  /* Section header */
+  .vin-header {
+    text-align: center;
+    max-width: 640px;
+    margin: 0 auto 52px;
+  }
+  .vin-header .section-title { color: #fff; margin-bottom: 12px; }
+  .vin-header p {
+    color: rgba(255,255,255,.52);
+    font-size: .98rem;
+    line-height: 1.7;
+  }
+
+  /* Main scanner card — centered, full-width on mobile */
+  .vin-scanner-card {
+    max-width: 640px;
+    margin: 0 auto 40px;
     background: rgba(255,255,255,.04);
     border: 1px solid rgba(255,255,255,.10);
     border-radius: 24px;
-    padding: 36px;
-    backdrop-filter: blur(16px);
+    padding: 36px 32px 28px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 24px 64px rgba(0,0,0,.45);
     position: relative;
   }
-  .vin-card-title {
-    font-size: 1.1rem;
+  .vin-scanner-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 32px; right: 32px; height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,.18), transparent);
+  }
+
+  .vin-scanner-label {
+    font-size: .72rem;
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--primary);
+    margin-bottom: 8px;
+  }
+  .vin-scanner-title {
+    font-size: 1.15rem;
     font-weight: 800;
     color: #fff;
-    margin-bottom: 6px;
+    margin-bottom: 4px;
   }
-  .vin-card-sub {
+  .vin-scanner-sub {
     font-size: .82rem;
-    color: rgba(255,255,255,.45);
-    margin-bottom: 24px;
+    color: rgba(255,255,255,.38);
+    margin-bottom: 22px;
   }
-  .vin-input-wrap {
+
+  /* Input row */
+  .vin-input-row {
     display: flex;
     gap: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 24px;
   }
   .vin-input {
     flex: 1;
+    min-width: 0;
     background: rgba(255,255,255,.07);
-    border: 1.5px solid rgba(255,255,255,.14);
-    border-radius: 12px;
-    padding: 13px 18px;
+    border: 1.5px solid rgba(255,255,255,.12);
+    border-radius: 14px;
+    padding: 14px 18px;
     color: #fff;
-    font-size: .95rem;
+    font-size: 1rem;
     font-family: 'Courier New', monospace;
-    letter-spacing: .12em;
+    letter-spacing: .10em;
     text-transform: uppercase;
     outline: none;
-    transition: border-color .2s;
+    transition: border-color .2s, background .2s;
   }
-  .vin-input::placeholder { color: rgba(255,255,255,.28); letter-spacing: .06em; text-transform: none; font-family: inherit; }
-  .vin-input:focus { border-color: var(--primary); }
+  .vin-input::placeholder {
+    color: rgba(255,255,255,.22);
+    letter-spacing: .03em;
+    text-transform: none;
+    font-family: inherit;
+    font-size: .88rem;
+  }
+  .vin-input:focus {
+    border-color: var(--primary);
+    background: rgba(255,56,92,.05);
+  }
   .vin-scan-btn {
     display: flex;
     align-items: center;
     gap: 8px;
-    padding: 13px 22px;
-    background: var(--primary);
+    padding: 14px 22px;
+    background: linear-gradient(135deg, var(--primary), #e0243c);
     color: #fff;
     border: none;
-    border-radius: 12px;
+    border-radius: 14px;
     font-size: .92rem;
     font-weight: 700;
     cursor: pointer;
     white-space: nowrap;
-    transition: background .2s, transform .15s;
+    flex-shrink: 0;
+    box-shadow: 0 6px 20px rgba(255,56,92,.35);
+    transition: opacity .2s, transform .15s, box-shadow .2s;
   }
-  .vin-scan-btn:hover { background: var(--primary-dark); transform: translateY(-1px); }
+  .vin-scan-btn:hover { opacity: .9; transform: translateY(-1px); box-shadow: 0 10px 28px rgba(255,56,92,.45); }
   .vin-scan-btn:active { transform: scale(.97); }
 
-  /* Preview report (blurred teaser) */
-  .vin-preview {
-    position: relative;
-    border-radius: 12px;
-    overflow: hidden;
-  }
-  .vin-preview-items {
+  /* Stat pills */
+  .vin-stats-row {
     display: flex;
-    flex-direction: column;
     gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
   }
-  .vin-preview-row {
+  .vin-stat-pill {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    gap: 6px;
+    background: rgba(255,255,255,.05);
+    border: 1px solid rgba(255,255,255,.09);
+    border-radius: 100px;
+    padding: 6px 14px;
+    font-size: .76rem;
+    color: rgba(255,255,255,.55);
+    font-weight: 500;
+  }
+  .vin-stat-pill i { color: var(--primary); font-size: .7rem; }
+
+  /* Blurred preview */
+  .vin-preview-label {
+    font-size: .68rem;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.25);
+    margin-bottom: 10px;
+  }
+  .vin-preview { position: relative; border-radius: 14px; overflow: hidden; }
+  .vin-preview-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 8px;
+  }
+  .vin-preview-cell {
     background: rgba(255,255,255,.06);
-    border-radius: 10px;
-    padding: 11px 14px;
-    font-size: .82rem;
-    color: rgba(255,255,255,.7);
-    filter: blur(4px);
+    border-radius: 12px;
+    padding: 14px 12px;
+    text-align: center;
+    filter: blur(5px);
     user-select: none;
     pointer-events: none;
   }
-  .vin-preview-row span:last-child { color: rgba(255,255,255,.35); }
+  .vin-preview-cell-icon { font-size: 1.3rem; margin-bottom: 6px; opacity: .6; }
+  .vin-preview-cell-val { font-size: .9rem; font-weight: 800; color: #fff; margin-bottom: 2px; }
+  .vin-preview-cell-key { font-size: .65rem; color: rgba(255,255,255,.4); text-transform: uppercase; letter-spacing: .06em; }
   .vin-preview-lock {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    background: rgba(0,0,0,.45);
-    backdrop-filter: blur(2px);
-    border-radius: 12px;
+    position: absolute; inset: 0;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center; gap: 8px;
+    background: rgba(0,0,0,.55);
+    backdrop-filter: blur(3px);
+    border-radius: 14px;
+  }
+  .vin-preview-lock i { font-size: 1.6rem; color: var(--primary); }
+  .vin-preview-lock span {
+    font-size: .8rem; font-weight: 600;
     color: rgba(255,255,255,.7);
-    font-size: .82rem;
-    font-weight: 600;
-    text-align: center;
+    text-align: center; padding: 0 16px;
   }
-  .vin-preview-lock i { font-size: 1.5rem; color: var(--primary); margin-bottom: 4px; }
-  .vin-or {
+  .vin-unlock-cta {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: var(--primary); color: #fff;
+    border: none; border-radius: 100px;
+    padding: 8px 18px; font-size: .8rem; font-weight: 700;
+    cursor: pointer; margin-top: 4px;
+    transition: opacity .2s;
+  }
+  .vin-unlock-cta:hover { opacity: .88; }
+
+  /* Feature chips below scanner */
+  .vin-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    max-width: 680px;
+    margin: 0 auto;
+  }
+  .vin-chip {
     display: flex;
     align-items: center;
-    gap: 10px;
-    color: rgba(255,255,255,.25);
-    font-size: .78rem;
-    margin-bottom: 20px;
+    gap: 7px;
+    background: rgba(255,255,255,.05);
+    border: 1px solid rgba(255,255,255,.09);
+    border-radius: 100px;
+    padding: 8px 16px;
+    font-size: .82rem;
+    color: rgba(255,255,255,.7);
+    font-weight: 500;
   }
-  .vin-or::before, .vin-or::after {
-    content: '';
-    flex: 1;
-    height: 1px;
-    background: rgba(255,255,255,.1);
-  }
-  .vin-sample-label {
-    font-size: .72rem;
-    font-weight: 700;
-    letter-spacing: .08em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,.35);
-    margin-bottom: 10px;
-  }
+  .vin-chip i { color: var(--primary); font-size: .75rem; }
 
   /* ==========================================
      SUBSCRIPTION MODAL
   ========================================== */
   .modal-overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,.72);
-    backdrop-filter: blur(8px);
+    position: fixed; inset: 0;
+    background: rgba(0,0,0,.76);
+    backdrop-filter: blur(10px);
     z-index: 1000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 24px;
-    opacity: 0;
-    pointer-events: none;
+    display: flex; align-items: center; justify-content: center;
+    padding: 16px;
+    opacity: 0; pointer-events: none;
     transition: opacity .3s ease;
   }
-  .modal-overlay.open {
-    opacity: 1;
-    pointer-events: all;
-  }
+  .modal-overlay.open { opacity: 1; pointer-events: all; }
   .sub-modal {
-    background: #0f0f0f;
+    background: #0f1117;
     border: 1px solid rgba(255,255,255,.10);
     border-radius: 28px;
-    padding: 40px;
-    max-width: 520px;
-    width: 100%;
+    padding: 36px 32px 28px;
+    max-width: 480px; width: 100%;
     position: relative;
-    transform: translateY(24px) scale(.97);
-    transition: transform .35s cubic-bezier(.16,1,.3,1);
+    transform: translateY(28px) scale(.96);
+    transition: transform .38s cubic-bezier(.16,1,.3,1);
+    max-height: 90vh;
+    overflow-y: auto;
   }
-  .modal-overlay.open .sub-modal {
-    transform: translateY(0) scale(1);
-  }
+  .modal-overlay.open .sub-modal { transform: translateY(0) scale(1); }
   .modal-close {
-    position: absolute;
-    top: 18px;
-    right: 20px;
-    background: rgba(255,255,255,.08);
-    border: none;
-    color: rgba(255,255,255,.6);
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1rem;
-    transition: background .2s, color .2s;
+    position: absolute; top: 16px; right: 16px;
+    background: rgba(255,255,255,.08); border: none;
+    color: rgba(255,255,255,.5);
+    width: 34px; height: 34px; border-radius: 50%;
+    cursor: pointer; display: flex; align-items: center; justify-content: center;
+    font-size: 1rem; transition: background .2s, color .2s;
   }
   .modal-close:hover { background: rgba(255,255,255,.14); color: #fff; }
+
+  /* Modal header */
+  .modal-header { display: flex; align-items: center; gap: 14px; margin-bottom: 20px; }
   .modal-icon {
-    width: 52px;
-    height: 52px;
+    width: 50px; height: 50px; flex-shrink: 0;
     background: linear-gradient(135deg, var(--primary), #ff6b35);
-    border-radius: 14px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.4rem;
-    color: #fff;
-    margin-bottom: 20px;
+    border-radius: 14px; display: flex; align-items: center; justify-content: center;
+    font-size: 1.35rem; color: #fff;
+    box-shadow: 0 8px 24px rgba(255,56,92,.3);
   }
-  .modal-title {
-    font-size: 1.5rem;
-    font-weight: 800;
-    color: #fff;
-    margin-bottom: 8px;
-    letter-spacing: -.02em;
-  }
-  .modal-sub {
-    font-size: .9rem;
-    color: rgba(255,255,255,.5);
-    margin-bottom: 28px;
-    line-height: 1.55;
-  }
+  .modal-title { font-size: 1.35rem; font-weight: 800; color: #fff; letter-spacing: -.02em; }
+  .modal-sub-title { font-size: .8rem; color: rgba(255,255,255,.4); margin-top: 2px; }
+
+  /* Plan toggle */
   .plan-toggle {
-    display: flex;
-    background: rgba(255,255,255,.06);
-    border-radius: 100px;
-    padding: 4px;
-    margin-bottom: 24px;
-    gap: 4px;
+    display: flex; background: rgba(255,255,255,.06);
+    border-radius: 100px; padding: 4px; margin-bottom: 20px; gap: 4px;
   }
   .plan-toggle button {
-    flex: 1;
-    padding: 9px;
-    border: none;
-    border-radius: 100px;
-    background: transparent;
-    color: rgba(255,255,255,.5);
-    font-size: .82rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all .2s;
+    flex: 1; padding: 9px; border: none; border-radius: 100px;
+    background: transparent; color: rgba(255,255,255,.45);
+    font-size: .82rem; font-weight: 600; cursor: pointer; transition: all .2s;
   }
-  .plan-toggle button.active {
-    background: var(--primary);
-    color: #fff;
-  }
-  .plan-price-display {
-    text-align: center;
-    margin-bottom: 24px;
-  }
-  .plan-amount {
-    font-size: 3rem;
-    font-weight: 900;
-    color: #fff;
-    letter-spacing: -.05em;
-    line-height: 1;
-  }
-  .plan-amount sup { font-size: 1.2rem; vertical-align: super; font-weight: 700; }
-  .plan-period { font-size: .82rem; color: rgba(255,255,255,.4); margin-top: 4px; }
+  .plan-toggle button.active { background: var(--primary); color: #fff; }
   .plan-save-badge {
     display: inline-block;
-    background: rgba(74,222,128,.15);
-    color: #4ade80;
-    border: 1px solid rgba(74,222,128,.25);
-    border-radius: 100px;
-    padding: 3px 10px;
-    font-size: .72rem;
-    font-weight: 700;
-    margin-left: 8px;
-    vertical-align: middle;
+    background: rgba(74,222,128,.15); color: #4ade80;
+    border: 1px solid rgba(74,222,128,.22);
+    border-radius: 100px; padding: 2px 8px;
+    font-size: .68rem; font-weight: 700; margin-left: 5px;
   }
+
+  /* Price display */
+  .plan-price-display {
+    background: rgba(255,255,255,.03);
+    border: 1px solid rgba(255,255,255,.07);
+    border-radius: 16px; padding: 18px 20px;
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  .plan-amount { font-size: 2.6rem; font-weight: 900; color: #fff; letter-spacing: -.05em; line-height: 1; }
+  .plan-amount sup { font-size: 1.1rem; vertical-align: super; font-weight: 700; }
+  .plan-period { font-size: .78rem; color: rgba(255,255,255,.38); margin-top: 3px; }
+  .plan-vin-badge {
+    display: flex; flex-direction: column; align-items: flex-end; gap: 4px;
+  }
+  .plan-vin-badge span {
+    background: rgba(255,56,92,.12); color: var(--primary);
+    border: 1px solid rgba(255,56,92,.2);
+    border-radius: 8px; padding: 4px 10px;
+    font-size: .7rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase;
+  }
+
+  /* Features */
   .modal-features {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-bottom: 28px;
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 9px; margin-bottom: 24px;
   }
   .modal-feature {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: .88rem;
-    color: rgba(255,255,255,.75);
+    display: flex; align-items: center; gap: 8px;
+    font-size: .82rem; color: rgba(255,255,255,.7);
   }
-  .modal-feature i { color: #4ade80; font-size: .8rem; flex-shrink: 0; }
+  .modal-feature i { color: #4ade80; font-size: .72rem; flex-shrink: 0; }
+
+  /* Subscribe button */
   .modal-subscribe-btn {
-    width: 100%;
-    padding: 16px;
-    background: linear-gradient(135deg, var(--primary), #ff6b35);
-    color: #fff;
-    border: none;
-    border-radius: 14px;
-    font-size: 1rem;
-    font-weight: 800;
-    cursor: pointer;
-    transition: opacity .2s, transform .15s;
+    width: 100%; padding: 16px;
+    background: linear-gradient(135deg, var(--primary), #e0243c);
+    color: #fff; border: none; border-radius: 14px;
+    font-size: 1rem; font-weight: 800; cursor: pointer;
+    box-shadow: 0 8px 24px rgba(255,56,92,.35);
+    transition: opacity .2s, transform .15s, box-shadow .2s;
     margin-bottom: 12px;
+    display: flex; align-items: center; justify-content: center; gap: 8px;
   }
-  .modal-subscribe-btn:hover { opacity: .9; transform: translateY(-1px); }
+  .modal-subscribe-btn:hover { opacity: .9; transform: translateY(-1px); box-shadow: 0 12px 32px rgba(255,56,92,.45); }
   .modal-subscribe-btn:active { transform: scale(.98); }
+  .modal-subscribe-btn:disabled { opacity: .6; cursor: not-allowed; transform: none; box-shadow: none; }
   .modal-legal {
-    text-align: center;
-    font-size: .72rem;
-    color: rgba(255,255,255,.28);
-    line-height: 1.5;
+    text-align: center; font-size: .68rem;
+    color: rgba(255,255,255,.22); line-height: 1.5;
+  }
+  .modal-secure {
+    display: flex; align-items: center; justify-content: center;
+    gap: 16px; margin-bottom: 10px;
+  }
+  .modal-secure span { display: flex; align-items: center; gap: 5px; font-size: .72rem; color: rgba(255,255,255,.35); }
+  .modal-secure i { color: rgba(255,255,255,.3); font-size: .7rem; }
+
+  @media (max-width: 500px) {
+    .sub-modal { padding: 28px 20px 22px; }
+    .modal-features { grid-template-columns: 1fr; }
+    .vin-preview-grid { grid-template-columns: 1fr 1fr; }
+    .vin-input-row { flex-direction: column; }
+    .vin-scan-btn { justify-content: center; }
+    .vin-scanner-card { padding: 24px 18px 20px; }
   }
 
   /* ==========================================
@@ -3324,54 +3384,81 @@
   <!-- VIN REPORT -->
   <section class="vin-section" id="vin">
     <div class="container">
-      <div class="vin-inner">
 
-        <!-- Left: copy -->
-        <div class="vin-content reveal">
-          <div class="badge">VIN Report</div>
-          <h2 class="section-title">Conoce el historial<br/>completo de tu vehículo</h2>
-          <p>Antes de comprar o asegurar un auto, verifica su historial con nuestro reporte VIN. Accidentes, cambios de dueño, kilometraje real, robo y más.</p>
-          <div class="vin-features">
-            <div class="vin-feature"><i class="fa-solid fa-circle-check"></i> Historial de accidentes y daños</div>
-            <div class="vin-feature"><i class="fa-solid fa-circle-check"></i> Número de dueños anteriores</div>
-            <div class="vin-feature"><i class="fa-solid fa-circle-check"></i> Verificación de robo en las 50 estados</div>
-            <div class="vin-feature"><i class="fa-solid fa-circle-check"></i> Historial de kilometraje y odómetro</div>
-            <div class="vin-feature"><i class="fa-solid fa-circle-check"></i> Registros de servicio y mantenimiento</div>
-            <div class="vin-feature"><i class="fa-solid fa-circle-check"></i> Alertas de recall del fabricante</div>
-          </div>
+      <!-- App branding -->
+      <div class="vin-app-brand reveal">
+        <div class="vin-app-icon"><i class="fa-solid fa-car-side"></i></div>
+        <div class="vin-app-name">VIN Report &nbsp;·&nbsp; <strong>Una app de The Money Maker LLC</strong> para que verifiques el estado de un auto antes de comprarlo</div>
+      </div>
+
+      <!-- Section header -->
+      <div class="vin-header reveal">
+        <div class="badge">VIN Report</div>
+        <h2 class="section-title">Conoce el historial completo<br/>de tu vehículo</h2>
+        <p>Antes de comprar o asegurar un auto, verifica su historial con nuestro reporte VIN. Accidentes, cambios de dueño, kilometraje real, robo y más.</p>
+      </div>
+
+      <!-- Scanner card -->
+      <div class="vin-scanner-card reveal reveal-delay-1">
+        <div class="vin-scanner-label">Buscador de VIN</div>
+        <div class="vin-scanner-title">Escanear VIN del vehículo</div>
+        <div class="vin-scanner-sub">Ingresa el número VIN de 17 dígitos del auto que deseas verificar</div>
+
+        <div class="vin-input-row">
+          <input class="vin-input" type="text" id="vinInput" maxlength="17" placeholder="Ej: 1HGBH41JXMN109186" oninput="this.value=this.value.toUpperCase()"/>
+          <button class="vin-scan-btn" id="vinScanBtn" onclick="handleVinScan()">
+            <i class="fa-solid fa-magnifying-glass"></i> Escanear
+          </button>
         </div>
 
-        <!-- Right: scanner card -->
-        <div class="vin-card reveal reveal-delay-1">
-          <div class="vin-card-title"><i class="fa-solid fa-barcode" style="color:var(--primary);margin-right:8px"></i>Escanear VIN</div>
-          <div class="vin-card-sub">Ingresa el número VIN de 17 dígitos o usa la cámara</div>
+        <!-- Stat pills -->
+        <div class="vin-stats-row">
+          <div class="vin-stat-pill"><i class="fa-solid fa-circle-check"></i> Historial de accidentes</div>
+          <div class="vin-stat-pill"><i class="fa-solid fa-circle-check"></i> Dueños anteriores</div>
+          <div class="vin-stat-pill"><i class="fa-solid fa-circle-check"></i> Estado de robo</div>
+          <div class="vin-stat-pill"><i class="fa-solid fa-circle-check"></i> Recalls del fabricante</div>
+        </div>
 
-          <div class="vin-input-wrap">
-            <input class="vin-input" type="text" id="vinInput" maxlength="17" placeholder="Ej: 1HGBH41JXMN109186"/>
-            <button class="vin-scan-btn" onclick="openVinModal()">
-              <i class="fa-solid fa-magnifying-glass"></i> Escanear
+        <!-- Preview (blurred) -->
+        <div class="vin-preview-label">Vista previa del reporte</div>
+        <div class="vin-preview">
+          <div class="vin-preview-grid">
+            <div class="vin-preview-cell">
+              <div class="vin-preview-cell-icon">💥</div>
+              <div class="vin-preview-cell-val" id="vinPrevAccidents">2</div>
+              <div class="vin-preview-cell-key">Accidentes</div>
+            </div>
+            <div class="vin-preview-cell">
+              <div class="vin-preview-cell-icon">👤</div>
+              <div class="vin-preview-cell-val" id="vinPrevOwners">3</div>
+              <div class="vin-preview-cell-key">Dueños</div>
+            </div>
+            <div class="vin-preview-cell">
+              <div class="vin-preview-cell-icon">🛡️</div>
+              <div class="vin-preview-cell-val" id="vinPrevStatus">Limpio</div>
+              <div class="vin-preview-cell-key">Estado robo</div>
+            </div>
+          </div>
+          <div class="vin-preview-lock">
+            <i class="fa-solid fa-lock"></i>
+            <span>Suscríbete para ver el reporte completo</span>
+            <button class="vin-unlock-cta" onclick="openVinModal()">
+              <i class="fa-solid fa-unlock"></i> Desbloquear reporte
             </button>
           </div>
-
-          <div class="vin-or">o vista previa del reporte</div>
-
-          <div class="vin-sample-label">Muestra de reporte (suscripción requerida)</div>
-          <div class="vin-preview">
-            <div class="vin-preview-items">
-              <div class="vin-preview-row"><span><i class="fa-solid fa-car-burst"></i> Accidentes reportados</span><span>2 accidentes</span></div>
-              <div class="vin-preview-row"><span><i class="fa-solid fa-users"></i> Dueños anteriores</span><span>3 dueños</span></div>
-              <div class="vin-preview-row"><span><i class="fa-solid fa-gauge-high"></i> Kilometraje verificado</span><span>87,432 mi</span></div>
-              <div class="vin-preview-row"><span><i class="fa-solid fa-shield-halved"></i> Estado de robo</span><span>Limpio</span></div>
-              <div class="vin-preview-row"><span><i class="fa-solid fa-wrench"></i> Registros de servicio</span><span>6 registros</span></div>
-            </div>
-            <div class="vin-preview-lock">
-              <i class="fa-solid fa-lock"></i>
-              Suscríbete para ver el reporte completo
-            </div>
-          </div>
         </div>
-
       </div>
+
+      <!-- Feature chips -->
+      <div class="vin-chips reveal reveal-delay-2">
+        <div class="vin-chip"><i class="fa-solid fa-car-burst"></i> Historial de accidentes y daños</div>
+        <div class="vin-chip"><i class="fa-solid fa-users"></i> Número de dueños anteriores</div>
+        <div class="vin-chip"><i class="fa-solid fa-shield-halved"></i> Verificación de robo en los 50 estados</div>
+        <div class="vin-chip"><i class="fa-solid fa-gauge-high"></i> Historial de kilometraje y odómetro</div>
+        <div class="vin-chip"><i class="fa-solid fa-wrench"></i> Registros de servicio y mantenimiento</div>
+        <div class="vin-chip"><i class="fa-solid fa-triangle-exclamation"></i> Alertas de recall del fabricante</div>
+      </div>
+
     </div>
   </section>
 
@@ -3379,20 +3466,35 @@
   <div class="modal-overlay" id="vinModal" onclick="closeVinModalOutside(event)">
     <div class="sub-modal">
       <button class="modal-close" onclick="closeVinModal()"><i class="fa-solid fa-xmark"></i></button>
-      <div class="modal-icon"><i class="fa-solid fa-file-lines"></i></div>
-      <div class="modal-title">Desbloquea tu VIN Report</div>
-      <div class="modal-sub">Obtén acceso ilimitado a reportes VIN completos, historial de accidentes, alertas de recall y más.</div>
 
+      <!-- Header -->
+      <div class="modal-header">
+        <div class="modal-icon"><i class="fa-solid fa-file-lines"></i></div>
+        <div>
+          <div class="modal-title">Desbloquea tu VIN Report</div>
+          <div class="modal-sub-title">Money Makers LLC · Reporte completo</div>
+        </div>
+      </div>
+
+      <!-- Plan toggle -->
       <div class="plan-toggle">
         <button class="active" id="planMonthly" onclick="setPlan('monthly')">Mensual</button>
         <button id="planAnnual" onclick="setPlan('annual')">Anual <span class="plan-save-badge">-40%</span></button>
       </div>
 
+      <!-- Price display -->
       <div class="plan-price-display">
-        <div class="plan-amount" id="planAmount"><sup>$</sup>9<span style="font-size:1.5rem">.99</span></div>
-        <div class="plan-period" id="planPeriod">por mes · cancela cuando quieras</div>
+        <div>
+          <div class="plan-amount" id="planAmount"><sup>$</sup>9<span style="font-size:1.5rem">.99</span></div>
+          <div class="plan-period" id="planPeriod">por mes · cancela cuando quieras</div>
+        </div>
+        <div class="plan-vin-badge">
+          <span>VIN REPORT</span>
+          <span id="planBadgeLabel">MENSUAL</span>
+        </div>
       </div>
 
+      <!-- Features 2-col grid -->
       <div class="modal-features">
         <div class="modal-feature"><i class="fa-solid fa-check"></i> Reportes VIN ilimitados</div>
         <div class="modal-feature"><i class="fa-solid fa-check"></i> Historial completo de accidentes</div>
@@ -3402,7 +3504,14 @@
         <div class="modal-feature"><i class="fa-solid fa-check"></i> Exporta PDF del reporte</div>
       </div>
 
-      <button class="modal-subscribe-btn" onclick="handleSubscribe()">
+      <!-- Security badges -->
+      <div class="modal-secure">
+        <span><i class="fa-solid fa-lock"></i> SSL Encriptado</span>
+        <span><i class="fa-brands fa-stripe"></i> Powered by Stripe</span>
+        <span><i class="fa-solid fa-rotate-left"></i> Cancela fácil</span>
+      </div>
+
+      <button class="modal-subscribe-btn" id="subscribeBtn" onclick="handleSubscribe()">
         <i class="fa-solid fa-shield-halved"></i> &nbsp;Activar suscripción ahora
       </button>
       <div class="modal-legal">
@@ -4004,10 +4113,10 @@
       document.querySelector(selector).scrollIntoView({ behavior: 'smooth' });
     }
 
-    // ===== VIN REPORT MODAL =====
+    // ===== VIN REPORT =====
     const PLANS = {
-      monthly: { amount: '$9<span style="font-size:1.5rem">.99</span>', period: 'por mes · cancela cuando quieras' },
-      annual:  { amount: '$5<span style="font-size:1.5rem">.99</span>', period: 'por mes · facturado $71.88/año · ahorra 40%' },
+      monthly: { amount: '$9<span style="font-size:1.5rem">.99</span>', period: 'por mes · cancela cuando quieras', badge: 'MENSUAL' },
+      annual:  { amount: '$5<span style="font-size:1.5rem">.99</span>', period: 'por mes · facturado $71.88/año · ahorra 40%', badge: 'ANUAL' },
     };
     let currentPlan = 'monthly';
 
@@ -4028,10 +4137,53 @@
       document.getElementById('planAnnual').classList.toggle('active', plan === 'annual');
       document.getElementById('planAmount').innerHTML = PLANS[plan].amount;
       document.getElementById('planPeriod').textContent = PLANS[plan].period;
+      document.getElementById('planBadgeLabel').textContent = PLANS[plan].badge;
     }
-    function handleSubscribe() {
-      closeVinModal();
-      showToast('¡Suscripción activada! Bienvenido a VIN Report Premium.');
+
+    async function handleVinScan() {
+      const vin = document.getElementById('vinInput').value.trim();
+      if (vin.length < 5) { showToast('Ingresa al menos 5 caracteres del VIN.'); return; }
+      const btn = document.getElementById('vinScanBtn');
+      btn.disabled = true;
+      btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Buscando...';
+      try {
+        const res = await fetch('/api/vin-lookup', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ vin })
+        });
+        const data = await res.json();
+        if (data.error) throw new Error(data.error);
+        if (data.make) {
+          document.getElementById('vinPrevAccidents').textContent = '—';
+          document.getElementById('vinPrevOwners').textContent = '—';
+          document.getElementById('vinPrevStatus').textContent = data.make + ' ' + (data.model || '');
+        }
+      } catch (_) { }
+      btn.disabled = false;
+      btn.innerHTML = '<i class="fa-solid fa-magnifying-glass"></i> Escanear';
+      openVinModal();
+    }
+
+    async function handleSubscribe() {
+      const vin = document.getElementById('vinInput').value.trim();
+      const btn = document.getElementById('subscribeBtn');
+      btn.disabled = true;
+      btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Procesando...';
+      try {
+        const res = await fetch('/api/vin-checkout', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ plan: currentPlan, vin })
+        });
+        const data = await res.json();
+        if (data.url) { window.location.href = data.url; }
+        else { throw new Error(data.error || 'Error'); }
+      } catch (err) {
+        btn.disabled = false;
+        btn.innerHTML = '<i class="fa-solid fa-shield-halved"></i> &nbsp;Activar suscripción ahora';
+        showToast('Error al procesar el pago. Intenta de nuevo.');
+      }
     }
     document.addEventListener('keydown', e => { if (e.key === 'Escape') closeVinModal(); });
 
