@@ -2896,6 +2896,145 @@
     transform: perspective(300px) rotateY(180deg) scale(1.1);
   }
 
+  /* ==========================================
+     TRAVEL & INSURANCE ANIMATIONS
+  ========================================== */
+
+  /* Flying plane across hero */
+  @keyframes flyPlane {
+    0%   { transform: translateX(-100px) translateY(0) rotate(-6deg); opacity: 0; }
+    5%   { opacity: .75; }
+    50%  { transform: translateX(50vw) translateY(-55px) rotate(2deg); opacity: .65; }
+    95%  { opacity: .7; }
+    100% { transform: translateX(108vw) translateY(-18px) rotate(-4deg); opacity: 0; }
+  }
+  .hero-plane {
+    position: absolute;
+    pointer-events: none;
+    z-index: 2;
+    top: 34%;
+    left: 0;
+    font-size: 1.45rem;
+    color: rgba(255,255,255,.65);
+    animation: flyPlane 18s linear infinite 1.5s;
+    filter: drop-shadow(0 3px 10px rgba(255,56,92,.4));
+  }
+
+  /* Floating travel/insurance icons */
+  @keyframes floatIcon {
+    0%, 100% { transform: translateY(0) rotate(-3deg); }
+    50%       { transform: translateY(-20px) rotate(5deg); }
+  }
+  @keyframes floatIconRev {
+    0%, 100% { transform: translateY(0) rotate(4deg); }
+    50%       { transform: translateY(-16px) rotate(-6deg); }
+  }
+  .hero-travel-icon {
+    position: absolute;
+    pointer-events: none;
+    z-index: 1;
+    color: rgba(255,255,255,.16);
+    font-size: 2.2rem;
+  }
+  .hero-icon-globe {
+    top: 18%; right: 9%;
+    animation: floatIcon 8s ease-in-out infinite 1.5s;
+  }
+  .hero-icon-map {
+    bottom: 28%; left: 6%;
+    font-size: 1.7rem;
+    animation: floatIconRev 10s ease-in-out infinite 3s;
+  }
+  .hero-icon-car {
+    bottom: 20%; right: 7%;
+    font-size: 1.8rem;
+    animation: floatIcon 9s ease-in-out infinite .5s;
+  }
+
+  /* Insurance shield pulse rings */
+  @keyframes shieldRing {
+    0%   { transform: scale(.85); opacity: .6; }
+    100% { transform: scale(2.4); opacity: 0; }
+  }
+  .ins-icon-pulse { position: relative; overflow: visible !important; }
+  .ins-pulse-ring {
+    position: absolute;
+    inset: -5px;
+    border-radius: 14px;
+    border: 1.5px solid rgba(0,200,155,.5);
+    animation: shieldRing 3s ease-out infinite;
+    pointer-events: none;
+  }
+  .ins-pulse-ring-2 { animation-delay: 1.5s; }
+
+  /* VIN animated scan line */
+  @keyframes scanLine {
+    0%   { top: 10px; opacity: 1; }
+    85%  { opacity: .7; }
+    100% { top: calc(100% - 10px); opacity: 0; }
+  }
+  .vin-scan-line {
+    position: absolute;
+    left: 14px; right: 14px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--primary), rgba(255,56,92,.45), transparent);
+    top: 10px;
+    pointer-events: none;
+    animation: scanLine 3.2s ease-in-out infinite;
+    box-shadow: 0 0 14px 3px rgba(255,56,92,.28);
+    border-radius: 1px;
+    z-index: 2;
+  }
+
+  /* VIN report-style preview rows */
+  .vin-report-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 9px 13px;
+    margin-bottom: 5px;
+    background: rgba(255,255,255,.05);
+    border-radius: 10px;
+    filter: blur(4px);
+    user-select: none;
+    pointer-events: none;
+  }
+  .vin-report-vin-chip {
+    display: flex; align-items: center; gap: 5px;
+    font-size: .7rem; font-weight: 700;
+    color: var(--primary); letter-spacing: .04em;
+    font-family: 'Courier New', monospace;
+  }
+  .vin-report-vin-chip i { font-size: .62rem; }
+  .vin-report-date {
+    display: flex; align-items: center; gap: 5px;
+    font-size: .68rem; color: rgba(255,255,255,.35);
+  }
+  .vin-report-rows {
+    display: flex; flex-direction: column; gap: 3px;
+    filter: blur(4px);
+    user-select: none; pointer-events: none;
+  }
+  .vin-report-row {
+    display: flex; align-items: center; gap: 11px;
+    padding: 9px 13px;
+    background: rgba(255,255,255,.04);
+    border-radius: 9px;
+  }
+  .vin-rr-icon { width: 22px; text-align: center; font-size: .88rem; flex-shrink: 0; }
+  .vin-rr-label { flex: 1; font-size: .76rem; color: rgba(255,255,255,.42); }
+  .vin-rr-val { font-size: .82rem; font-weight: 700; color: rgba(255,255,255,.9); flex-shrink: 0; }
+  .vin-lock-icon-wrap {
+    width: 52px; height: 52px;
+    background: rgba(255,56,92,.12);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 4px;
+  }
+  .vin-lock-title {
+    font-size: .95rem; font-weight: 800; color: #fff; margin-bottom: 2px;
+  }
+
   </style>
 </head>
 <body>
@@ -2964,6 +3103,11 @@
     <div class="hero-shape geo geo-d"></div>
     <div class="hero-shape geo geo-e"></div>
     <div class="hero-shape geo geo-f"></div>
+    <!-- Animated travel icons -->
+    <div class="hero-shape hero-plane"><i class="fa-solid fa-plane"></i></div>
+    <div class="hero-shape hero-travel-icon hero-icon-globe"><i class="fa-solid fa-globe"></i></div>
+    <div class="hero-shape hero-travel-icon hero-icon-map"><i class="fa-solid fa-map-location-dot"></i></div>
+    <div class="hero-shape hero-travel-icon hero-icon-car"><i class="fa-solid fa-car-side"></i></div>
     <div class="hero-content">
       <div class="hero-tag">
         <i class="fa-solid fa-star"></i> #1 Insurance & Travel Agency in the USA
@@ -3276,7 +3420,11 @@
           <p class="section-subtitle">Cotiza en minutos, elige el plan perfecto y viaja tranquilo. Trabajamos con las aseguradoras más confiables del mercado.</p>
           <div class="insurance-features">
             <div class="insurance-feature">
-              <div class="ins-icon"><i class="fa-solid fa-shield-halved"></i></div>
+              <div class="ins-icon ins-icon-pulse">
+                <div class="ins-pulse-ring"></div>
+                <div class="ins-pulse-ring ins-pulse-ring-2"></div>
+                <i class="fa-solid fa-shield-halved"></i>
+              </div>
               <div class="ins-text">
                 <h4>Cobertura total</h4>
                 <p>Daños propios, terceros, robo, desastres naturales y asistencia vial.</p>
@@ -3419,6 +3567,7 @@
 
       <!-- Scanner card -->
       <div class="vin-scanner-card reveal reveal-delay-1">
+        <div class="vin-scan-line"></div>
         <div class="vin-scanner-label">Buscador de VIN</div>
         <div class="vin-scanner-title">Escanear VIN del vehículo</div>
         <div class="vin-scanner-sub">Ingresa el número VIN de 17 dígitos del auto que deseas verificar</div>
@@ -3438,31 +3587,48 @@
           <div class="vin-stat-pill"><i class="fa-solid fa-circle-check"></i> Recalls del fabricante</div>
         </div>
 
-        <!-- Preview (blurred) -->
+        <!-- Preview (report-style, blurred) -->
         <div class="vin-preview-label">Vista previa del reporte</div>
         <div class="vin-preview">
-          <div class="vin-preview-grid">
-            <div class="vin-preview-cell">
-              <div class="vin-preview-cell-icon">💥</div>
-              <div class="vin-preview-cell-val" id="vinPrevAccidents">2</div>
-              <div class="vin-preview-cell-key">Accidentes</div>
+          <div class="vin-report-header">
+            <div class="vin-report-vin-chip"><i class="fa-solid fa-barcode"></i> 1HGBH41JXMN109186</div>
+            <div class="vin-report-date"><i class="fa-regular fa-calendar"></i> Resultado inmediato</div>
+          </div>
+          <div class="vin-report-rows">
+            <div class="vin-report-row">
+              <div class="vin-rr-icon"><i class="fa-solid fa-car-burst" style="color:#ef4444"></i></div>
+              <div class="vin-rr-label">Accidentes reportados</div>
+              <div class="vin-rr-val" id="vinPrevAccidents">2 eventos</div>
             </div>
-            <div class="vin-preview-cell">
-              <div class="vin-preview-cell-icon">👤</div>
-              <div class="vin-preview-cell-val" id="vinPrevOwners">3</div>
-              <div class="vin-preview-cell-key">Dueños</div>
+            <div class="vin-report-row">
+              <div class="vin-rr-icon"><i class="fa-solid fa-users" style="color:#f59e0b"></i></div>
+              <div class="vin-rr-label">Dueños anteriores</div>
+              <div class="vin-rr-val" id="vinPrevOwners">3 dueños</div>
             </div>
-            <div class="vin-preview-cell">
-              <div class="vin-preview-cell-icon">🛡️</div>
-              <div class="vin-preview-cell-val" id="vinPrevStatus">Limpio</div>
-              <div class="vin-preview-cell-key">Estado robo</div>
+            <div class="vin-report-row">
+              <div class="vin-rr-icon"><i class="fa-solid fa-circle-check" style="color:#22c55e"></i></div>
+              <div class="vin-rr-label">Estado de robo</div>
+              <div class="vin-rr-val" id="vinPrevStatus">Limpio</div>
+            </div>
+            <div class="vin-report-row">
+              <div class="vin-rr-icon"><i class="fa-solid fa-gauge-high" style="color:#818cf8"></i></div>
+              <div class="vin-rr-label">Kilometraje registrado</div>
+              <div class="vin-rr-val">142,380 km</div>
+            </div>
+            <div class="vin-report-row">
+              <div class="vin-rr-icon"><i class="fa-solid fa-triangle-exclamation" style="color:#f59e0b"></i></div>
+              <div class="vin-rr-label">Recalls activos</div>
+              <div class="vin-rr-val">1 pendiente</div>
             </div>
           </div>
           <div class="vin-preview-lock">
-            <i class="fa-solid fa-lock"></i>
-            <span>Suscríbete para ver el reporte completo</span>
+            <div class="vin-lock-icon-wrap">
+              <i class="fa-solid fa-lock"></i>
+            </div>
+            <div class="vin-lock-title">Reporte protegido</div>
+            <span>Solo <strong>$1.99</strong> por reporte completo</span>
             <button class="vin-unlock-cta" onclick="openVinModal()">
-              <i class="fa-solid fa-unlock"></i> Desbloquear reporte
+              <i class="fa-solid fa-unlock"></i> Desbloquear por $1.99
             </button>
           </div>
         </div>
