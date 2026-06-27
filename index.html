@@ -1299,19 +1299,26 @@
     .trust-logo {
       display: inline-flex;
       align-items: center;
+      justify-content: center;
+      padding: 10px 22px;
+      border: 1.5px solid #e5e7eb;
+      border-radius: 10px;
+      background: #fafafa;
+      font-size: .82rem;
+      font-weight: 800;
+      letter-spacing: .03em;
+      color: #555;
+      white-space: nowrap;
+      text-decoration: none;
       transition: all var(--transition);
-      opacity: .7;
-      filter: grayscale(1);
+      gap: 7px;
     }
     .trust-logo:hover {
-      opacity: 1;
-      filter: grayscale(0);
+      border-color: var(--primary);
+      color: var(--primary);
+      background: #fff;
       transform: translateY(-2px);
-    }
-    .trust-logo img {
-      height: 44px;
-      width: auto;
-      display: block;
+      box-shadow: 0 4px 12px rgba(255,56,92,.12);
     }
 
     /* =====================
@@ -3302,23 +3309,27 @@
         <span class="trust-label">Trusted partners &amp; carriers</span>
         <div class="trust-logos">
           <div class="trust-logos-track" aria-hidden="true">
-            <a href="#" class="trust-logo"><img src="logos/geico.svg" alt="GEICO"/></a>
-            <a href="#" class="trust-logo"><img src="logos/statefarm.svg" alt="State Farm"/></a>
-            <a href="#" class="trust-logo"><img src="logos/progressive.svg" alt="Progressive"/></a>
-            <a href="#" class="trust-logo"><img src="logos/allstate.svg" alt="Allstate"/></a>
-            <a href="#" class="trust-logo"><img src="logos/libertymutual.svg" alt="Liberty Mutual"/></a>
-            <a href="#" class="trust-logo"><img src="logos/delta.svg" alt="Delta"/></a>
-            <a href="#" class="trust-logo"><img src="logos/american.svg" alt="American Airlines"/></a>
-            <a href="#" class="trust-logo"><img src="logos/expedia.svg" alt="Expedia"/></a>
+            <a href="#" class="trust-logo"><i class="fa-solid fa-shield-halved" style="color:#00a0c6"></i> GEICO</a>
+            <a href="#" class="trust-logo"><i class="fa-solid fa-shield-halved" style="color:#c8102e"></i> State Farm</a>
+            <a href="#" class="trust-logo"><i class="fa-solid fa-shield-halved" style="color:#0066b2"></i> Progressive</a>
+            <a href="#" class="trust-logo"><i class="fa-solid fa-shield-halved" style="color:#0033a0"></i> Allstate</a>
+            <a href="#" class="trust-logo"><i class="fa-solid fa-shield-halved" style="color:#ffd100"></i> Liberty Mutual</a>
+            <a href="#" class="trust-logo"><i class="fa-solid fa-plane" style="color:#003366"></i> Delta</a>
+            <a href="#" class="trust-logo"><i class="fa-solid fa-plane" style="color:#b41e8e"></i> American Airlines</a>
+            <a href="#" class="trust-logo"><i class="fa-solid fa-globe" style="color:#f5a623"></i> Expedia</a>
+            <a href="#" class="trust-logo"><i class="fa-solid fa-umbrella" style="color:#0077b6"></i> Travelers</a>
+            <a href="#" class="trust-logo"><i class="fa-solid fa-plane" style="color:#024">United Airlines</a>
             <!-- duplicate for seamless loop -->
-            <a href="#" class="trust-logo"><img src="logos/geico.svg" alt="GEICO"/></a>
-            <a href="#" class="trust-logo"><img src="logos/statefarm.svg" alt="State Farm"/></a>
-            <a href="#" class="trust-logo"><img src="logos/progressive.svg" alt="Progressive"/></a>
-            <a href="#" class="trust-logo"><img src="logos/allstate.svg" alt="Allstate"/></a>
-            <a href="#" class="trust-logo"><img src="logos/libertymutual.svg" alt="Liberty Mutual"/></a>
-            <a href="#" class="trust-logo"><img src="logos/delta.svg" alt="Delta"/></a>
-            <a href="#" class="trust-logo"><img src="logos/american.svg" alt="American Airlines"/></a>
-            <a href="#" class="trust-logo"><img src="logos/expedia.svg" alt="Expedia"/></a>
+            <a href="#" class="trust-logo"><i class="fa-solid fa-shield-halved" style="color:#00a0c6"></i> GEICO</a>
+            <a href="#" class="trust-logo"><i class="fa-solid fa-shield-halved" style="color:#c8102e"></i> State Farm</a>
+            <a href="#" class="trust-logo"><i class="fa-solid fa-shield-halved" style="color:#0066b2"></i> Progressive</a>
+            <a href="#" class="trust-logo"><i class="fa-solid fa-shield-halved" style="color:#0033a0"></i> Allstate</a>
+            <a href="#" class="trust-logo"><i class="fa-solid fa-shield-halved" style="color:#ffd100"></i> Liberty Mutual</a>
+            <a href="#" class="trust-logo"><i class="fa-solid fa-plane" style="color:#003366"></i> Delta</a>
+            <a href="#" class="trust-logo"><i class="fa-solid fa-plane" style="color:#b41e8e"></i> American Airlines</a>
+            <a href="#" class="trust-logo"><i class="fa-solid fa-globe" style="color:#f5a623"></i> Expedia</a>
+            <a href="#" class="trust-logo"><i class="fa-solid fa-umbrella" style="color:#0077b6"></i> Travelers</a>
+            <a href="#" class="trust-logo"><i class="fa-solid fa-plane" style="color:#024">United Airlines</a>
           </div>
         </div>
       </div>
