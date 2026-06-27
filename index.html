@@ -3182,6 +3182,58 @@
   .fact-card-cta i { font-size: .7rem; }
 
   /* ==========================================
+     ¿SABÍAS QUE? INLINE FACTS
+  ========================================== */
+  .offer-fact {
+    display: flex;
+    align-items: flex-start;
+    gap: 9px;
+    padding: 11px 16px 12px;
+    background: #fffbf0;
+    border-bottom: 1px solid #f0ece0;
+  }
+  .offer-fact-icon {
+    font-size: .9rem;
+    flex-shrink: 0;
+    margin-top: 1px;
+    color: #e6a817;
+  }
+  .offer-fact-body {
+    flex: 1;
+    min-width: 0;
+  }
+  .offer-fact-label {
+    font-size: .6rem;
+    font-weight: 800;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: #b38600;
+    display: block;
+    margin-bottom: 3px;
+  }
+  .offer-fact-text {
+    font-size: .76rem;
+    color: #555;
+    line-height: 1.5;
+    margin: 0;
+  }
+  .offer-fact-text strong { color: #333; }
+
+  /* Destination card inline facts */
+  .dest-fact {
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+    padding: 8px 12px 10px;
+    background: rgba(0,0,0,.55);
+    font-size: .71rem;
+    color: rgba(255,255,255,.82);
+    line-height: 1.45;
+  }
+  .dest-fact i { color: #FFD166; flex-shrink: 0; font-size: .65rem; margin-top: 2px; }
+  .dest-fact strong { color: #FFD166; }
+
+  /* ==========================================
      EXTRA ANIMATIONS
   ========================================== */
 
@@ -3551,6 +3603,13 @@
             <span class="offer-wish" onclick="event.stopPropagation();toggleWish(this)"><i class="fa-regular fa-heart"></i></span>
             <div class="offer-card-hover-cta"><i class="fa-brands fa-whatsapp"></i> Consultar por WhatsApp</div>
           </div>
+          <div class="offer-fact">
+            <span class="offer-fact-icon">💡</span>
+            <div class="offer-fact-body">
+              <span class="offer-fact-label">¿Sabías que? · Grecia</span>
+              <p class="offer-fact-text">Santorini fue formada por una de las <strong>erupciones volcánicas más grandes de la historia</strong>. Grecia tiene más de 6,000 islas, pero solo 227 están habitadas.</p>
+            </div>
+          </div>
           <div class="offer-body">
             <div class="offer-location"><i class="fa-solid fa-location-dot"></i> Grecia</div>
             <div class="offer-title">Santorini: Lujo & Atardecer</div>
@@ -3576,6 +3635,13 @@
             <span class="offer-badge green">Todo incluido</span>
             <span class="offer-wish" onclick="event.stopPropagation();toggleWish(this)"><i class="fa-regular fa-heart"></i></span>
             <div class="offer-card-hover-cta"><i class="fa-brands fa-whatsapp"></i> Consultar por WhatsApp</div>
+          </div>
+          <div class="offer-fact">
+            <span class="offer-fact-icon">💡</span>
+            <div class="offer-fact-body">
+              <span class="offer-fact-label">¿Sabías que? · Italia</span>
+              <p class="offer-fact-text">Italia tiene <strong>más sitios UNESCO que cualquier otro país</strong> del mundo — 58 en total. Roma tiene más fuentes monumentales que cualquier otra ciudad del planeta.</p>
+            </div>
           </div>
           <div class="offer-body">
             <div class="offer-location"><i class="fa-solid fa-location-dot"></i> Italia</div>
@@ -3603,6 +3669,13 @@
             <span class="offer-wish" onclick="event.stopPropagation();toggleWish(this)"><i class="fa-regular fa-heart"></i></span>
             <div class="offer-card-hover-cta"><i class="fa-brands fa-whatsapp"></i> Consultar por WhatsApp</div>
           </div>
+          <div class="offer-fact">
+            <span class="offer-fact-icon">💡</span>
+            <div class="offer-fact-body">
+              <span class="offer-fact-label">¿Sabías que? · Japón</span>
+              <p class="offer-fact-text">El metro de Tokio transporta <strong>más de 13 millones de pasajeros al día</strong> — el más concurrido del mundo. Japón registra más de 1,500 terremotos al año.</p>
+            </div>
+          </div>
           <div class="offer-body">
             <div class="offer-location"><i class="fa-solid fa-location-dot"></i> Japón</div>
             <div class="offer-title">Tokio: Tradición & Modernidad</div>
@@ -3628,6 +3701,13 @@
             <span class="offer-badge">-25% OFF</span>
             <span class="offer-wish" onclick="event.stopPropagation();toggleWish(this)"><i class="fa-regular fa-heart"></i></span>
             <div class="offer-card-hover-cta"><i class="fa-brands fa-whatsapp"></i> Consultar por WhatsApp</div>
+          </div>
+          <div class="offer-fact">
+            <span class="offer-fact-icon">💡</span>
+            <div class="offer-fact-body">
+              <span class="offer-fact-label">¿Sabías que? · México</span>
+              <p class="offer-fact-text">Cancún era una <strong>isla deshabitada en 1974</strong>. Bajo su mar está el <strong>segundo arrecife de coral más grande del mundo</strong> y hoy recibe más de 6 millones de turistas al año.</p>
+            </div>
           </div>
           <div class="offer-body">
             <div class="offer-location"><i class="fa-solid fa-location-dot"></i> México</div>
@@ -3668,6 +3748,7 @@
             <div class="dest-name">París</div>
             <div class="dest-country">Francia</div>
             <span class="dest-price">Desde $1,200</span>
+            <div class="dest-fact"><i class="fa-solid fa-lightbulb"></i> Francia es el <strong>país más visitado del mundo</strong>. La Torre Eiffel crece 15 cm en verano por expansión térmica.</div>
             <span class="dest-explore-btn"><i class="fa-brands fa-whatsapp"></i> Consultar</span>
           </div>
         </div>
@@ -3677,6 +3758,7 @@
             <div class="dest-name">Nueva York</div>
             <div class="dest-country">Estados Unidos</div>
             <span class="dest-price">Desde $850</span>
+            <div class="dest-fact"><i class="fa-solid fa-lightbulb"></i> NYC habla <strong>más de 800 idiomas</strong> — la ciudad más lingüísticamente diversa del planeta.</div>
             <span class="dest-explore-btn"><i class="fa-brands fa-whatsapp"></i> Consultar</span>
           </div>
         </div>
@@ -3686,6 +3768,7 @@
             <div class="dest-name">Tailandia</div>
             <div class="dest-country">Bangkok &amp; Phuket</div>
             <span class="dest-price">Desde $1,290</span>
+            <div class="dest-fact"><i class="fa-solid fa-lightbulb"></i> Bangkok tiene el <strong>nombre oficial más largo del mundo</strong>: 169 letras en tailandés. Tiene más de 40,000 templos budistas.</div>
             <span class="dest-explore-btn"><i class="fa-brands fa-whatsapp"></i> Consultar</span>
           </div>
         </div>
@@ -3695,6 +3778,7 @@
             <div class="dest-name">Machu Picchu</div>
             <div class="dest-country">Perú</div>
             <span class="dest-price">Desde $980</span>
+            <div class="dest-fact"><i class="fa-solid fa-lightbulb"></i> Construida en 1450 a 2,430m de altura. Sus piedras encajan tan perfectamente que <strong>ni una hoja de papel cabe entre ellas</strong>.</div>
             <span class="dest-explore-btn"><i class="fa-brands fa-whatsapp"></i> Consultar</span>
           </div>
         </div>
@@ -3704,104 +3788,10 @@
             <div class="dest-name">Dubai</div>
             <div class="dest-country">Emiratos Árabes</div>
             <span class="dest-price">Desde $2,100</span>
+            <div class="dest-fact"><i class="fa-solid fa-lightbulb"></i> En los años 60 era un pueblo pesquero. Hoy alberga el <strong>edificio más alto del mundo</strong>: el Burj Khalifa con 828 metros.</div>
             <span class="dest-explore-btn"><i class="fa-brands fa-whatsapp"></i> Consultar</span>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ¿SABÍAS QUE? -->
-  <section class="facts-section">
-    <div class="container">
-      <div class="facts-header reveal">
-        <div class="badge">Turismo &amp; Cultura</div>
-        <h2 class="section-title">¿Sabías que...?</h2>
-        <p class="section-subtitle">Curiosidades fascinantes sobre los destinos más increíbles del mundo</p>
-      </div>
-      <div class="facts-grid">
-
-        <!-- Grecia -->
-        <div class="fact-card reveal" style="--fact-color:#1a9be8">
-          <span class="fact-card-flag">🇬🇷</span>
-          <div class="fact-card-country"><i class="fa-solid fa-location-dot"></i> Grecia</div>
-          <div class="fact-card-label">¿Sabías que?</div>
-          <p class="fact-card-text">Grecia tiene más de <strong>6,000 islas</strong>, aunque solo 227 están habitadas. Santorini fue formada por una de las erupciones volcánicas más grandes de la historia, lo que le dio su icónica forma de media luna.</p>
-          <button class="fact-card-cta" onclick="openWhatsApp('Santorini, Grecia')"><i class="fa-brands fa-whatsapp"></i> Consultar paquete <i class="fa-solid fa-arrow-right"></i></button>
-        </div>
-
-        <!-- Italia -->
-        <div class="fact-card reveal reveal-delay-1" style="--fact-color:#e84a1a">
-          <span class="fact-card-flag">🇮🇹</span>
-          <div class="fact-card-country"><i class="fa-solid fa-location-dot"></i> Italia</div>
-          <div class="fact-card-label">¿Sabías que?</div>
-          <p class="fact-card-text">Italia tiene <strong>más sitios UNESCO</strong> que cualquier otro país del mundo — 58 en total. Roma fue fundada hace más de 2,750 años y tiene más fuentes monumentales que cualquier otra ciudad del planeta.</p>
-          <button class="fact-card-cta" onclick="openWhatsApp('Roma & Florencia, Italia')"><i class="fa-brands fa-whatsapp"></i> Consultar paquete <i class="fa-solid fa-arrow-right"></i></button>
-        </div>
-
-        <!-- Japón -->
-        <div class="fact-card reveal reveal-delay-2" style="--fact-color:#bc002d">
-          <span class="fact-card-flag">🇯🇵</span>
-          <div class="fact-card-country"><i class="fa-solid fa-location-dot"></i> Japón</div>
-          <div class="fact-card-label">¿Sabías que?</div>
-          <p class="fact-card-text">El metro de Tokio transporta más de <strong>13 millones de pasajeros al día</strong>, siendo el más concurrido del mundo. Japón tiene más de <strong>1,500 terremotos al año</strong> y los edificios están diseñados para resistirlos.</p>
-          <button class="fact-card-cta" onclick="openWhatsApp('Tokio, Japón')"><i class="fa-brands fa-whatsapp"></i> Consultar paquete <i class="fa-solid fa-arrow-right"></i></button>
-        </div>
-
-        <!-- México -->
-        <div class="fact-card reveal" style="--fact-color:#006847">
-          <span class="fact-card-flag">🇲🇽</span>
-          <div class="fact-card-country"><i class="fa-solid fa-location-dot"></i> México</div>
-          <div class="fact-card-label">¿Sabías que?</div>
-          <p class="fact-card-text">Cancún era una <strong>isla deshabitada en 1974</strong>. El gobierno mexicano la eligió para desarrollarla como destino turístico y hoy recibe más de 6 millones de visitantes al año. Bajo su mar hay el <strong>segundo arrecife de coral más grande del mundo</strong>.</p>
-          <button class="fact-card-cta" onclick="openWhatsApp('Cancún, México')"><i class="fa-brands fa-whatsapp"></i> Consultar paquete <i class="fa-solid fa-arrow-right"></i></button>
-        </div>
-
-        <!-- Francia -->
-        <div class="fact-card reveal reveal-delay-1" style="--fact-color:#0055a4">
-          <span class="fact-card-flag">🇫🇷</span>
-          <div class="fact-card-country"><i class="fa-solid fa-location-dot"></i> Francia</div>
-          <div class="fact-card-label">¿Sabías que?</div>
-          <p class="fact-card-text">Francia es el <strong>país más visitado del mundo</strong> con más de 89 millones de turistas al año. La Torre Eiffel crece hasta <strong>15 cm en verano</strong> debido a la expansión térmica del metal con el calor.</p>
-          <button class="fact-card-cta" onclick="openWhatsApp('París, Francia')"><i class="fa-brands fa-whatsapp"></i> Consultar paquete <i class="fa-solid fa-arrow-right"></i></button>
-        </div>
-
-        <!-- Tailandia -->
-        <div class="fact-card reveal reveal-delay-2" style="--fact-color:#a51931">
-          <span class="fact-card-flag">🇹🇭</span>
-          <div class="fact-card-country"><i class="fa-solid fa-location-dot"></i> Tailandia</div>
-          <div class="fact-card-label">¿Sabías que?</div>
-          <p class="fact-card-text">Bangkok tiene el <strong>nombre oficial más largo del mundo</strong>: "Krung Thep Maha Nakhon…" con 169 letras en tailandés. Tailandia tiene más de <strong>1,430 islas</strong> y más de 40,000 templos budistas.</p>
-          <button class="fact-card-cta" onclick="openWhatsApp('Tailandia — Bangkok & Phuket')"><i class="fa-brands fa-whatsapp"></i> Consultar paquete <i class="fa-solid fa-arrow-right"></i></button>
-        </div>
-
-        <!-- Perú -->
-        <div class="fact-card reveal" style="--fact-color:#d91023">
-          <span class="fact-card-flag">🇵🇪</span>
-          <div class="fact-card-country"><i class="fa-solid fa-location-dot"></i> Perú</div>
-          <div class="fact-card-label">¿Sabías que?</div>
-          <p class="fact-card-text">Machu Picchu fue construida hacia <strong>1450 por los incas</strong> y permaneció desconocida para el mundo hasta 1911. Está a 2,430 metros de altura y sus piedras encajan tan perfectamente que <strong>ni una hoja de papel cabe entre ellas</strong>.</p>
-          <button class="fact-card-cta" onclick="openWhatsApp('Machu Picchu, Perú')"><i class="fa-brands fa-whatsapp"></i> Consultar paquete <i class="fa-solid fa-arrow-right"></i></button>
-        </div>
-
-        <!-- Dubai -->
-        <div class="fact-card reveal reveal-delay-1" style="--fact-color:#cf8d2e">
-          <span class="fact-card-flag">🇦🇪</span>
-          <div class="fact-card-country"><i class="fa-solid fa-location-dot"></i> Emiratos Árabes</div>
-          <div class="fact-card-label">¿Sabías que?</div>
-          <p class="fact-card-text">El Burj Khalifa de Dubai es el <strong>edificio más alto del mundo con 828 metros</strong>. En los años 60, Dubai era un pequeño pueblo pesquero. Hoy tiene el <strong>centro comercial más grande del mundo</strong> y un parque de nieve bajo techo en pleno desierto.</p>
-          <button class="fact-card-cta" onclick="openWhatsApp('Dubai, Emiratos Árabes')"><i class="fa-brands fa-whatsapp"></i> Consultar paquete <i class="fa-solid fa-arrow-right"></i></button>
-        </div>
-
-        <!-- Nueva York -->
-        <div class="fact-card reveal reveal-delay-2" style="--fact-color:#003087">
-          <span class="fact-card-flag">🇺🇸</span>
-          <div class="fact-card-country"><i class="fa-solid fa-location-dot"></i> Estados Unidos</div>
-          <div class="fact-card-label">¿Sabías que?</div>
-          <p class="fact-card-text">Nueva York tiene más de <strong>800 idiomas hablados</strong>, siendo la ciudad más lingüísticamente diversa del planeta. La Estatua de la Libertad fue un regalo de Francia en 1886 y sus pies miden <strong>talla 879</strong> en calzado estándar.</p>
-          <button class="fact-card-cta" onclick="openWhatsApp('Nueva York, Estados Unidos')"><i class="fa-brands fa-whatsapp"></i> Consultar paquete <i class="fa-solid fa-arrow-right"></i></button>
-        </div>
-
       </div>
     </div>
   </section>
