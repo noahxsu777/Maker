@@ -796,6 +796,34 @@
     }
     .form-note i { color: var(--secondary); }
 
+    .ins-state-notice {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(0,166,153,.08);
+      border: 1px solid rgba(0,166,153,.22);
+      border-radius: 12px;
+      padding: 12px 16px;
+      margin-bottom: 20px;
+      margin-top: 4px;
+    }
+    .ins-state-notice i {
+      font-size: 1.15rem;
+      color: var(--secondary);
+      flex-shrink: 0;
+    }
+    .ins-state-notice strong {
+      display: block;
+      font-size: .84rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 2px;
+    }
+    .ins-state-notice span {
+      font-size: .76rem;
+      color: var(--gray);
+    }
+
     /* =====================
        BENEFITS
     ===================== */
@@ -3239,12 +3267,12 @@
 
       <div class="offers-grid">
         <!-- Card 1 -->
-        <div class="offer-card reveal">
+        <div class="offer-card reveal" onclick="openWhatsApp('Santorini, Grecia')" style="cursor:pointer">
           <div class="offer-img-wrap">
             <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80" alt="Santorini" loading="lazy" />
             <span class="offer-badge">-30% OFF</span>
-            <span class="offer-wish" onclick="toggleWish(this)"><i class="fa-regular fa-heart"></i></span>
-            <div class="offer-card-hover-cta"><i class="fa-solid fa-arrow-right"></i> Ver detalles del paquete</div>
+            <span class="offer-wish" onclick="event.stopPropagation();toggleWish(this)"><i class="fa-regular fa-heart"></i></span>
+            <div class="offer-card-hover-cta"><i class="fa-brands fa-whatsapp"></i> Consultar por WhatsApp</div>
           </div>
           <div class="offer-body">
             <div class="offer-location"><i class="fa-solid fa-location-dot"></i> Grecia</div>
@@ -3265,12 +3293,12 @@
         </div>
 
         <!-- Card 2 -->
-        <div class="offer-card reveal reveal-delay-1">
+        <div class="offer-card reveal reveal-delay-1" onclick="openWhatsApp('Roma & Florencia, Italia')" style="cursor:pointer">
           <div class="offer-img-wrap">
             <img src="https://images.unsplash.com/photo-1552832230-c0197dd311b5?w=600&q=80" alt="Roma" loading="lazy" />
             <span class="offer-badge green">Todo incluido</span>
-            <span class="offer-wish" onclick="toggleWish(this)"><i class="fa-regular fa-heart"></i></span>
-            <div class="offer-card-hover-cta"><i class="fa-solid fa-arrow-right"></i> Ver detalles del paquete</div>
+            <span class="offer-wish" onclick="event.stopPropagation();toggleWish(this)"><i class="fa-regular fa-heart"></i></span>
+            <div class="offer-card-hover-cta"><i class="fa-brands fa-whatsapp"></i> Consultar por WhatsApp</div>
           </div>
           <div class="offer-body">
             <div class="offer-location"><i class="fa-solid fa-location-dot"></i> Italia</div>
@@ -3291,12 +3319,12 @@
         </div>
 
         <!-- Card 3 -->
-        <div class="offer-card reveal reveal-delay-2">
+        <div class="offer-card reveal reveal-delay-2" onclick="openWhatsApp('Tokio, Japón')" style="cursor:pointer">
           <div class="offer-img-wrap">
             <img src="https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?w=600&q=80" alt="Tokio" loading="lazy" />
             <span class="offer-badge gold">Luna de miel</span>
-            <span class="offer-wish" onclick="toggleWish(this)"><i class="fa-regular fa-heart"></i></span>
-            <div class="offer-card-hover-cta"><i class="fa-solid fa-arrow-right"></i> Ver detalles del paquete</div>
+            <span class="offer-wish" onclick="event.stopPropagation();toggleWish(this)"><i class="fa-regular fa-heart"></i></span>
+            <div class="offer-card-hover-cta"><i class="fa-brands fa-whatsapp"></i> Consultar por WhatsApp</div>
           </div>
           <div class="offer-body">
             <div class="offer-location"><i class="fa-solid fa-location-dot"></i> Japón</div>
@@ -3317,12 +3345,12 @@
         </div>
 
         <!-- Card 4 -->
-        <div class="offer-card reveal reveal-delay-3">
+        <div class="offer-card reveal reveal-delay-3" onclick="openWhatsApp('Cancún, México')" style="cursor:pointer">
           <div class="offer-img-wrap">
             <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=80" alt="Cancún" loading="lazy" />
             <span class="offer-badge">-25% OFF</span>
-            <span class="offer-wish" onclick="toggleWish(this)"><i class="fa-regular fa-heart"></i></span>
-            <div class="offer-card-hover-cta"><i class="fa-solid fa-arrow-right"></i> Ver detalles del paquete</div>
+            <span class="offer-wish" onclick="event.stopPropagation();toggleWish(this)"><i class="fa-regular fa-heart"></i></span>
+            <div class="offer-card-hover-cta"><i class="fa-brands fa-whatsapp"></i> Consultar por WhatsApp</div>
           </div>
           <div class="offer-body">
             <div class="offer-location"><i class="fa-solid fa-location-dot"></i> México</div>
@@ -3357,49 +3385,49 @@
         <a href="#" class="see-all">Ver todos <i class="fa-solid fa-arrow-right"></i></a>
       </div>
       <div class="destinations-grid reveal">
-        <div class="dest-card">
+        <div class="dest-card" onclick="openWhatsApp('París, Francia')" style="cursor:pointer">
           <img src="https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=800&q=80" alt="París" loading="lazy" />
           <div class="dest-card-overlay">
             <div class="dest-name">París</div>
             <div class="dest-country">Francia</div>
             <span class="dest-price">Desde $1,200</span>
-            <span class="dest-explore-btn"><i class="fa-solid fa-arrow-right"></i> Explorar</span>
+            <span class="dest-explore-btn"><i class="fa-brands fa-whatsapp"></i> Consultar</span>
           </div>
         </div>
-        <div class="dest-card">
+        <div class="dest-card" onclick="openWhatsApp('Nueva York, Estados Unidos')" style="cursor:pointer">
           <img src="https://images.unsplash.com/photo-1539037116277-4db20889f2d4?w=600&q=80" alt="Nueva York" loading="lazy" />
           <div class="dest-card-overlay">
             <div class="dest-name">Nueva York</div>
             <div class="dest-country">Estados Unidos</div>
             <span class="dest-price">Desde $850</span>
-            <span class="dest-explore-btn"><i class="fa-solid fa-arrow-right"></i> Explorar</span>
+            <span class="dest-explore-btn"><i class="fa-brands fa-whatsapp"></i> Consultar</span>
           </div>
         </div>
-        <div class="dest-card">
+        <div class="dest-card" onclick="openWhatsApp('Tailandia — Bangkok & Phuket')" style="cursor:pointer">
           <img src="https://images.unsplash.com/photo-1552733407-5d5c46c3bb3b?w=600&q=80" alt="Tailandia" loading="lazy" style="object-position: center 40%"/>
           <div class="dest-card-overlay">
             <div class="dest-name">Tailandia</div>
             <div class="dest-country">Bangkok &amp; Phuket</div>
             <span class="dest-price">Desde $1,290</span>
-            <span class="dest-explore-btn"><i class="fa-solid fa-arrow-right"></i> Explorar</span>
+            <span class="dest-explore-btn"><i class="fa-brands fa-whatsapp"></i> Consultar</span>
           </div>
         </div>
-        <div class="dest-card">
+        <div class="dest-card" onclick="openWhatsApp('Machu Picchu, Perú')" style="cursor:pointer">
           <img src="https://images.unsplash.com/photo-1526392060635-9d6019884377?w=600&q=80" alt="Machu Picchu" loading="lazy" style="object-position: center 30%"/>
           <div class="dest-card-overlay">
             <div class="dest-name">Machu Picchu</div>
             <div class="dest-country">Perú</div>
             <span class="dest-price">Desde $980</span>
-            <span class="dest-explore-btn"><i class="fa-solid fa-arrow-right"></i> Explorar</span>
+            <span class="dest-explore-btn"><i class="fa-brands fa-whatsapp"></i> Consultar</span>
           </div>
         </div>
-        <div class="dest-card">
+        <div class="dest-card" onclick="openWhatsApp('Dubai, Emiratos Árabes')" style="cursor:pointer">
           <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=600&q=80" alt="Dubai" loading="lazy" />
           <div class="dest-card-overlay">
             <div class="dest-name">Dubai</div>
             <div class="dest-country">Emiratos Árabes</div>
             <span class="dest-price">Desde $2,100</span>
-            <span class="dest-explore-btn"><i class="fa-solid fa-arrow-right"></i> Explorar</span>
+            <span class="dest-explore-btn"><i class="fa-brands fa-whatsapp"></i> Consultar</span>
           </div>
         </div>
       </div>
@@ -3456,8 +3484,8 @@
             <button class="btn btn-white" onclick="document.getElementById('insForm').scrollIntoView({behavior:'smooth'})">
               <i class="fa-solid fa-calculator"></i> Cotizar gratis
             </button>
-            <button class="btn btn-outline" style="border-color:rgba(255,255,255,.3);color:#fff" onclick="showToast('Conectando con un asesor...')">
-              <i class="fa-solid fa-phone"></i> Hablar con asesor
+            <button class="btn btn-outline" style="border-color:rgba(255,255,255,.3);color:#fff" onclick="openWhatsAppAdvisor('Hola, quisiera hablar con un asesor sobre seguro de auto en Stelvio Broker LLC.')">
+              <i class="fa-brands fa-whatsapp"></i> Hablar con asesor
             </button>
           </div>
         </div>
@@ -3466,6 +3494,13 @@
         <div class="insurance-form-card reveal reveal-delay-1" id="insForm">
           <div class="form-title">Cotiza tu seguro ahora</div>
           <div class="form-subtitle">Completamente gratis y sin compromiso</div>
+          <div class="ins-state-notice">
+            <i class="fa-solid fa-map-location-dot"></i>
+            <div>
+              <strong>Disponible en Connecticut (CT)</strong>
+              <span>Próximamente: Massachusetts · New York · Florida · y más</span>
+            </div>
+          </div>
           <form id="quoteForm" action="https://formspree.io/f/mlgyjyky" method="POST" novalidate>
             <input type="hidden" name="_subject" value="Nueva cotización de seguro — Stelvio Broker LLC"/>
             <div class="form-row">
@@ -4450,6 +4485,17 @@
     setInterval(nextSlide, 5000);
 
     // ===== WISHLIST TOGGLE =====
+    // ===== WHATSAPP =====
+    const WA_NUMBER = '18603194587';
+    function openWhatsApp(pkg) {
+      const msg = encodeURIComponent(`Hola, me interesa el paquete de viaje a ${pkg}. ¿Me pueden dar más información y precios disponibles?`);
+      window.open(`https://wa.me/${WA_NUMBER}?text=${msg}`, '_blank');
+    }
+    function openWhatsAppAdvisor(topic) {
+      const text = topic || 'Hola, quisiera hablar con un asesor de Stelvio Broker LLC. ¿Pueden ayudarme?';
+      window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(text)}`, '_blank');
+    }
+
     function toggleWish(el) {
       el.classList.toggle('active');
       const icon = el.querySelector('i');
