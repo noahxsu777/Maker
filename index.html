@@ -190,6 +190,16 @@
       color: #fff;
       font-size: 1rem;
     }
+    .logo-img {
+      height: 38px;
+      width: auto;
+      object-fit: contain;
+      display: block;
+    }
+    .logo-img-footer {
+      height: 38px;
+      filter: brightness(0) invert(1);
+    }
     .logo span { color: var(--dark); }
     .nav-links {
       display: flex;
@@ -323,7 +333,12 @@
     }
     .hero h1 em {
       font-style: normal;
-      color: #FFD166;
+      background: linear-gradient(90deg, #FFD166, #FF6B6B, #FFD166, #fff, #FFD166);
+      background-size: 300% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: textShimmer 5s linear infinite;
     }
     .hero p {
       font-size: clamp(1rem, 2vw, 1.25rem);
@@ -1272,9 +1287,10 @@
     .trust-logos {
       display: flex;
       align-items: center;
-      justify-content: center;
-      gap: 40px;
-      flex-wrap: wrap;
+      overflow: hidden;
+      width: 100%;
+      mask-image: linear-gradient(90deg, transparent, #fff 12%, #fff 88%, transparent);
+      -webkit-mask-image: linear-gradient(90deg, transparent, #fff 12%, #fff 88%, transparent);
     }
     .trust-logo {
       display: inline-flex;
@@ -3063,6 +3079,147 @@
     font-size: .95rem; font-weight: 800; color: #fff; margin-bottom: 2px;
   }
 
+  /* ==========================================
+     EXTRA ANIMATIONS
+  ========================================== */
+
+  /* Hero title shimmer keyframe */
+  @keyframes textShimmer {
+    0%   { background-position: 0% center; }
+    100% { background-position: 300% center; }
+  }
+
+  /* Primary button glow pulse */
+  @keyframes btnGlow {
+    0%, 100% { box-shadow: 0 6px 24px rgba(255,56,92,.35); }
+    50%       { box-shadow: 0 8px 36px rgba(255,56,92,.7), 0 0 0 10px rgba(255,56,92,.06); }
+  }
+  .btn-primary {
+    animation: btnGlow 2.8s ease-in-out infinite;
+  }
+  .btn-primary:hover { animation: none; }
+
+  /* Floating hero micro-particles */
+  @keyframes particleRise {
+    0%   { transform: translateY(0) translateX(0) scale(0); opacity: 0; }
+    8%   { opacity: .9; transform: translateY(-12px) scale(1); }
+    100% { transform: translateY(-160px) translateX(22px) scale(.4); opacity: 0; }
+  }
+  @keyframes particleRise2 {
+    0%   { transform: translateY(0) translateX(0) scale(0); opacity: 0; }
+    8%   { opacity: .7; transform: translateY(-8px) translateX(-10px) scale(1); }
+    100% { transform: translateY(-190px) translateX(-40px) scale(.3); opacity: 0; }
+  }
+  .hero-particle {
+    position: absolute;
+    pointer-events: none;
+    z-index: 1;
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: rgba(255,255,255,.55);
+  }
+  .hp1 { bottom: 36%; left: 10%;  animation: particleRise  5s  ease-out infinite; }
+  .hp2 { bottom: 42%; left: 26%;  animation: particleRise2 7s  ease-out infinite 1s; }
+  .hp3 { bottom: 30%; right: 16%; animation: particleRise  6s  ease-out infinite 2s; background: rgba(255,56,92,.75); }
+  .hp4 { bottom: 44%; right: 28%; animation: particleRise2 8s  ease-out infinite .5s; background: rgba(0,166,153,.75); }
+  .hp5 { bottom: 34%; left: 44%;  animation: particleRise  5.5s ease-out infinite 3s; background: rgba(255,209,102,.75); }
+  .hp6 { bottom: 50%; right: 10%; animation: particleRise2 6.5s ease-out infinite 1.5s; }
+
+  /* Offer cards — lift on hover */
+  .offer-card {
+    transition: transform .35s cubic-bezier(.34,1.56,.64,1), box-shadow .3s ease;
+  }
+  .offer-card:hover {
+    transform: translateY(-12px) scale(1.025) !important;
+    box-shadow: 0 32px 64px rgba(0,0,0,.22) !important;
+  }
+
+  /* Destination cards — lift on hover */
+  .dest-card {
+    transition: transform .35s cubic-bezier(.34,1.56,.64,1);
+  }
+  .dest-card:hover { transform: scale(1.04); }
+
+  /* Benefit icon bounce when card enters viewport */
+  @keyframes iconBounce {
+    0%, 100% { transform: translateY(0); }
+    25%       { transform: translateY(-12px); }
+    55%       { transform: translateY(-6px); }
+    75%       { transform: translateY(-9px); }
+  }
+  .benefit-card.visible .benefit-icon {
+    animation: iconBounce .9s ease-out .25s both;
+  }
+
+  /* Testimonial cards — tilt on hover */
+  .testi-card {
+    transition: transform .3s ease, box-shadow .3s ease;
+  }
+  .testi-card:hover {
+    transform: rotate(.6deg) translateY(-8px);
+    box-shadow: 0 24px 52px rgba(0,0,0,.12) !important;
+  }
+
+  /* VIN grid background pulse */
+  @keyframes gridPulse {
+    0%, 100% { opacity: .5; }
+    50%       { opacity: .9; }
+  }
+  .vin-section::after { animation: gridPulse 5s ease-in-out infinite; }
+
+  /* Hero stats count-up shimmer underline */
+  @keyframes statUnderline {
+    0%   { transform: scaleX(0); }
+    100% { transform: scaleX(1); }
+  }
+  .hero-stat strong {
+    position: relative;
+    display: inline-block;
+  }
+  .hero-stat strong::after {
+    content: '';
+    position: absolute;
+    left: 0; bottom: -3px;
+    width: 100%; height: 2px;
+    background: var(--primary);
+    transform: scaleX(0);
+    transform-origin: left;
+    animation: statUnderline 1s cubic-bezier(.22,1,.36,1) 1.2s forwards;
+  }
+
+  /* Trust logos marquee */
+  @keyframes marquee {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  .trust-logos-track {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    animation: marquee 22s linear infinite;
+    width: max-content;
+  }
+  .trust-logos-track:hover { animation-play-state: paused; }
+
+  /* Section badge pulse dot */
+  @keyframes badgeDot {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50%       { opacity: .4; transform: scale(1.4); }
+  }
+  .badge::before {
+    animation: badgeDot 2s ease-in-out infinite;
+  }
+
+  /* Navbar logo hover subtle scale */
+  .logo-img { transition: transform .3s cubic-bezier(.34,1.56,.64,1); }
+  .logo-img:hover { transform: scale(1.06); }
+
+  /* WhatsApp floating button pulse */
+  @keyframes waPulse {
+    0%, 100% { box-shadow: 0 4px 20px rgba(37,211,102,.4); }
+    50%       { box-shadow: 0 4px 30px rgba(37,211,102,.75), 0 0 0 10px rgba(37,211,102,.07); }
+  }
+
   </style>
 </head>
 <body>
@@ -3081,8 +3238,7 @@
     <div class="container">
       <div class="navbar-inner">
         <a href="#" class="logo">
-          <div class="logo-icon"><i class="fa-solid fa-shield-halved"></i></div>
-          <span class="logo-wordmark"><em>Stelvio</em> Broker<span class="logo-llc">LLC</span></span>
+          <img src="https://dynamic.design.com/preview/logodraft/91504b52-6d7d-4daf-aacd-c577e845c706/image/large.png" alt="Stelvio Broker LLC" class="logo-img" />
         </a>
         <ul class="nav-links">
           <li><a href="#offers" class="active">Vuelos</a></li>
@@ -3131,6 +3287,13 @@
     <div class="hero-shape geo geo-d"></div>
     <div class="hero-shape geo geo-e"></div>
     <div class="hero-shape geo geo-f"></div>
+    <!-- Floating micro-particles -->
+    <div class="hero-particle hp1"></div>
+    <div class="hero-particle hp2"></div>
+    <div class="hero-particle hp3"></div>
+    <div class="hero-particle hp4"></div>
+    <div class="hero-particle hp5"></div>
+    <div class="hero-particle hp6"></div>
     <!-- Animated travel icons -->
     <div class="hero-shape hero-plane"><i class="fa-solid fa-plane"></i></div>
     <div class="hero-shape hero-travel-icon hero-icon-globe"><i class="fa-solid fa-globe"></i></div>
@@ -3144,15 +3307,15 @@
       <p>Viajes premium, seguros inteligentes y experiencias que recordarás para siempre. Tu aventura comienza aquí.</p>
       <div class="hero-stats">
         <div class="hero-stat">
-          <strong>50K+</strong>
+          <strong data-count="200" data-suffix="+">200+</strong>
           <span>Viajeros felices</span>
         </div>
         <div class="hero-stat">
-          <strong>120+</strong>
+          <strong data-count="120" data-suffix="+">120+</strong>
           <span>Destinos</span>
         </div>
         <div class="hero-stat">
-          <strong>98%</strong>
+          <strong data-count="98" data-suffix="%">98%</strong>
           <span>Satisfacción</span>
         </div>
         <div class="hero-stat">
@@ -3202,14 +3365,25 @@
       <div class="trust-inner">
         <span class="trust-label">Trusted partners &amp; carriers</span>
         <div class="trust-logos">
-          <a href="#" class="trust-logo"><img src="logos/geico.svg" alt="GEICO"/></a>
-          <a href="#" class="trust-logo"><img src="logos/statefarm.svg" alt="State Farm"/></a>
-          <a href="#" class="trust-logo"><img src="logos/progressive.svg" alt="Progressive"/></a>
-          <a href="#" class="trust-logo"><img src="logos/allstate.svg" alt="Allstate"/></a>
-          <a href="#" class="trust-logo"><img src="logos/libertymutual.svg" alt="Liberty Mutual"/></a>
-          <a href="#" class="trust-logo"><img src="logos/delta.svg" alt="Delta"/></a>
-          <a href="#" class="trust-logo"><img src="logos/american.svg" alt="American Airlines"/></a>
-          <a href="#" class="trust-logo"><img src="logos/expedia.svg" alt="Expedia"/></a>
+          <div class="trust-logos-track" aria-hidden="true">
+            <a href="#" class="trust-logo"><img src="logos/geico.svg" alt="GEICO"/></a>
+            <a href="#" class="trust-logo"><img src="logos/statefarm.svg" alt="State Farm"/></a>
+            <a href="#" class="trust-logo"><img src="logos/progressive.svg" alt="Progressive"/></a>
+            <a href="#" class="trust-logo"><img src="logos/allstate.svg" alt="Allstate"/></a>
+            <a href="#" class="trust-logo"><img src="logos/libertymutual.svg" alt="Liberty Mutual"/></a>
+            <a href="#" class="trust-logo"><img src="logos/delta.svg" alt="Delta"/></a>
+            <a href="#" class="trust-logo"><img src="logos/american.svg" alt="American Airlines"/></a>
+            <a href="#" class="trust-logo"><img src="logos/expedia.svg" alt="Expedia"/></a>
+            <!-- duplicate for seamless loop -->
+            <a href="#" class="trust-logo"><img src="logos/geico.svg" alt="GEICO"/></a>
+            <a href="#" class="trust-logo"><img src="logos/statefarm.svg" alt="State Farm"/></a>
+            <a href="#" class="trust-logo"><img src="logos/progressive.svg" alt="Progressive"/></a>
+            <a href="#" class="trust-logo"><img src="logos/allstate.svg" alt="Allstate"/></a>
+            <a href="#" class="trust-logo"><img src="logos/libertymutual.svg" alt="Liberty Mutual"/></a>
+            <a href="#" class="trust-logo"><img src="logos/delta.svg" alt="Delta"/></a>
+            <a href="#" class="trust-logo"><img src="logos/american.svg" alt="American Airlines"/></a>
+            <a href="#" class="trust-logo"><img src="logos/expedia.svg" alt="Expedia"/></a>
+          </div>
         </div>
       </div>
     </div>
@@ -4345,8 +4519,7 @@
       <div class="footer-top">
         <div class="footer-brand">
           <a href="#" class="logo">
-            <div class="logo-icon"><i class="fa-solid fa-dollar-sign"></i></div>
-            <span class="logo-wordmark" style="color:#fff"><em style="color:var(--primary)">Stelvio</em> Broker<span class="logo-llc" style="color:rgba(255,255,255,.3)">LLC</span></span>
+            <img src="https://dynamic.design.com/preview/logodraft/91504b52-6d7d-4daf-aacd-c577e845c706/image/large.png" alt="Stelvio Broker LLC" class="logo-img logo-img-footer" />
           </a>
           <p>Your trusted partner in travel and auto insurance since 2009. Licensed across all 50 US states. Flights, hotels, packages and car insurance — all in one place.</p>
           <div class="footer-social">
@@ -4485,6 +4658,31 @@
     setInterval(nextSlide, 5000);
 
     // ===== WISHLIST TOGGLE =====
+    // ===== COUNTER ANIMATION =====
+    function animateValue(el, from, to, suffix, duration) {
+      let start = null;
+      const step = (ts) => {
+        if (!start) start = ts;
+        const progress = Math.min((ts - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        el.textContent = Math.round(from + (to - from) * eased) + suffix;
+        if (progress < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    }
+    const statsObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          const raw = el.dataset.count;
+          const suffix = el.dataset.suffix || '';
+          animateValue(el, 0, parseInt(raw), suffix, 1800);
+          statsObserver.unobserve(el);
+        }
+      });
+    }, { threshold: 0.5 });
+    document.querySelectorAll('[data-count]').forEach(el => statsObserver.observe(el));
+
     // ===== WHATSAPP =====
     const WA_NUMBER = '18603194587';
     function openWhatsApp(pkg) {
