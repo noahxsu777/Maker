@@ -1,7 +1,7 @@
 {
   "name": "money-makers-llc",
   "version": "1.0.0",
-  "description": "Money Makers LLC — Travel & Insurance backend",
+  "description": "Stelvio Broker LLC — Travel & Insurance backend",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",

@@ -20,16 +20,16 @@ module.exports = async (req, res) => {
         price_data: {
           currency: 'usd',
           product_data: {
-            name: 'VIN Report — Money Makers LLC',
+            name: 'VIN Report — Stelvio Broker LLC',
             description: `Reporte completo del vehículo${vin ? ` VIN: ${vin}` : ''}. Historial de accidentes, dueños, kilometraje, robo, recalls y más.`,
-            metadata: { company: 'Money Makers LLC', vin },
+            metadata: { company: 'Stelvio Broker LLC', vin },
           },
           unit_amount: 199,
         },
       }],
       payment_intent_data: {
-        description: `Money Makers LLC — VIN Report${vin ? ` (VIN: ${vin})` : ''}`,
-        metadata: { company: 'Money Makers LLC', vin },
+        description: `Stelvio Broker LLC — VIN Report${vin ? ` (VIN: ${vin})` : ''}`,
+        metadata: { company: 'Stelvio Broker LLC', vin },
       },
       success_url: `${origin}/?vin_success=true${vin ? `&vin=${encodeURIComponent(vin)}` : ''}`,
       cancel_url: `${origin}/#vin`,

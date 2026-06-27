@@ -38,19 +38,19 @@ app.post('/api/vin-checkout', async (req, res) => {
           currency: 'usd',
           recurring: { interval: selected.interval },
           product_data: {
-            name:        'VIN Report Premium — Money Makers LLC',
+            name:        'VIN Report Premium — Stelvio Broker LLC',
             description: 'Acceso ilimitado a reportes VIN: historial de accidentes, dueños, kilometraje, robo, recalls y más.',
             images:      [],
-            metadata:    { company: 'Money Makers LLC', vin },
+            metadata:    { company: 'Stelvio Broker LLC', vin },
           },
           unit_amount: selected.unit_amount,
         },
       }],
 
       subscription_data: {
-        description: `Money Makers LLC — VIN Report ${selected.label}${vin ? ` (VIN: ${vin})` : ''}`,
+        description: `Stelvio Broker LLC — VIN Report ${selected.label}${vin ? ` (VIN: ${vin})` : ''}`,
         metadata: {
-          company: 'Money Makers LLC',
+          company: 'Stelvio Broker LLC',
           plan,
           vin,
         },
@@ -115,7 +115,7 @@ app.get('*', (_req, res) => {
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  console.log(`✅  Money Makers LLC server running → http://localhost:${PORT}`);
+  console.log(`✅  Stelvio Broker LLC server running → http://localhost:${PORT}`);
   if (!process.env.STRIPE_SECRET_KEY?.startsWith('sk_')) {
     console.warn('⚠️   STRIPE_SECRET_KEY missing or invalid in .env');
   }
