@@ -2051,15 +2051,24 @@
     /* =====================
        LOGO REFINEMENT
     ===================== */
-    .logo-text-main { color: var(--primary); }
-    .logo-text-sub { color: var(--dark); }
-    .logo-text-llc {
-      font-size: .6rem;
-      font-weight: 600;
+    .logo-wordmark {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--dark);
+      letter-spacing: -.02em;
+      line-height: 1;
+    }
+    .logo-wordmark em {
+      font-style: normal;
+      color: var(--primary);
+    }
+    .logo-llc {
+      font-size: .52rem;
+      font-weight: 700;
       color: var(--gray);
-      letter-spacing: .08em;
+      letter-spacing: .1em;
       text-transform: uppercase;
-      margin-left: 2px;
+      margin-left: 3px;
       vertical-align: super;
     }
 
@@ -2905,8 +2914,8 @@
     <div class="container">
       <div class="navbar-inner">
         <a href="#" class="logo">
-          <div class="logo-icon"><i class="fa-solid fa-dollar-sign"></i></div>
-          <span class="logo-text-main">Stelvio</span><span class="logo-text-sub"> Broker</span><span class="logo-text-llc">LLC</span>
+          <div class="logo-icon"><i class="fa-solid fa-shield-halved"></i></div>
+          <span class="logo-wordmark"><em>Stelvio</em> Broker<span class="logo-llc">LLC</span></span>
         </a>
         <ul class="nav-links">
           <li><a href="#offers" class="active">Vuelos</a></li>
@@ -4050,7 +4059,7 @@
         <div class="footer-brand">
           <a href="#" class="logo">
             <div class="logo-icon"><i class="fa-solid fa-dollar-sign"></i></div>
-            <span style="color:#fff">Stelvio</span><span style="color:rgba(255,255,255,.55)"> Broker</span><span class="logo-text-llc" style="color:rgba(255,255,255,.35)">LLC</span>
+            <span class="logo-wordmark" style="color:#fff"><em style="color:var(--primary)">Stelvio</em> Broker<span class="logo-llc" style="color:rgba(255,255,255,.3)">LLC</span></span>
           </a>
           <p>Your trusted partner in travel and auto insurance since 2009. Licensed across all 50 US states. Flights, hotels, packages and car insurance — all in one place.</p>
           <div class="footer-social">
