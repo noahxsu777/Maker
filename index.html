@@ -26,13 +26,13 @@
 
     /* ===== CSS VARIABLES ===== */
     :root {
-      --primary: #FF385C;
-      --primary-dark: #E31C5F;
-      --primary-light: #FF6B81;
-      --secondary: #00A699;
-      --secondary-dark: #008489;
-      --dark: #222222;
-      --gray: #717171;
+      --primary: #C9A24B;
+      --primary-dark: #B58734;
+      --primary-light: #E4C989;
+      --secondary: #0033A0;
+      --secondary-dark: #001F66;
+      --dark: #0e1a2b;
+      --gray: #6b7690;
       --light-gray: #DDDDDD;
       --bg-light: #F7F7F7;
       --white: #FFFFFF;
@@ -101,7 +101,7 @@
     .btn-primary:hover {
       background: var(--primary-dark);
       transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(255,56,92,.35);
+      box-shadow: 0 6px 20px rgba(201,162,75,.35);
     }
     .btn-secondary {
       background: var(--secondary);
@@ -110,7 +110,7 @@
     .btn-secondary:hover {
       background: var(--secondary-dark);
       transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(0,166,153,.35);
+      box-shadow: 0 6px 20px rgba(0,51,160,.35);
     }
     .btn-outline {
       background: transparent;
@@ -155,21 +155,25 @@
       left: 0;
       right: 0;
       z-index: 1000;
-      background: rgba(255,255,255,.92);
+      background: rgba(14,26,43,.88);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
-      border-bottom: 1px solid rgba(221,221,221,.4);
+      border-bottom: 1px solid rgba(201,162,75,.18);
       transition: all var(--transition);
     }
     .navbar.scrolled {
-      box-shadow: var(--shadow-sm);
+      background: rgba(14,26,43,.97);
+      box-shadow: 0 8px 30px rgba(0,0,0,.35);
+    }
+    .navbar .container {
+      max-width: 1400px;
     }
     .navbar-inner {
       display: flex;
       align-items: center;
       justify-content: space-between;
       height: 72px;
-      gap: 16px;
+      gap: 12px;
     }
     .logo {
       display: flex;
@@ -196,40 +200,43 @@
       width: auto;
       object-fit: contain;
       display: block;
-      mix-blend-mode: multiply;
+      filter: invert(1) brightness(5);
+      mix-blend-mode: screen;
     }
     .logo-img-footer {
       height: 38px;
       filter: invert(1) brightness(5);
       mix-blend-mode: screen;
     }
-    .logo span { color: var(--dark); }
+    .logo span { color: #fff; }
     .nav-links {
       display: flex;
       align-items: center;
       gap: 4px;
     }
     .nav-links a {
-      padding: 8px 14px;
+      padding: 8px 10px;
       border-radius: 8px;
-      font-size: .9rem;
+      font-size: .84rem;
       font-weight: 500;
-      color: var(--gray);
+      color: rgba(255,255,255,.72);
       transition: all var(--transition);
+      white-space: nowrap;
     }
     .nav-links a:hover, .nav-links a.active {
-      color: var(--dark);
-      background: var(--bg-light);
+      color: #fff;
+      background: rgba(201,162,75,.16);
     }
     .nav-actions {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
       flex-shrink: 0;
     }
     .nav-actions .btn {
-      padding: 10px 20px;
-      font-size: .85rem;
+      padding: 9px 16px;
+      font-size: .8rem;
+      white-space: nowrap;
     }
     .hamburger {
       display: none;
@@ -242,7 +249,7 @@
       display: block;
       width: 24px;
       height: 2px;
-      background: var(--dark);
+      background: #fff;
       border-radius: 2px;
       transition: all var(--transition);
     }
@@ -252,11 +259,11 @@
       top: 72px;
       left: 0;
       right: 0;
-      background: #fff;
-      border-bottom: 1px solid var(--light-gray);
+      background: #0e1a2b;
+      border-bottom: 1px solid rgba(201,162,75,.25);
       padding: 20px 24px;
       z-index: 999;
-      box-shadow: var(--shadow-md);
+      box-shadow: 0 20px 40px rgba(0,0,0,.4);
       transform: translateY(-10px);
       opacity: 0;
       pointer-events: none;
@@ -270,9 +277,9 @@
     .mobile-menu a {
       display: block;
       padding: 12px 0;
-      border-bottom: 1px solid var(--bg-light);
+      border-bottom: 1px solid rgba(255,255,255,.08);
       font-weight: 500;
-      color: var(--dark);
+      color: #fff;
     }
     .mobile-menu a:last-child { border-bottom: none; }
 
@@ -336,7 +343,7 @@
     }
     .hero h1 em {
       font-style: normal;
-      background: linear-gradient(90deg, #FFD166, #FF6B6B, #FFD166, #fff, #FFD166);
+      background: linear-gradient(90deg, #E4C989, #C9A24B, #E4C989, #fff, #E4C989);
       background-size: 300% auto;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -675,7 +682,7 @@
       padding: 96px 0;
       background:
         radial-gradient(1200px 500px at 90% -10%, rgba(0, 51, 160, .06), transparent 60%),
-        radial-gradient(900px 500px at -10% 20%, rgba(0, 166, 153, .05), transparent 60%),
+        radial-gradient(900px 500px at -10% 20%, rgba(0, 51, 160, .05), transparent 60%),
         #fbfbfd;
       position: relative;
     }
@@ -905,7 +912,10 @@
        THE EDIT BY CHASE — HOTELS
     ===================== */
     .hotels-section {
-      padding: 96px 0;
+      padding: 168px 0 96px;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
       background:
         radial-gradient(1200px 500px at 90% -10%, rgba(201, 162, 75, .08), transparent 60%),
         radial-gradient(900px 500px at -10% 20%, rgba(0, 51, 160, .05), transparent 60%),
@@ -914,6 +924,7 @@
       position: relative;
       overflow: hidden;
     }
+    .hotels-section > .container { width: 100%; }
     .hotels-section::before {
       content: "";
       position: absolute;
@@ -1265,7 +1276,7 @@
     .modal-chase-note img { height: 18px; }
 
     @media (max-width: 860px) {
-      .hotels-section { padding: 64px 0; }
+      .hotels-section { padding: 140px 0 56px; min-height: auto; }
       .hotels-section .section-header { flex-direction: column; align-items: flex-start; }
       .hotel-modal-content { grid-template-columns: 1fr; max-height: 94vh; }
       .hotel-modal-info { padding: 20px 22px; }
@@ -1287,7 +1298,7 @@
       width: 600px;
       height: 600px;
       border-radius: 50%;
-      background: rgba(255,56,92,.07);
+      background: rgba(201,162,75,.07);
       top: -200px;
       right: -150px;
     }
@@ -1388,7 +1399,7 @@
     .form-group select:focus {
       outline: none;
       border-color: var(--secondary);
-      box-shadow: 0 0 0 3px rgba(0,166,153,.1);
+      box-shadow: 0 0 0 3px rgba(0,51,160,.1);
     }
     .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
     .form-submit {
@@ -1410,7 +1421,7 @@
     }
     .form-submit:hover {
       transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(0,166,153,.4);
+      box-shadow: 0 8px 24px rgba(0,51,160,.4);
     }
     .form-note {
       text-align: center;
@@ -1424,8 +1435,8 @@
       display: flex;
       align-items: center;
       gap: 12px;
-      background: rgba(0,166,153,.08);
-      border: 1px solid rgba(0,166,153,.22);
+      background: rgba(0,51,160,.08);
+      border: 1px solid rgba(0,51,160,.22);
       border-radius: 12px;
       padding: 12px 16px;
       margin-bottom: 20px;
@@ -1809,7 +1820,7 @@
     .contact-form-card .form-group textarea:focus {
       outline: none;
       border-color: var(--primary);
-      box-shadow: 0 0 0 3px rgba(255,56,92,.1);
+      box-shadow: 0 0 0 3px rgba(201,162,75,.1);
     }
     .contact-form-card .form-group label {
       display: block;
@@ -1836,7 +1847,7 @@
     .contact-submit:hover {
       background: var(--primary-dark);
       transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(255,56,92,.35);
+      box-shadow: 0 8px 24px rgba(201,162,75,.35);
     }
     .contact-submit:disabled,
     .form-submit:disabled {
@@ -2004,7 +2015,7 @@
       border-bottom: 1px solid rgba(255,255,255,.1);
     }
     .footer-brand .logo { color: #fff; margin-bottom: 16px; }
-    .footer-brand .logo .logo-icon { background: rgba(255,56,92,.3); }
+    .footer-brand .logo .logo-icon { background: rgba(201,162,75,.3); }
     .footer-brand p {
       font-size: .88rem;
       line-height: 1.65;
@@ -2078,12 +2089,12 @@
        PROMO BANNER
     ===================== */
     .promo-banner {
-      background: linear-gradient(135deg, #FFD166, #F4A261);
+      background: linear-gradient(135deg, #E4C989, #C9A24B);
       padding: 16px 24px;
       text-align: center;
       font-size: .88rem;
       font-weight: 600;
-      color: #222;
+      color: #0e1a2b;
       position: relative;
     }
     .promo-banner a {
@@ -2217,7 +2228,7 @@
       position: absolute;
       bottom: 0; left: 0; right: 0;
       padding: 28px 18px 16px;
-      background: linear-gradient(to top, rgba(255,56,92,.92) 0%, transparent 100%);
+      background: linear-gradient(to top, rgba(201,162,75,.92) 0%, transparent 100%);
       color: #fff;
       font-size: .88rem;
       font-weight: 700;
@@ -2294,7 +2305,7 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(135deg, rgba(255,56,92,.03), transparent);
+      background: linear-gradient(135deg, rgba(201,162,75,.03), transparent);
       opacity: 0;
       transition: opacity var(--transition);
     }
@@ -2339,7 +2350,7 @@
       right: 18px;
       font-size: 7rem;
       font-family: 'Cormorant Garamond', Georgia, serif;
-      color: rgba(255,56,92,.07);
+      color: rgba(201,162,75,.07);
       line-height: 1;
       pointer-events: none;
     }
@@ -2546,7 +2557,7 @@
       position: absolute;
       width: 500px; height: 500px;
       border-radius: 50%;
-      background: rgba(255,56,92,.04);
+      background: rgba(201,162,75,.04);
       top: -200px; right: -100px;
     }
     .plans-grid {
@@ -2672,7 +2683,7 @@
     .plan-card.popular .plan-cta:hover {
       background: var(--primary-dark);
       border-color: var(--primary-dark);
-      box-shadow: 0 6px 20px rgba(255,56,92,.35);
+      box-shadow: 0 6px 20px rgba(201,162,75,.35);
     }
     .plan-divider {
       height: 1px;
@@ -2745,7 +2756,7 @@
     position: absolute;
     width: 700px; height: 700px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(255,56,92,.14) 0%, transparent 65%);
+    background: radial-gradient(circle, rgba(201,162,75,.14) 0%, transparent 65%);
     bottom: -200px; left: 50%;
     transform: translateX(-50%);
     pointer-events: none;
@@ -2776,7 +2787,7 @@
     justify-content: center;
     color: #fff;
     font-size: 1.1rem;
-    box-shadow: 0 8px 24px rgba(255,56,92,.35);
+    box-shadow: 0 8px 24px rgba(201,162,75,.35);
   }
   .vin-app-name {
     font-size: 1rem;
@@ -2868,7 +2879,7 @@
   }
   .vin-input:focus {
     border-color: var(--primary);
-    background: rgba(255,56,92,.05);
+    background: rgba(201,162,75,.05);
   }
   .vin-scan-btn {
     display: flex;
@@ -2884,10 +2895,10 @@
     cursor: pointer;
     white-space: nowrap;
     flex-shrink: 0;
-    box-shadow: 0 6px 20px rgba(255,56,92,.35);
+    box-shadow: 0 6px 20px rgba(201,162,75,.35);
     transition: opacity .2s, transform .15s, box-shadow .2s;
   }
-  .vin-scan-btn:hover { opacity: .9; transform: translateY(-1px); box-shadow: 0 10px 28px rgba(255,56,92,.45); }
+  .vin-scan-btn:hover { opacity: .9; transform: translateY(-1px); box-shadow: 0 10px 28px rgba(201,162,75,.45); }
   .vin-scan-btn:active { transform: scale(.97); }
 
   /* Stat pills */
@@ -3029,7 +3040,7 @@
     background: linear-gradient(135deg, var(--primary), #ff6b35);
     border-radius: 14px; display: flex; align-items: center; justify-content: center;
     font-size: 1.35rem; color: #fff;
-    box-shadow: 0 8px 24px rgba(255,56,92,.3);
+    box-shadow: 0 8px 24px rgba(201,162,75,.3);
   }
   .modal-title { font-size: 1.35rem; font-weight: 800; color: #fff; letter-spacing: -.02em; }
   .modal-sub-title { font-size: .8rem; color: rgba(255,255,255,.4); margin-top: 2px; }
@@ -3068,8 +3079,8 @@
     display: flex; flex-direction: column; align-items: flex-end; gap: 4px;
   }
   .plan-vin-badge span {
-    background: rgba(255,56,92,.12); color: var(--primary);
-    border: 1px solid rgba(255,56,92,.2);
+    background: rgba(201,162,75,.12); color: var(--primary);
+    border: 1px solid rgba(201,162,75,.2);
     border-radius: 8px; padding: 4px 10px;
     font-size: .7rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase;
   }
@@ -3091,12 +3102,12 @@
     background: linear-gradient(135deg, var(--primary), #e0243c);
     color: #fff; border: none; border-radius: 14px;
     font-size: 1rem; font-weight: 800; cursor: pointer;
-    box-shadow: 0 8px 24px rgba(255,56,92,.35);
+    box-shadow: 0 8px 24px rgba(201,162,75,.35);
     transition: opacity .2s, transform .15s, box-shadow .2s;
     margin-bottom: 12px;
     display: flex; align-items: center; justify-content: center; gap: 8px;
   }
-  .modal-subscribe-btn:hover { opacity: .9; transform: translateY(-1px); box-shadow: 0 12px 32px rgba(255,56,92,.45); }
+  .modal-subscribe-btn:hover { opacity: .9; transform: translateY(-1px); box-shadow: 0 12px 32px rgba(201,162,75,.45); }
   .modal-subscribe-btn:active { transform: scale(.98); }
   .modal-subscribe-btn:disabled { opacity: .6; cursor: not-allowed; transform: none; box-shadow: none; }
   .modal-legal {
@@ -3121,7 +3132,7 @@
 
   /* VIN header badge override (dark bg) */
   .vin-header .badge { color: rgba(255,255,255,.38); }
-  .vin-header .badge::before { background: rgba(255,56,92,.7); }
+  .vin-header .badge::before { background: rgba(201,162,75,.7); }
 
   /* ==========================================
      3D EFFECTS
@@ -3152,14 +3163,14 @@
   .hero-shape { position: absolute; pointer-events: none; z-index: 1; }
   .hero-orb-1 {
     width: 280px; height: 280px; border-radius: 50%;
-    background: radial-gradient(circle, rgba(255,56,92,.30) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(201,162,75,.30) 0%, transparent 70%);
     top: 8%; left: 4%;
     animation: float3d 9s ease-in-out infinite;
     filter: blur(28px);
   }
   .hero-orb-2 {
     width: 380px; height: 380px; border-radius: 50%;
-    background: radial-gradient(circle, rgba(0,166,153,.22) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(0,51,160,.22) 0%, transparent 70%);
     top: 12%; right: 2%;
     animation: float3d-rev 12s ease-in-out infinite;
     filter: blur(35px);
@@ -3185,14 +3196,14 @@
   }
   .geo-b {
     width: 32px; height: 32px;
-    border: 2px solid rgba(255,56,92,.40);
+    border: 2px solid rgba(201,162,75,.40);
     top: 62%; left: 7%;
     transform: rotate(45deg);
     animation: float3d-rev 10s ease-in-out infinite;
   }
   .geo-c {
     width: 72px; height: 72px;
-    border: 2.5px solid rgba(0,166,153,.30);
+    border: 2.5px solid rgba(0,51,160,.30);
     border-radius: 50%;
     bottom: 16%; right: 20%;
     animation: float3d-slow 13s ease-in-out infinite;
@@ -3223,14 +3234,14 @@
   .ins-shape { position: absolute; pointer-events: none; z-index: 0; }
   .ins-orb-1 {
     width: 380px; height: 380px; border-radius: 50%;
-    background: radial-gradient(circle, rgba(0,166,153,.20) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(0,51,160,.20) 0%, transparent 70%);
     top: -80px; right: -80px;
     animation: float3d-slow 14s ease-in-out infinite;
     filter: blur(50px);
   }
   .ins-orb-2 {
     width: 220px; height: 220px; border-radius: 50%;
-    background: radial-gradient(circle, rgba(255,56,92,.14) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(201,162,75,.14) 0%, transparent 70%);
     bottom: 10px; left: -40px;
     animation: float3d 11s ease-in-out infinite 3s;
     filter: blur(35px);
@@ -3244,7 +3255,7 @@
   }
   .ins-geo-2 {
     width: 36px; height: 36px;
-    border: 2px solid rgba(0,166,153,.22);
+    border: 2px solid rgba(0,51,160,.22);
     border-radius: 50%;
     bottom: 22%; right: 4%;
     animation: float3d 9s ease-in-out infinite 1.5s;
@@ -3314,8 +3325,8 @@
 
   /* --- Plan card popular 3D pulse --- */
   @keyframes pulse3d {
-    0%,100% { box-shadow: 0 0 0 0 rgba(255,56,92,.25), var(--shadow-lg); }
-    50%     { box-shadow: 0 0 0 10px rgba(255,56,92,.0), 0 24px 60px rgba(255,56,92,.22); }
+    0%,100% { box-shadow: 0 0 0 0 rgba(201,162,75,.25), var(--shadow-lg); }
+    50%     { box-shadow: 0 0 0 10px rgba(201,162,75,.0), 0 24px 60px rgba(201,162,75,.22); }
   }
   .plan-card.popular { animation: pulse3d 3s ease-in-out infinite; }
   .plan-card.popular:hover { animation: none; }
@@ -3353,7 +3364,7 @@
     font-size: 1.45rem;
     color: rgba(255,255,255,.65);
     animation: flyPlane 18s linear infinite 1.5s;
-    filter: drop-shadow(0 3px 10px rgba(255,56,92,.4));
+    filter: drop-shadow(0 3px 10px rgba(201,162,75,.4));
   }
 
   /* Floating travel/insurance icons */
@@ -3413,11 +3424,11 @@
     position: absolute;
     left: 14px; right: 14px;
     height: 2px;
-    background: linear-gradient(90deg, transparent, var(--primary), rgba(255,56,92,.45), transparent);
+    background: linear-gradient(90deg, transparent, var(--primary), rgba(201,162,75,.45), transparent);
     top: 10px;
     pointer-events: none;
     animation: scanLine 3.2s ease-in-out infinite;
-    box-shadow: 0 0 14px 3px rgba(255,56,92,.28);
+    box-shadow: 0 0 14px 3px rgba(201,162,75,.28);
     border-radius: 1px;
     z-index: 2;
   }
@@ -3462,7 +3473,7 @@
   .vin-rr-val { font-size: .82rem; font-weight: 700; color: rgba(255,255,255,.9); flex-shrink: 0; }
   .vin-lock-icon-wrap {
     width: 52px; height: 52px;
-    background: rgba(255,56,92,.12);
+    background: rgba(201,162,75,.12);
     border-radius: 50%;
     display: flex; align-items: center; justify-content: center;
     margin-bottom: 4px;
@@ -3487,7 +3498,7 @@
     transform: translateX(-50%);
     width: 700px; height: 700px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(255,56,92,.06) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(201,162,75,.06) 0%, transparent 70%);
     pointer-events: none;
   }
   .facts-header {
@@ -3637,8 +3648,8 @@
 
   /* Primary button glow pulse */
   @keyframes btnGlow {
-    0%, 100% { box-shadow: 0 6px 24px rgba(255,56,92,.35); }
-    50%       { box-shadow: 0 8px 36px rgba(255,56,92,.7), 0 0 0 10px rgba(255,56,92,.06); }
+    0%, 100% { box-shadow: 0 6px 24px rgba(201,162,75,.35); }
+    50%       { box-shadow: 0 8px 36px rgba(201,162,75,.7), 0 0 0 10px rgba(201,162,75,.06); }
   }
   .btn-primary {
     animation: btnGlow 2.8s ease-in-out infinite;
@@ -3666,8 +3677,8 @@
   }
   .hp1 { bottom: 36%; left: 10%;  animation: particleRise  5s  ease-out infinite; }
   .hp2 { bottom: 42%; left: 26%;  animation: particleRise2 7s  ease-out infinite 1s; }
-  .hp3 { bottom: 30%; right: 16%; animation: particleRise  6s  ease-out infinite 2s; background: rgba(255,56,92,.75); }
-  .hp4 { bottom: 44%; right: 28%; animation: particleRise2 8s  ease-out infinite .5s; background: rgba(0,166,153,.75); }
+  .hp3 { bottom: 30%; right: 16%; animation: particleRise  6s  ease-out infinite 2s; background: rgba(201,162,75,.75); }
+  .hp4 { bottom: 44%; right: 28%; animation: particleRise2 8s  ease-out infinite .5s; background: rgba(0,51,160,.75); }
   .hp5 { bottom: 34%; left: 44%;  animation: particleRise  5.5s ease-out infinite 3s; background: rgba(255,209,102,.75); }
   .hp6 { bottom: 50%; right: 10%; animation: particleRise2 6.5s ease-out infinite 1.5s; }
 
@@ -3975,6 +3986,264 @@
     <a href="#faq" onclick="closeMenu()">❓ FAQ</a>
     <a href="#contact" onclick="closeMenu()">📞 Contacto</a>
   </div>
+
+  <!-- THE EDIT BY CHASE — HOTELS -->
+  <section class="hotels-section" id="hotels">
+    <div class="container">
+      <div class="section-header reveal">
+        <div>
+          <div class="badge">
+            The Edit by
+            <span class="edit-mini-logo"><img src="https://logo.clearbit.com/chase.com" alt="Chase" onerror="this.replaceWith(Object.assign(document.createElement('span'),{textContent:'CHASE',style:'color:#0033a0;font-weight:800;font-size:.72rem'}))"/></span>
+          </div>
+          <h2 class="section-title">Hoteles de edición limitada</h2>
+          <p class="section-subtitle">Estadías premium en propiedades curadas por The Edit by Chase &mdash; solo por tiempo limitado.</p>
+        </div>
+        <div class="price-range-card">
+          <div class="price-range-title"><i class="fa-solid fa-tag"></i> Rango por noche</div>
+          <div class="price-range-value">$500 &ndash; $10,000</div>
+          <div class="price-range-sub">USD &middot; Solo edición limitada</div>
+        </div>
+      </div>
+
+      <div class="limited-notice reveal">
+        <i class="fa-solid fa-circle-exclamation"></i>
+        <div>
+          <strong>Edición limitada &middot;</strong> Los hoteles de esta colección se ofrecen por tiempo restringido a través de The Edit by Chase. Precios por noche desde <strong>$500</strong> hasta <strong>$10,000 USD</strong>. Sujeto a disponibilidad y fechas específicas.
+        </div>
+      </div>
+
+      <div class="hotels-grid reveal" id="hotelsGrid"></div>
+    </div>
+  </section>
+
+  <!-- HOTEL MODAL / LIGHTBOX -->
+  <div class="hotel-modal" id="hotelModal" role="dialog" aria-modal="true" onclick="if(event.target===this)closeHotelModal()">
+    <div class="hotel-modal-content">
+      <button class="hotel-modal-close" onclick="closeHotelModal()" aria-label="Cerrar">&times;</button>
+      <div class="hotel-modal-gallery">
+        <div class="hotel-modal-main" id="hotelModalMain"></div>
+        <div class="hotel-modal-thumbs" id="hotelModalThumbs"></div>
+      </div>
+      <div class="hotel-modal-info">
+        <span class="hotel-modal-tag"><i class="fa-solid fa-crown"></i> Edición limitada</span>
+        <h3 class="hotel-modal-name" id="hotelModalName"></h3>
+        <div class="hotel-modal-loc" id="hotelModalLoc"></div>
+        <p class="hotel-modal-desc" id="hotelModalDesc"></p>
+
+        <div class="stay-list">
+          <div class="stay-list-title">Estadías disponibles</div>
+          <div id="hotelModalStays"></div>
+        </div>
+
+        <div class="modal-actions">
+          <button class="btn btn-primary" id="hotelModalReserve">
+            <i class="fa-solid fa-calendar-check"></i> Reservar estadía
+          </button>
+          <button class="btn btn-outline" onclick="closeHotelModal()" style="border:1px solid #e6ebf3;color:var(--dark)">
+            Volver
+          </button>
+        </div>
+
+        <div class="modal-chase-note">
+          <img src="https://logo.clearbit.com/chase.com" alt="Chase" onerror="this.replaceWith(Object.assign(document.createElement('span'),{textContent:'Chase',style:'font-weight:800;color:#0033a0'}))"/>
+          Reserva respaldada por The Edit by Chase &middot; Ultimate Rewards&reg; aplicables.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      const HOTELS = [
+        {
+          name: "Bulgari Hotel Roma",
+          location: "Roma, Italia",
+          desc: "Palazzo del siglo XVIII en Piazza Augusto Imperatore, restaurado con la elegancia contemporánea que solo Bulgari puede ofrecer.",
+          photos: [
+            "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=80",
+            "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=1200&q=80",
+            "https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=1200&q=80",
+            "https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=1200&q=80"
+          ],
+          stays: [
+            { name: "Deluxe Room",     detail: "1 rey · Vista ciudad · 45 m²",  price: 2200 },
+            { name: "Bulgari Suite",   detail: "1 rey · Terraza privada · 95 m²", price: 5800 },
+            { name: "Presidential Suite", detail: "1 rey · Vista Piazza · 220 m²", price: 9800 }
+          ]
+        },
+        {
+          name: "Four Seasons Bora Bora",
+          location: "Bora Bora, Polinesia Francesa",
+          desc: "Bungalows sobre el agua con vistas al Monte Otemanu y acceso privado a la laguna turquesa más famosa del Pacífico.",
+          photos: [
+            "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?auto=format&fit=crop&w=1200&q=80",
+            "https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?auto=format&fit=crop&w=1200&q=80",
+            "https://images.unsplash.com/photo-1602002418082-a4443e081dd1?auto=format&fit=crop&w=1200&q=80",
+            "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=1200&q=80"
+          ],
+          stays: [
+            { name: "Overwater Bungalow",       detail: "1 rey · Deck privado · 100 m²",       price: 1800 },
+            { name: "Two-Bedroom Otemanu Villa", detail: "2 dormitorios · Piscina infinita · 350 m²", price: 6500 },
+            { name: "Royal Beachfront Villa",   detail: "3 dormitorios · Playa privada · 500 m²", price: 9500 }
+          ]
+        },
+        {
+          name: "Aman Tokyo",
+          location: "Tokio, Japón",
+          desc: "Serenidad japonesa en la planta 33 del Otemachi Tower. Vistas del Monte Fuji, ofuros de piedra y el mejor spa de la ciudad.",
+          photos: [
+            "https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=1200&q=80",
+            "https://images.unsplash.com/photo-1578683010236-d716f9a3f461?auto=format&fit=crop&w=1200&q=80",
+            "https://images.unsplash.com/photo-1595576508898-0ad5c879a061?auto=format&fit=crop&w=1200&q=80",
+            "https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&w=1200&q=80"
+          ],
+          stays: [
+            { name: "Deluxe Room",       detail: "1 rey · 71 m² · Vista ciudad",  price: 1500 },
+            { name: "Aman Suite",        detail: "1 rey · 121 m² · Vista Fuji",   price: 3200 },
+            { name: "Aman Grand Suite",  detail: "1 rey · 157 m² · Sala de té",   price: 5800 }
+          ]
+        },
+        {
+          name: "Cheval Blanc Paris",
+          location: "París, Francia",
+          desc: "Un Palace de LVMH sobre el Sena, junto al Pont Neuf. 72 suites, restaurante Plénitude de 3 estrellas Michelin y Dior Spa.",
+          photos: [
+            "https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?auto=format&fit=crop&w=1200&q=80",
+            "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=1200&q=80",
+            "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1200&q=80",
+            "https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&w=1200&q=80"
+          ],
+          stays: [
+            { name: "Prestige Suite",    detail: "1 rey · 55 m² · Vista Louvre",  price: 3000 },
+            { name: "Grand Suite Sena",  detail: "1 rey · 90 m² · Vista al Sena", price: 6500 },
+            { name: "Dior Suite",        detail: "2 dormitorios · 320 m² · Vue Panorámique", price: 10000 }
+          ]
+        },
+        {
+          name: "The Peninsula Beverly Hills",
+          location: "Los Ángeles, EE. UU.",
+          desc: "Icónico refugio de estrellas con rooftop pool, servicio Rolls-Royce cortesía y las suites más discretas de Wilshire Boulevard.",
+          photos: [
+            "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=1200&q=80",
+            "https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=1200&q=80",
+            "https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=1200&q=80",
+            "https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=1200&q=80"
+          ],
+          stays: [
+            { name: "Superior Room",       detail: "1 rey · 40 m² · Vista jardines", price: 900 },
+            { name: "Peninsula Suite",     detail: "1 rey · 110 m² · Terraza priv.", price: 3200 },
+            { name: "Roof Garden Villa",   detail: "2 dormitorios · Piscina propia", price: 7500 }
+          ]
+        },
+        {
+          name: "Rosewood Villa Magna",
+          location: "Madrid, España",
+          desc: "Sobre el Paseo de la Castellana. Diseño de Antonio Obrador, restaurante Amós con estrella Michelin y el sky bar más pedido de Madrid.",
+          photos: [
+            "https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&w=1200&q=80",
+            "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=1200&q=80",
+            "https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=1200&q=80",
+            "https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?auto=format&fit=crop&w=1200&q=80"
+          ],
+          stays: [
+            { name: "Superior King",       detail: "1 rey · 35 m² · Vista ciudad",   price: 700 },
+            { name: "Grand Deluxe",        detail: "1 rey · 55 m² · Balcón privado", price: 1600 },
+            { name: "Villa Magna Suite",   detail: "1 rey · 180 m² · 3 balcones",    price: 4800 }
+          ]
+        }
+      ];
+
+      const fmt = n => "$" + n.toLocaleString("en-US");
+
+      function renderHotels() {
+        const grid = document.getElementById('hotelsGrid');
+        if (!grid) return;
+        HOTELS.forEach((h, idx) => {
+          const minPrice = Math.min(...h.stays.map(s => s.price));
+          const card = document.createElement('article');
+          card.className = 'hotel-card';
+          card.innerHTML = `
+            <div class="hotel-media" style="background-image:url('${h.photos[0]}')">
+              <span class="hotel-limited-tag"><i class="fa-solid fa-crown"></i> Edición limitada</span>
+              <span class="hotel-count-tag"><i class="fa-solid fa-images"></i> ${h.photos.length} fotos &middot; ${h.stays.length} estadías</span>
+              <div class="hotel-info">
+                <h3 class="hotel-name">${h.name}</h3>
+                <div class="hotel-loc"><i class="fa-solid fa-location-dot"></i> ${h.location}</div>
+                <div class="hotel-price-row">
+                  <div class="hotel-price">Desde <strong>${fmt(minPrice)}</strong> / noche</div>
+                  <span class="hotel-cta">Ver galería <i class="fa-solid fa-arrow-right"></i></span>
+                </div>
+              </div>
+            </div>
+          `;
+          card.addEventListener('click', () => openHotelModal(idx));
+          grid.appendChild(card);
+        });
+      }
+
+      function openHotelModal(idx) {
+        const h = HOTELS[idx];
+        const modal = document.getElementById('hotelModal');
+        const main  = document.getElementById('hotelModalMain');
+        const thumbs = document.getElementById('hotelModalThumbs');
+        const stays = document.getElementById('hotelModalStays');
+
+        document.getElementById('hotelModalName').textContent = h.name;
+        document.getElementById('hotelModalLoc').innerHTML =
+          `<i class="fa-solid fa-location-dot"></i> ${h.location}`;
+        document.getElementById('hotelModalDesc').textContent = h.desc;
+
+        main.style.backgroundImage = `url('${h.photos[0]}')`;
+        thumbs.innerHTML = '';
+        h.photos.forEach((p, i) => {
+          const t = document.createElement('div');
+          t.className = 'hotel-modal-thumb' + (i === 0 ? ' active' : '');
+          t.style.backgroundImage = `url('${p}')`;
+          t.addEventListener('click', () => {
+            main.style.backgroundImage = `url('${p}')`;
+            thumbs.querySelectorAll('.hotel-modal-thumb').forEach(el => el.classList.remove('active'));
+            t.classList.add('active');
+          });
+          thumbs.appendChild(t);
+        });
+
+        stays.innerHTML = h.stays.map(s => `
+          <div class="stay-item">
+            <div>
+              <div class="stay-name">${s.name}</div>
+              <div class="stay-detail">${s.detail}</div>
+            </div>
+            <div class="stay-price">${fmt(s.price)}<span>/noche</span></div>
+          </div>
+        `).join('');
+
+        document.getElementById('hotelModalReserve').onclick = () => {
+          if (typeof openWhatsApp === 'function') {
+            openWhatsApp(`${h.name} — The Edit by Chase (${h.location})`);
+          }
+        };
+
+        modal.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      }
+
+      window.closeHotelModal = function () {
+        document.getElementById('hotelModal').classList.remove('open');
+        document.body.style.overflow = '';
+      };
+
+      document.addEventListener('keydown', e => {
+        if (e.key === 'Escape') closeHotelModal();
+      });
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', renderHotels);
+      } else {
+        renderHotels();
+      }
+    })();
+  </script>
 
   <!-- HERO -->
   <section class="hero" id="home">
@@ -4497,263 +4766,6 @@
     </div>
   </section>
 
-  <!-- THE EDIT BY CHASE — HOTELS -->
-  <section class="hotels-section" id="hotels">
-    <div class="container">
-      <div class="section-header reveal">
-        <div>
-          <div class="badge">
-            The Edit by
-            <span class="edit-mini-logo"><img src="https://logo.clearbit.com/chase.com" alt="Chase" onerror="this.replaceWith(Object.assign(document.createElement('span'),{textContent:'CHASE',style:'color:#0033a0;font-weight:800;font-size:.72rem'}))"/></span>
-          </div>
-          <h2 class="section-title">Hoteles de edición limitada</h2>
-          <p class="section-subtitle">Estadías premium en propiedades curadas por The Edit by Chase &mdash; solo por tiempo limitado.</p>
-        </div>
-        <div class="price-range-card">
-          <div class="price-range-title"><i class="fa-solid fa-tag"></i> Rango por noche</div>
-          <div class="price-range-value">$500 &ndash; $10,000</div>
-          <div class="price-range-sub">USD &middot; Solo edición limitada</div>
-        </div>
-      </div>
-
-      <div class="limited-notice reveal">
-        <i class="fa-solid fa-circle-exclamation"></i>
-        <div>
-          <strong>Edición limitada &middot;</strong> Los hoteles de esta colección se ofrecen por tiempo restringido a través de The Edit by Chase. Precios por noche desde <strong>$500</strong> hasta <strong>$10,000 USD</strong>. Sujeto a disponibilidad y fechas específicas.
-        </div>
-      </div>
-
-      <div class="hotels-grid reveal" id="hotelsGrid"></div>
-    </div>
-  </section>
-
-  <!-- HOTEL MODAL / LIGHTBOX -->
-  <div class="hotel-modal" id="hotelModal" role="dialog" aria-modal="true" onclick="if(event.target===this)closeHotelModal()">
-    <div class="hotel-modal-content">
-      <button class="hotel-modal-close" onclick="closeHotelModal()" aria-label="Cerrar">&times;</button>
-      <div class="hotel-modal-gallery">
-        <div class="hotel-modal-main" id="hotelModalMain"></div>
-        <div class="hotel-modal-thumbs" id="hotelModalThumbs"></div>
-      </div>
-      <div class="hotel-modal-info">
-        <span class="hotel-modal-tag"><i class="fa-solid fa-crown"></i> Edición limitada</span>
-        <h3 class="hotel-modal-name" id="hotelModalName"></h3>
-        <div class="hotel-modal-loc" id="hotelModalLoc"></div>
-        <p class="hotel-modal-desc" id="hotelModalDesc"></p>
-
-        <div class="stay-list">
-          <div class="stay-list-title">Estadías disponibles</div>
-          <div id="hotelModalStays"></div>
-        </div>
-
-        <div class="modal-actions">
-          <button class="btn btn-primary" id="hotelModalReserve">
-            <i class="fa-solid fa-calendar-check"></i> Reservar estadía
-          </button>
-          <button class="btn btn-outline" onclick="closeHotelModal()" style="border:1px solid #e6ebf3;color:var(--dark)">
-            Volver
-          </button>
-        </div>
-
-        <div class="modal-chase-note">
-          <img src="https://logo.clearbit.com/chase.com" alt="Chase" onerror="this.replaceWith(Object.assign(document.createElement('span'),{textContent:'Chase',style:'font-weight:800;color:#0033a0'}))"/>
-          Reserva respaldada por The Edit by Chase &middot; Ultimate Rewards&reg; aplicables.
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <script>
-    (function() {
-      const HOTELS = [
-        {
-          name: "Bulgari Hotel Roma",
-          location: "Roma, Italia",
-          desc: "Palazzo del siglo XVIII en Piazza Augusto Imperatore, restaurado con la elegancia contemporánea que solo Bulgari puede ofrecer.",
-          photos: [
-            "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=80",
-            "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=1200&q=80",
-            "https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=1200&q=80",
-            "https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=1200&q=80"
-          ],
-          stays: [
-            { name: "Deluxe Room",     detail: "1 rey · Vista ciudad · 45 m²",  price: 2200 },
-            { name: "Bulgari Suite",   detail: "1 rey · Terraza privada · 95 m²", price: 5800 },
-            { name: "Presidential Suite", detail: "1 rey · Vista Piazza · 220 m²", price: 9800 }
-          ]
-        },
-        {
-          name: "Four Seasons Bora Bora",
-          location: "Bora Bora, Polinesia Francesa",
-          desc: "Bungalows sobre el agua con vistas al Monte Otemanu y acceso privado a la laguna turquesa más famosa del Pacífico.",
-          photos: [
-            "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?auto=format&fit=crop&w=1200&q=80",
-            "https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?auto=format&fit=crop&w=1200&q=80",
-            "https://images.unsplash.com/photo-1602002418082-a4443e081dd1?auto=format&fit=crop&w=1200&q=80",
-            "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=1200&q=80"
-          ],
-          stays: [
-            { name: "Overwater Bungalow",       detail: "1 rey · Deck privado · 100 m²",       price: 1800 },
-            { name: "Two-Bedroom Otemanu Villa", detail: "2 dormitorios · Piscina infinita · 350 m²", price: 6500 },
-            { name: "Royal Beachfront Villa",   detail: "3 dormitorios · Playa privada · 500 m²", price: 9500 }
-          ]
-        },
-        {
-          name: "Aman Tokyo",
-          location: "Tokio, Japón",
-          desc: "Serenidad japonesa en la planta 33 del Otemachi Tower. Vistas del Monte Fuji, ofuros de piedra y el mejor spa de la ciudad.",
-          photos: [
-            "https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=1200&q=80",
-            "https://images.unsplash.com/photo-1578683010236-d716f9a3f461?auto=format&fit=crop&w=1200&q=80",
-            "https://images.unsplash.com/photo-1595576508898-0ad5c879a061?auto=format&fit=crop&w=1200&q=80",
-            "https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&w=1200&q=80"
-          ],
-          stays: [
-            { name: "Deluxe Room",       detail: "1 rey · 71 m² · Vista ciudad",  price: 1500 },
-            { name: "Aman Suite",        detail: "1 rey · 121 m² · Vista Fuji",   price: 3200 },
-            { name: "Aman Grand Suite",  detail: "1 rey · 157 m² · Sala de té",   price: 5800 }
-          ]
-        },
-        {
-          name: "Cheval Blanc Paris",
-          location: "París, Francia",
-          desc: "Un Palace de LVMH sobre el Sena, junto al Pont Neuf. 72 suites, restaurante Plénitude de 3 estrellas Michelin y Dior Spa.",
-          photos: [
-            "https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?auto=format&fit=crop&w=1200&q=80",
-            "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=1200&q=80",
-            "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1200&q=80",
-            "https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&w=1200&q=80"
-          ],
-          stays: [
-            { name: "Prestige Suite",    detail: "1 rey · 55 m² · Vista Louvre",  price: 3000 },
-            { name: "Grand Suite Sena",  detail: "1 rey · 90 m² · Vista al Sena", price: 6500 },
-            { name: "Dior Suite",        detail: "2 dormitorios · 320 m² · Vue Panorámique", price: 10000 }
-          ]
-        },
-        {
-          name: "The Peninsula Beverly Hills",
-          location: "Los Ángeles, EE. UU.",
-          desc: "Icónico refugio de estrellas con rooftop pool, servicio Rolls-Royce cortesía y las suites más discretas de Wilshire Boulevard.",
-          photos: [
-            "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=1200&q=80",
-            "https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=1200&q=80",
-            "https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=1200&q=80",
-            "https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=1200&q=80"
-          ],
-          stays: [
-            { name: "Superior Room",       detail: "1 rey · 40 m² · Vista jardines", price: 900 },
-            { name: "Peninsula Suite",     detail: "1 rey · 110 m² · Terraza priv.", price: 3200 },
-            { name: "Roof Garden Villa",   detail: "2 dormitorios · Piscina propia", price: 7500 }
-          ]
-        },
-        {
-          name: "Rosewood Villa Magna",
-          location: "Madrid, España",
-          desc: "Sobre el Paseo de la Castellana. Diseño de Antonio Obrador, restaurante Amós con estrella Michelin y el sky bar más pedido de Madrid.",
-          photos: [
-            "https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&w=1200&q=80",
-            "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=1200&q=80",
-            "https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=1200&q=80",
-            "https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?auto=format&fit=crop&w=1200&q=80"
-          ],
-          stays: [
-            { name: "Superior King",       detail: "1 rey · 35 m² · Vista ciudad",   price: 700 },
-            { name: "Grand Deluxe",        detail: "1 rey · 55 m² · Balcón privado", price: 1600 },
-            { name: "Villa Magna Suite",   detail: "1 rey · 180 m² · 3 balcones",    price: 4800 }
-          ]
-        }
-      ];
-
-      const fmt = n => "$" + n.toLocaleString("en-US");
-
-      function renderHotels() {
-        const grid = document.getElementById('hotelsGrid');
-        if (!grid) return;
-        HOTELS.forEach((h, idx) => {
-          const minPrice = Math.min(...h.stays.map(s => s.price));
-          const card = document.createElement('article');
-          card.className = 'hotel-card';
-          card.innerHTML = `
-            <div class="hotel-media" style="background-image:url('${h.photos[0]}')">
-              <span class="hotel-limited-tag"><i class="fa-solid fa-crown"></i> Edición limitada</span>
-              <span class="hotel-count-tag"><i class="fa-solid fa-images"></i> ${h.photos.length} fotos &middot; ${h.stays.length} estadías</span>
-              <div class="hotel-info">
-                <h3 class="hotel-name">${h.name}</h3>
-                <div class="hotel-loc"><i class="fa-solid fa-location-dot"></i> ${h.location}</div>
-                <div class="hotel-price-row">
-                  <div class="hotel-price">Desde <strong>${fmt(minPrice)}</strong> / noche</div>
-                  <span class="hotel-cta">Ver galería <i class="fa-solid fa-arrow-right"></i></span>
-                </div>
-              </div>
-            </div>
-          `;
-          card.addEventListener('click', () => openHotelModal(idx));
-          grid.appendChild(card);
-        });
-      }
-
-      function openHotelModal(idx) {
-        const h = HOTELS[idx];
-        const modal = document.getElementById('hotelModal');
-        const main  = document.getElementById('hotelModalMain');
-        const thumbs = document.getElementById('hotelModalThumbs');
-        const stays = document.getElementById('hotelModalStays');
-
-        document.getElementById('hotelModalName').textContent = h.name;
-        document.getElementById('hotelModalLoc').innerHTML =
-          `<i class="fa-solid fa-location-dot"></i> ${h.location}`;
-        document.getElementById('hotelModalDesc').textContent = h.desc;
-
-        main.style.backgroundImage = `url('${h.photos[0]}')`;
-        thumbs.innerHTML = '';
-        h.photos.forEach((p, i) => {
-          const t = document.createElement('div');
-          t.className = 'hotel-modal-thumb' + (i === 0 ? ' active' : '');
-          t.style.backgroundImage = `url('${p}')`;
-          t.addEventListener('click', () => {
-            main.style.backgroundImage = `url('${p}')`;
-            thumbs.querySelectorAll('.hotel-modal-thumb').forEach(el => el.classList.remove('active'));
-            t.classList.add('active');
-          });
-          thumbs.appendChild(t);
-        });
-
-        stays.innerHTML = h.stays.map(s => `
-          <div class="stay-item">
-            <div>
-              <div class="stay-name">${s.name}</div>
-              <div class="stay-detail">${s.detail}</div>
-            </div>
-            <div class="stay-price">${fmt(s.price)}<span>/noche</span></div>
-          </div>
-        `).join('');
-
-        document.getElementById('hotelModalReserve').onclick = () => {
-          if (typeof openWhatsApp === 'function') {
-            openWhatsApp(`${h.name} — The Edit by Chase (${h.location})`);
-          }
-        };
-
-        modal.classList.add('open');
-        document.body.style.overflow = 'hidden';
-      }
-
-      window.closeHotelModal = function () {
-        document.getElementById('hotelModal').classList.remove('open');
-        document.body.style.overflow = '';
-      };
-
-      document.addEventListener('keydown', e => {
-        if (e.key === 'Escape') closeHotelModal();
-      });
-
-      if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', renderHotels);
-      } else {
-        renderHotels();
-      }
-    })();
-  </script>
 
   <!-- CAR INSURANCE -->
   <section class="insurance-section" id="insurance">
