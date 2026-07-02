@@ -4048,6 +4048,21 @@
 </head>
 <body>
 
+  <!-- LANGUAGE DETECTION -->
+  <script>
+    (function () {
+      function detectLang() {
+        var n = (navigator.language || (navigator.languages && navigator.languages[0]) || 'es').toLowerCase();
+        return n.indexOf('es') === 0 ? 'es' : 'en';
+      }
+      window.__siteLang = detectLang();
+      if (window.__siteLang === 'en') {
+        document.documentElement.lang = 'en';
+        document.title = 'Stelvio Broker LLC — Premium Travel & Insurance';
+      }
+    })();
+  </script>
+
   <!-- SPLASH SCREEN -->
   <div class="splash-screen" id="splashScreen">
     <dotlottie-wc
@@ -4057,10 +4072,15 @@
       loop>
     </dotlottie-wc>
     <div class="splash-brand"><em>Stelvio</em> Broker <span style="font-size:.7rem;vertical-align:super;color:rgba(255,255,255,.6)">LLC</span></div>
-    <div class="splash-tag">Cargando tu experiencia de viaje</div>
+    <div class="splash-tag" id="splashTag">Cargando tu experiencia de viaje</div>
   </div>
   <script>
     (function () {
+      if (window.__siteLang === 'en') {
+        var tag = document.getElementById('splashTag');
+        if (tag) tag.textContent = 'Loading your travel experience';
+      }
+
       var MIN_DISPLAY_MS = 2800;
       var MAX_WAIT_MS = 5500;
       var start = Date.now();
@@ -4069,6 +4089,9 @@
       function hideSplash() {
         if (hidden) return;
         hidden = true;
+        if (window.__siteLang === 'en' && window.__applyI18n) {
+          window.__applyI18n(document.body);
+        }
         var splash = document.getElementById('splashScreen');
         var elapsed = Date.now() - start;
         var wait = Math.max(0, MIN_DISPLAY_MS - elapsed);
@@ -4380,6 +4403,10 @@
           }
         };
 
+        if (window.__siteLang === 'en' && window.__applyI18n) {
+          window.__applyI18n(modal);
+        }
+
         modal.classList.add('open');
         document.body.style.overflow = 'hidden';
       }
@@ -4429,7 +4456,7 @@
     <div class="hero-shape hero-travel-icon hero-icon-car"><i class="fa-solid fa-car-side"></i></div>
     <div class="hero-content">
       <div class="hero-tag">
-        <i class="fa-solid fa-star"></i> #1 Insurance &amp; Travel Agency in Connecticut 🇺🇸
+        <i class="fa-solid fa-star"></i> #1 Agencia de Seguros y Viajes en Connecticut 🇺🇸
       </div>
       <h1>Explora el mundo<br/>con <em>total confianza</em></h1>
       <p>Viajes premium, seguros inteligentes y experiencias que recordarás para siempre. Tu aventura comienza aquí.</p>
@@ -4491,7 +4518,7 @@
   <div class="trust-strip">
     <div class="container">
       <div class="trust-inner">
-        <span class="trust-label">Trusted partners &amp; carriers</span>
+        <span class="trust-label">Partners y aseguradoras de confianza</span>
         <div class="trust-logos">
           <div class="trust-logos-track" id="trustTrack"></div>
         </div>
@@ -4965,7 +4992,7 @@
               <div class="ins-icon"><i class="fa-solid fa-percent"></i></div>
               <div class="ins-text">
                 <h4>Hasta 35% de descuento</h4>
-                <p>Exclusive discounts for Stelvio Broker LLC customers across all 50 states.</p>
+                <p>Descuentos exclusivos para clientes de Stelvio Broker LLC en los 50 estados.</p>
               </div>
             </div>
           </div>
@@ -5309,7 +5336,7 @@
       <div class="reveal" style="text-align:center;max-width:600px;margin:0 auto;">
         <div class="badge">¿Por qué elegirnos?</div>
         <h2 class="section-title">Tu viaje, nuestra prioridad</h2>
-        <p class="section-subtitle">Over 15 years building exceptional travel and insurance experiences across the United States.</p>
+        <p class="section-subtitle">Más de 15 años construyendo experiencias excepcionales de viaje y seguros en Estados Unidos.</p>
       </div>
       <div class="benefits-grid">
         <div class="benefit-card reveal">
@@ -5586,7 +5613,7 @@
           </div>
           <div class="faq-answer">
             <div class="faq-answer-inner">
-              We operate primarily online to offer you the best prices. We have service centers in Miami, New York, Los Angeles, Houston and Chicago. You can also reach us via live chat, WhatsApp or phone from anywhere in the country.
+              Operamos principalmente en línea para ofrecerte los mejores precios. Contamos con centros de servicio en Miami, Nueva York, Los Ángeles, Houston y Chicago. También puedes contactarnos por chat en vivo, WhatsApp o teléfono desde cualquier parte del país.
             </div>
           </div>
         </div>
@@ -5722,7 +5749,7 @@
             <img src="https://dynamic.design.com/preview/logodraft/91504b52-6d7d-4daf-aacd-c577e845c706/image/large.png" alt="Stelvio Broker LLC" class="logo-img logo-img-footer" />
             <span class="logo-wordmark" style="color:#fff"><em style="color:var(--primary)">Stelvio</em> Broker<span class="logo-llc" style="color:rgba(255,255,255,.3)">LLC</span></span>
           </a>
-          <p>Your trusted partner in travel and auto insurance since 2025. Licensed across Connecticut, US. Flights, hotels, packages and car insurance — all in one place.</p>
+          <p>Tu socio de confianza en viajes y seguros de auto desde 2025. Licenciados en Connecticut, EE. UU. Vuelos, hoteles, paquetes y seguros de auto — todo en un solo lugar.</p>
           <div class="footer-social">
             <a class="social-btn" href="#"><i class="fa-brands fa-instagram"></i></a>
             <a class="social-btn" href="#"><i class="fa-brands fa-facebook-f"></i></a>
@@ -5777,7 +5804,7 @@
           <a href="#">Cookies</a>
           <a href="#">Accesibilidad</a>
         </div>
-        <div class="footer-flags" style="align-items:center;font-size:.8rem;gap:6px;color:rgba(255,255,255,.5)">🇺🇸 Licensed in all 50 states</div>
+        <div class="footer-flags" style="align-items:center;font-size:.8rem;gap:6px;color:rgba(255,255,255,.5)">🇺🇸 Licenciados en los 50 estados</div>
       </div>
     </div>
   </footer>
@@ -5792,6 +5819,518 @@
     <i class="fa-solid fa-circle-check"></i>
     <span id="toastMsg">Mensaje</span>
   </div>
+
+  <!-- I18N DICTIONARY -->
+  <script>
+    window.I18N_EN = {
+      // Promo banner
+      "Oferta Flash:": "Flash Sale:",
+      "Hasta 40% OFF en paquetes seleccionados — Válido hoy únicamente.": "Up to 40% OFF on selected packages — Valid today only.",
+      "Ver ofertas": "View offers",
+
+      // Navbar / mobile menu
+      "Vuelos": "Flights",
+      "Destinos": "Destinations",
+      "Cruceros": "Cruises",
+      "Hoteles": "Hotels",
+      "Seguros": "Insurance",
+      "Contacto": "Contact",
+      "Iniciar sesión": "Log in",
+      "Cotizar Seguro": "Get a Quote",
+      "✈️ Vuelos": "✈️ Flights",
+      "🗺️ Destinos": "🗺️ Destinations",
+      "🚢 Cruceros": "🚢 Cruises",
+      "🛡️ Seguros de Auto": "🛡️ Auto Insurance",
+      "⭐ Beneficios": "⭐ Benefits",
+      "📞 Contacto": "📞 Contact",
+
+      // Hero
+      "#1 Agencia de Seguros y Viajes en Connecticut 🇺🇸": "#1 Insurance & Travel Agency in Connecticut 🇺🇸",
+      "Explora el mundo": "Explore the world",
+      "con": "with",
+      "total confianza": "total confidence",
+      "Viajes premium, seguros inteligentes y experiencias que recordarás para siempre. Tu aventura comienza aquí.": "Premium travel, smart insurance, and experiences you'll remember forever. Your adventure starts here.",
+      "Viajeros felices": "Happy travelers",
+      "Satisfacción": "Satisfaction",
+      "Soporte global": "Global support",
+      "¿En qué podemos ayudarte hoy?": "What can we help you with today?",
+      "Seguro de Auto": "Auto Insurance",
+      "Seguros de Auto": "Auto Insurance",
+      "Cotización gratis en minutos": "Free quote in minutes",
+      "Paquetes de Viaje": "Travel Packages",
+      "Vuelos, hoteles y tours": "Flights, hotels, and tours",
+      "Historial del vehículo — $1.99": "Vehicle history — $1.99",
+      "Hablar con agente": "Talk to an agent",
+      "Atención personalizada 24/7": "24/7 personalized support",
+      "Atención en español": "Support in Spanish",
+      "Respuesta en minutos": "Response within minutes",
+      "100% confidencial": "100% confidential",
+      "+15 años de experiencia": "15+ years of experience",
+
+      // Trust strip
+      "Partners y aseguradoras de confianza": "Trusted partners & carriers",
+
+      // How it works
+      "¿Cómo funciona?": "How it works",
+      "Tu viaje en 3 simples pasos": "Your trip in 3 simple steps",
+      "Reservar o cotizar tu seguro nunca había sido tan fácil y rápido": "Booking or quoting your insurance has never been this easy and fast",
+      "Busca y compara": "Search and compare",
+      "Usa nuestro buscador inteligente para encontrar vuelos, hoteles, paquetes o cotizaciones de seguro al mejor precio del mercado.": "Use our smart search to find flights, hotels, packages, or insurance quotes at the best market price.",
+      "Elige tu plan": "Choose your plan",
+      "Selecciona la opción que mejor se adapte a tus necesidades y presupuesto. Transparencia total, sin sorpresas ocultas.": "Select the option that best fits your needs and budget. Total transparency, no hidden surprises.",
+      "Viaja tranquilo": "Travel with peace of mind",
+      "Confirma tu reserva en segundos y recibe todo en tu correo. Nuestro equipo estará contigo en cada etapa del viaje.": "Confirm your booking in seconds and get everything by email. Our team will be with you at every step of your journey.",
+
+      // Offers
+      "Ofertas especiales": "Special offers",
+      "Escapadas que amarás": "Getaways you'll love",
+      "Precios exclusivos en los destinos más deseados": "Exclusive prices on the most sought-after destinations",
+      "Ver todo": "View all",
+      "Consultar por WhatsApp": "Ask via WhatsApp",
+      "¿Sabías que? · Grecia": "Did you know? · Greece",
+      "Santorini fue formada por una de las": "Santorini was formed by one of the",
+      "erupciones volcánicas más grandes de la historia": "largest volcanic eruptions in history",
+      ". Grecia tiene más de 6,000 islas, pero solo 227 están habitadas.": ". Greece has more than 6,000 islands, but only 227 are inhabited.",
+      "Grecia": "Greece",
+      "Santorini: Lujo & Atardecer": "Santorini: Luxury & Sunset",
+      "Vuelo incluido": "Flight included",
+      "7 noches": "7 nights",
+      "por persona": "per person",
+      "Todo incluido": "All inclusive",
+      "¿Sabías que? · Italia": "Did you know? · Italy",
+      "Italia tiene": "Italy has",
+      "más sitios UNESCO que cualquier otro país": "more UNESCO sites than any other country",
+      "del mundo — 58 en total. Roma tiene más fuentes monumentales que cualquier otra ciudad del planeta.": "in the world — 58 in total. Rome has more monumental fountains than any other city on the planet.",
+      "Italia": "Italy",
+      "Roma & Florencia Clásica": "Classic Rome & Florence",
+      "10 noches": "10 nights",
+      "Luna de miel": "Honeymoon",
+      "¿Sabías que? · Japón": "Did you know? · Japan",
+      "El metro de Tokio transporta": "The Tokyo subway carries",
+      "más de 13 millones de pasajeros al día": "more than 13 million passengers a day",
+      "— el más concurrido del mundo. Japón registra más de 1,500 terremotos al año.": "— the busiest in the world. Japan records more than 1,500 earthquakes a year.",
+      "Japón": "Japan",
+      "Tokio: Tradición & Modernidad": "Tokyo: Tradition & Modernity",
+      "12 noches": "12 nights",
+      "¿Sabías que? · México": "Did you know? · Mexico",
+      "Cancún era una": "Cancún was an",
+      "isla deshabitada en 1974": "uninhabited island in 1974",
+      ". Bajo su mar está el": ". Beneath its sea lies the",
+      "segundo arrecife de coral más grande del mundo": "second-largest coral reef in the world",
+      "y hoy recibe más de 6 millones de turistas al año.": "and today it welcomes more than 6 million tourists a year.",
+      "México": "Mexico",
+      "5 noches": "5 nights",
+
+      // Destinations
+      "Los lugares más elegidos por nuestros viajeros": "The most popular choices among our travelers",
+      "Destinos populares": "Popular destinations",
+      "Ver todos": "View all",
+      "Francia es el": "France is the",
+      "país más visitado del mundo": "most visited country in the world",
+      ". La Torre Eiffel crece 15 cm en verano por expansión térmica.": ". The Eiffel Tower grows 15 cm in summer due to thermal expansion.",
+      "Francia": "France",
+      "París": "Paris",
+      "Desde $1,200": "From $1,200",
+      "Nueva York": "New York",
+      "Estados Unidos": "United States",
+      "Desde $850": "From $850",
+      "NYC habla": "NYC speaks",
+      "más de 800 idiomas": "more than 800 languages",
+      "— la ciudad más lingüísticamente diversa del planeta.": "— the most linguistically diverse city on the planet.",
+      "Tailandia": "Thailand",
+      "Desde $1,290": "From $1,290",
+      "Bangkok tiene el": "Bangkok has the",
+      "nombre oficial más largo del mundo": "longest official name in the world",
+      ": 169 letras en tailandés. Tiene más de 40,000 templos budistas.": ": 169 letters in Thai. It has more than 40,000 Buddhist temples.",
+      "Perú": "Peru",
+      "Desde $980": "From $980",
+      "Construida en 1450 a 2,430m de altura. Sus piedras encajan tan perfectamente que": "Built in 1450 at 2,430m elevation. Its stones fit so perfectly that",
+      "ni una hoja de papel cabe entre ellas": "not even a sheet of paper fits between them",
+      "Emiratos Árabes": "United Arab Emirates",
+      "Desde $2,100": "From $2,100",
+      "En los años 60 era un pueblo pesquero. Hoy alberga el": "In the 1960s it was a fishing village. Today it's home to the",
+      "edificio más alto del mundo": "tallest building in the world",
+      ": el Burj Khalifa con 828 metros.": ": the Burj Khalifa at 828 meters.",
+
+      // Cruises
+      "Nuevos partners · Cruceros": "New partners · Cruises",
+      "Beneficios exclusivos en cruceros premium": "Exclusive benefits on premium cruises",
+      "Créditos a bordo, experiencias en destino y regalos por reservar con nuestros aliados seleccionados.": "Onboard credits, destination experiences, and rewards for booking with our select partners.",
+      "Respaldados por Chase": "Backed by Chase",
+      "Reservas protegidas · Ultimate Rewards®": "Protected bookings · Ultimate Rewards®",
+      "Rin & Danubio · Europa": "Rhine & Danube · Europe",
+      "Crédito a bordo de": "Onboard credit of",
+      "$150 por persona": "$150 per person",
+      "y servicio de lavandería de cortesía.": "and complimentary laundry service.",
+      "$150 crédito": "$150 credit",
+      "Reservar": "Book now",
+      "Alaska & Caribe": "Alaska & Caribbean",
+      "Recibe": "Receive",
+      "hasta $300 en crédito a bordo": "up to $300 in onboard credit",
+      "por reserva confirmada.": "per confirmed booking.",
+      "Hasta $300": "Up to $300",
+      "Costa Amalfitana · Mediterráneo": "Amalfi Coast · Mediterranean",
+      "Crédito de": "Credit of",
+      "$250 por persona": "$250 per person",
+      "para experiencias en destino (Destination Experience Credit).": "for destination experiences (Destination Experience Credit).",
+      "$250 experiencia": "$250 experience",
+      "Bahamas & Caribe": "Bahamas & Caribbean",
+      "Elige entre": "Choose between",
+      "$100 de crédito de excursión": "$100 shore excursion credit",
+      ", noche extra de cena especial o paquete ilimitado de Starbucks por camarote.": ", an extra night of specialty dining, or an unlimited Starbucks package per stateroom.",
+      "Santorini · Islas Griegas": "Santorini · Greek Islands",
+      "$400 por camarote": "$400 per stateroom",
+      "aplicable a experiencias y bebidas.": "applicable to experiences and beverages.",
+      "$400 crédito": "$400 credit",
+      "Cabo San Lucas · Vuelta al mundo": "Cabo San Lucas · World Cruise",
+      "$200 por persona": "$200 per person",
+      "y kit de productos spa Elemis de cortesía.": "and a complimentary Elemis spa product kit.",
+      "Cada reserva, respaldada por Chase": "Every booking, backed by Chase",
+      "Protección de reserva, atención 24/7 y puntos Ultimate Rewards® aplicables a tu viaje. Confianza institucional para cada crucero.": "Booking protection, 24/7 support, and Ultimate Rewards® points applicable to your trip. Institutional trust for every cruise.",
+      "Reservar con confianza": "Book with confidence",
+
+      // The Edit by Chase — Hotels
+      "Hoteles de edición limitada": "Limited Edition Hotels",
+      "Estadías premium en propiedades exclusivas de The Edit by Chase — solo por tiempo limitado.": "Premium stays in exclusive properties from The Edit by Chase — for a limited time only.",
+      "Rango por noche": "Price range per night",
+      "USD · Solo edición limitada": "USD · Limited edition only",
+      "Edición limitada ·": "Limited edition ·",
+      "Los hoteles de esta colección se ofrecen por tiempo restringido a través de The Edit by Chase. Precios por noche desde": "Hotels in this collection are offered for a limited time through The Edit by Chase. Rates per night start at",
+      "hasta": "up to",
+      ". Sujeto a disponibilidad y fechas específicas.": ". Subject to availability and specific dates.",
+      "4 fotos · 3 estadías": "4 photos · 3 stays",
+      "Edición limitada": "Limited edition",
+      "Desde": "From",
+      "/ noche": "/ night",
+      "Ver galería": "View gallery",
+      "Estadías disponibles": "Available stays",
+      "Reservar estadía": "Book stay",
+      "Volver": "Back",
+      "Reserva respaldada por The Edit by Chase · Ultimate Rewards® aplicables.": "Booking backed by The Edit by Chase · Ultimate Rewards® applicable.",
+      "/noche": "/night",
+
+      "Roma, Italia": "Rome, Italy",
+      "Palazzo del siglo XVIII en Piazza Augusto Imperatore, restaurado con la elegancia contemporánea que solo Bulgari puede ofrecer.": "An 18th-century palazzo on Piazza Augusto Imperatore, restored with the contemporary elegance only Bulgari can offer.",
+      "1 rey · Vista ciudad · 45 m²": "1 king · City view · 45 m²",
+      "1 rey · Terraza privada · 95 m²": "1 king · Private terrace · 95 m²",
+      "1 rey · Vista Piazza · 220 m²": "1 king · Piazza view · 220 m²",
+
+      "Bora Bora, Polinesia Francesa": "Bora Bora, French Polynesia",
+      "Bungalows sobre el agua con vistas al Monte Otemanu y acceso privado a la laguna turquesa más famosa del Pacífico.": "Overwater bungalows with views of Mount Otemanu and private access to the Pacific's most famous turquoise lagoon.",
+      "1 rey · Deck privado · 100 m²": "1 king · Private deck · 100 m²",
+      "2 dormitorios · Piscina infinita · 350 m²": "2 bedrooms · Infinity pool · 350 m²",
+      "3 dormitorios · Playa privada · 500 m²": "3 bedrooms · Private beach · 500 m²",
+
+      "Tokio, Japón": "Tokyo, Japan",
+      "Serenidad japonesa en la planta 33 del Otemachi Tower. Vistas del Monte Fuji, ofuros de piedra y el mejor spa de la ciudad.": "Japanese serenity on the 33rd floor of Otemachi Tower. Mount Fuji views, stone ofuro baths, and the city's finest spa.",
+      "1 rey · 71 m² · Vista ciudad": "1 king · 71 m² · City view",
+      "1 rey · 121 m² · Vista Fuji": "1 king · 121 m² · Fuji view",
+      "1 rey · 157 m² · Sala de té": "1 king · 157 m² · Tea room",
+
+      "París, Francia": "Paris, France",
+      "Un Palace de LVMH sobre el Sena, junto al Pont Neuf. 72 suites, restaurante Plénitude de 3 estrellas Michelin y Dior Spa.": "An LVMH Palace on the Seine, next to the Pont Neuf. 72 suites, the 3-Michelin-star Plénitude restaurant, and Dior Spa.",
+      "1 rey · 55 m² · Vista Louvre": "1 king · 55 m² · Louvre view",
+      "1 rey · 90 m² · Vista al Sena": "1 king · 90 m² · Seine view",
+      "2 dormitorios · 320 m² · Vue Panorámique": "2 bedrooms · 320 m² · Panoramic View",
+
+      "Los Ángeles, EE. UU.": "Los Angeles, USA",
+      "Icónico refugio de estrellas con rooftop pool, servicio Rolls-Royce cortesía y las suites más discretas de Wilshire Boulevard.": "An iconic star hideaway with a rooftop pool, complimentary Rolls-Royce service, and the most discreet suites on Wilshire Boulevard.",
+      "1 rey · 40 m² · Vista jardines": "1 king · 40 m² · Garden view",
+      "1 rey · 110 m² · Terraza priv.": "1 king · 110 m² · Private terrace",
+      "2 dormitorios · Piscina propia": "2 bedrooms · Private pool",
+
+      "Madrid, España": "Madrid, Spain",
+      "Sobre el Paseo de la Castellana. Diseño de Antonio Obrador, restaurante Amós con estrella Michelin y el sky bar más pedido de Madrid.": "On the Paseo de la Castellana. Design by Antonio Obrador, the Michelin-starred Amós restaurant, and Madrid's most sought-after sky bar.",
+      "1 rey · 35 m² · Vista ciudad": "1 king · 35 m² · City view",
+      "1 rey · 55 m² · Balcón privado": "1 king · 55 m² · Private balcony",
+      "1 rey · 180 m² · 3 balcones": "1 king · 180 m² · 3 balconies",
+
+      // Insurance
+      "Protege tu vehículo con la mejor cobertura": "Protect your vehicle with the best coverage",
+      "Cotiza en minutos, elige el plan perfecto y viaja tranquilo. Trabajamos con las aseguradoras más confiables del mercado.": "Get a quote in minutes, choose the perfect plan, and travel worry-free. We work with the most trusted insurers in the market.",
+      "Cobertura total": "Full coverage",
+      "Daños propios, terceros, robo, desastres naturales y asistencia vial.": "Own damage, third-party, theft, natural disasters, and roadside assistance.",
+      "Cotización en 2 minutos": "Quote in 2 minutes",
+      "Sin papeleo, sin llamadas. Compara precios al instante y elige online.": "No paperwork, no calls. Compare prices instantly and choose online.",
+      "Soporte 24/7 en carretera": "24/7 roadside support",
+      "Asistencia inmediata donde estés. Grúa, mecánico, médico.": "Immediate assistance wherever you are. Towing, mechanic, medical.",
+      "Hasta 35% de descuento": "Up to 35% off",
+      "Descuentos exclusivos para clientes de Stelvio Broker LLC en los 50 estados.": "Exclusive discounts for Stelvio Broker LLC customers across all 50 states.",
+      "Cotizar gratis": "Get a free quote",
+      "Hablar con asesor": "Talk to an advisor",
+      "Cotiza tu seguro ahora": "Get your insurance quote now",
+      "Completamente gratis y sin compromiso": "Completely free, no obligation",
+      "Disponible en Connecticut (CT)": "Available in Connecticut (CT)",
+      "Próximamente: Massachusetts · New York · Florida · y más": "Coming soon: Massachusetts · New York · Florida · and more",
+      "Nombre completo": "Full name",
+      "Teléfono": "Phone",
+      "Correo electrónico": "Email",
+      "Marca del vehículo": "Vehicle make",
+      "Seleccionar": "Select",
+      "— Americanas": "— American",
+      "— Japonesas": "— Japanese",
+      "— Coreanas": "— Korean",
+      "— Alemanas": "— German",
+      "— Europeas / Otras": "— European / Other",
+      "Otra marca": "Other brand",
+      "Modelo": "Model",
+      "Año del vehículo": "Vehicle year",
+      "Anterior a 2000": "Before 2000",
+      "¿Ha tenido accidentes previos?": "Have you had previous accidents?",
+      "No, ninguno": "No, none",
+      "Sí, 1 accidente": "Yes, 1 accident",
+      "Sí, 2 accidentes": "Yes, 2 accidents",
+      "Sí, 3 o más": "Yes, 3 or more",
+      "Edad del conductor principal": "Primary driver's age",
+      "Código postal": "ZIP code",
+      "Tipo de cobertura": "Coverage type",
+      "Responsabilidad civil básica": "Basic liability coverage",
+      "Cobertura amplia": "Extended coverage",
+      "Todo riesgo (premium)": "Full coverage (premium)",
+      "Uso del vehículo": "Vehicle use",
+      "Particular": "Personal",
+      "Comercial": "Commercial",
+      "Transporte de personal": "Staff transport",
+      "Obtener cotización gratuita": "Get a free quote",
+      "¡Cotización enviada! Te contactaremos muy pronto.": "Quote sent! We'll contact you very soon.",
+      "Hubo un error. Por favor intenta de nuevo.": "Something went wrong. Please try again.",
+      "Tus datos están seguros. Nunca los compartimos.": "Your data is safe. We never share it.",
+
+      // VIN
+      "Una app de Stelvio Broker LLC": "An app by Stelvio Broker LLC",
+      "para que verifiques el estado de un auto antes de comprarlo": "so you can check a car's condition before buying it",
+      "Conoce el historial completo": "Know the complete history",
+      "de tu vehículo": "of your vehicle",
+      "Antes de comprar o asegurar un auto, verifica su historial con nuestro reporte VIN. Accidentes, cambios de dueño, kilometraje real, robo y más.": "Before buying or insuring a car, check its history with our VIN report. Accidents, ownership changes, real mileage, theft, and more.",
+      "Buscador de VIN": "VIN lookup",
+      "Escanear VIN del vehículo": "Scan vehicle VIN",
+      "Ingresa el número VIN de 17 dígitos del auto que deseas verificar": "Enter the 17-digit VIN of the car you want to check",
+      "Escanear": "Scan",
+      "Historial de accidentes": "Accident history",
+      "Dueños anteriores": "Previous owners",
+      "Estado de robo": "Theft status",
+      "Recalls del fabricante": "Manufacturer recalls",
+      "Vista previa del reporte": "Report preview",
+      "Resultado inmediato": "Instant results",
+      "Accidentes reportados": "Reported accidents",
+      "2 eventos": "2 events",
+      "3 dueños": "3 owners",
+      "Limpio": "Clean",
+      "Kilometraje registrado": "Recorded mileage",
+      "Recalls activos": "Active recalls",
+      "1 pendiente": "1 pending",
+      "Reporte protegido": "Protected report",
+      "Solo": "Only",
+      "por reporte completo": "per full report",
+      "Desbloquear por $1.99": "Unlock for $1.99",
+      "Historial de accidentes y daños": "Accident and damage history",
+      "Número de dueños anteriores": "Number of previous owners",
+      "Verificación de robo en los 50 estados": "Theft verification in all 50 states",
+      "Historial de kilometraje y odómetro": "Mileage and odometer history",
+      "Registros de servicio y mantenimiento": "Service and maintenance records",
+      "Alertas de recall del fabricante": "Manufacturer recall alerts",
+
+      // Subscription modal
+      "Reporte VIN completo": "Complete VIN Report",
+      "Stelvio Broker LLC · Resultado instantáneo": "Stelvio Broker LLC · Instant results",
+      "por reporte · pago único · sin suscripción": "per report · one-time payment · no subscription",
+      "1er GRATIS": "1st FREE",
+      "Historial completo de accidentes": "Complete accident history",
+      "Verificación de robo en tiempo real": "Real-time theft verification",
+      "Exporta PDF del reporte": "Export report as PDF",
+      "SSL Encriptado": "SSL Encrypted",
+      "Stripe Seguro": "Secure Stripe",
+      "Ver reporte completo — $1.99": "View full report — $1.99",
+      "Pago seguro · SSL encriptado · Cancela en cualquier momento": "Secure payment · SSL encrypted · Cancel anytime",
+      "Al suscribirte aceptas nuestros Términos de Servicio": "By subscribing you agree to our Terms of Service",
+      "Cerrar": "Close",
+
+      // Benefits
+      "¿Por qué elegirnos?": "Why choose us?",
+      "Tu viaje, nuestra prioridad": "Your trip, our priority",
+      "Más de 15 años construyendo experiencias excepcionales de viaje y seguros en Estados Unidos.": "Over 15 years building exceptional travel and insurance experiences across the United States.",
+      "Calidad garantizada": "Guaranteed quality",
+      "Seleccionamos cuidadosamente cada hotel, aerolínea y experiencia para asegurar lo mejor.": "We carefully select every hotel, airline, and experience to ensure the best.",
+      "Soporte 24/7": "24/7 support",
+      "Nuestro equipo está disponible las 24 horas, todos los días, donde estés en el mundo.": "Our team is available 24 hours a day, every day, wherever you are in the world.",
+      "Pago seguro": "Secure payment",
+      "Transacciones encriptadas con los más altos estándares de seguridad bancaria.": "Encrypted transactions with the highest banking security standards.",
+      "Cancelación flexible": "Flexible cancellation",
+      "Planes adaptables a tus necesidades. Cancela hasta 48 horas antes sin cargo.": "Plans that adapt to your needs. Cancel up to 48 hours in advance at no charge.",
+      "Programa de lealtad": "Loyalty program",
+      "Acumula puntos en cada viaje y canjéalos por descuentos y upgrades exclusivos.": "Earn points on every trip and redeem them for exclusive discounts and upgrades.",
+
+      // Testimonials
+      "Testimonios": "Testimonials",
+      "Lo que dicen nuestros viajeros": "What our travelers say",
+      "Miles de historias de personas que confiaron en nosotros": "Thousands of stories from people who trusted us",
+      "Cliente verificada": "Verified customer",
+      "Cliente verificado": "Verified customer",
+      "Santorini, Grecia · Jun 2025": "Santorini, Greece · Jun 2025",
+      "El viaje fue absolutamente mágico. Stelvio Broker LLC se encargó de cada detalle: vuelos, hotel con vista al mar, tours privados... Superó todas mis expectativas. Ya estoy planeando mi próxima aventura con ellos.": "The trip was absolutely magical. Stelvio Broker LLC handled every detail: flights, ocean-view hotel, private tours... It exceeded all my expectations. I'm already planning my next adventure with them.",
+      "Seguro de auto · May 2025": "Auto insurance · May 2025",
+      "Contraté el seguro de auto en minutos. Cuando tuve un accidente menor, la asistencia llegó en 20 minutos. El proceso de reclamación fue muy sencillo. Totalmente recomendable para quienes valoran tranquilidad.": "I got my auto insurance in minutes. When I had a minor accident, assistance arrived in 20 minutes. The claims process was very simple. Highly recommended for anyone who values peace of mind.",
+      "Tokio, Japón · Abr 2025": "Tokyo, Japan · Apr 2025",
+      "Nunca había viajado sola y el equipo de Stelvio Broker LLC me acompañó en todo. La guía en Tokio era fantástica, el hotel en Kioto era de ensueño. Me sentí protegida y mimada durante todo el viaje.": "I had never traveled alone before, and the Stelvio Broker LLC team was with me every step of the way. The guide in Tokyo was fantastic, the hotel in Kyoto was a dream. I felt protected and pampered throughout the trip.",
+      "Paquete familiar · Mar 2025": "Family package · Mar 2025",
+      "Viajamos en familia a Cancún: padres, esposa e hijos. El paquete todo incluido fue perfecto. Los niños disfrutaron los parques, nosotros la playa. El precio fue imbatible. ¡Repetiríamos sin dudarlo!": "We traveled as a family to Cancún: parents, wife, and kids. The all-inclusive package was perfect. The kids enjoyed the parks, we enjoyed the beach. The price was unbeatable. We'd do it again without hesitation!",
+      "Luna de miel en Bali · Feb 2025": "Honeymoon in Bali · Feb 2025",
+      "Nuestro paquete de luna de miel en Bali fue de película. Stelvio Broker LLC coordinó cada sorpresa: cenas románticas, spa privado, tour en barco al atardecer. Un servicio de lujo a un precio justo. Eternamente agradecidas.": "Our honeymoon package in Bali was like a movie. Stelvio Broker LLC coordinated every surprise: romantic dinners, private spa, sunset boat tour. Luxury service at a fair price. Forever grateful.",
+
+      // Blog
+      "Blog de viajes": "Travel blog",
+      "Inspírate y aprende": "Get inspired and learn",
+      "Consejos, guías y tendencias de viaje de nuestros expertos": "Tips, guides, and travel trends from our experts",
+      "Consejos de viaje": "Travel tips",
+      "Los 10 errores que debes evitar al planificar tu próximo viaje": "10 mistakes to avoid when planning your next trip",
+      "Desde no comparar precios hasta olvidar el seguro de viaje, estos son los errores más comunes que cometen los viajeros novatos.": "From not comparing prices to forgetting travel insurance, these are the most common mistakes new travelers make.",
+      "Leer artículo": "Read article",
+      "¿Por qué necesitas un seguro de auto con cobertura ampliada en 2025?": "Why do you need auto insurance with extended coverage in 2025?",
+      "Con el aumento de costos de reparación y piezas importadas, la cobertura básica ya no es suficiente. Te explicamos cómo elegir bien.": "With rising repair costs and imported parts, basic coverage is no longer enough. We'll explain how to choose wisely.",
+      "Europa en otoño: por qué es la mejor época para viajar al Viejo Continente": "Europe in autumn: why it's the best time to travel to the Old Continent",
+      "Menos turistas, precios más bajos y paisajes espectaculares. Descubre las ciudades europeas que brillan en septiembre y octubre.": "Fewer tourists, lower prices, and spectacular scenery. Discover the European cities that shine in September and October.",
+
+      // FAQ
+      "Preguntas frecuentes": "Frequently asked questions",
+      "Todo lo que necesitas saber antes de reservar": "Everything you need to know before booking",
+      "¿Cómo puedo reservar un viaje o paquete turístico?": "How can I book a trip or vacation package?",
+      "Puedes reservar directamente en nuestra web usando el buscador. Selecciona tu destino, fechas y número de viajeros, compara las opciones disponibles y completa el pago de forma segura. Recibirás confirmación inmediata por correo con todos los detalles de tu reserva.": "You can book directly on our website using the search tool. Select your destination, dates, and number of travelers, compare the available options, and complete payment securely. You'll receive immediate email confirmation with all your booking details.",
+      "¿Cuánto cuesta cotizar un seguro de auto?": "How much does it cost to get an auto insurance quote?",
+      "Cotizar es completamente gratuito y sin compromiso. En menos de 2 minutos puedes comparar precios de hasta 15 aseguradoras líderes. Solo necesitas los datos básicos de tu vehículo y tus datos de contacto. No hay letras pequeñas ni cargos ocultos.": "Getting a quote is completely free with no obligation. In under 2 minutes you can compare prices from up to 15 leading insurers. You only need basic information about your vehicle and your contact details. No fine print or hidden fees.",
+      "¿Puedo cancelar o modificar mi reserva?": "Can I cancel or change my booking?",
+      "Sí. Ofrecemos políticas de cancelación flexibles en la mayoría de nuestros paquetes. Puedes cancelar hasta 48 horas antes de tu viaje sin costo adicional en planes con cancelación gratuita. Para vuelos, las condiciones dependen de la aerolínea. Siempre te mostramos las condiciones antes de confirmar.": "Yes. We offer flexible cancellation policies on most of our packages. You can cancel up to 48 hours before your trip at no extra cost on plans with free cancellation. For flights, conditions depend on the airline. We always show you the terms before you confirm.",
+      "¿Qué métodos de pago aceptan?": "What payment methods do you accept?",
+      "Aceptamos tarjetas de crédito y débito (Visa, Mastercard, Amex), transferencia bancaria, PayPal y pago en cuotas sin intereses hasta 18 meses en bancos seleccionados. Todos los pagos van encriptados con tecnología SSL de 256 bits.": "We accept credit and debit cards (Visa, Mastercard, Amex), bank transfer, PayPal, and interest-free installments up to 18 months with select banks. All payments are encrypted with 256-bit SSL technology.",
+      "¿Incluyen seguro de viaje en los paquetes?": "Do packages include travel insurance?",
+      "Nuestros paquetes premium incluyen seguro de viaje básico. Puedes agregar cobertura extendida (médica internacional, pérdida de equipaje, cancelación por causas de fuerza mayor) como complemento. Te recomendamos siempre viajar asegurado para proteger tu inversión.": "Our premium packages include basic travel insurance. You can add extended coverage (international medical, lost luggage, cancellation due to force majeure) as an add-on. We always recommend traveling insured to protect your investment.",
+      "¿Tienen oficinas físicas o solo operan en línea?": "Do you have physical offices or do you operate only online?",
+      "Operamos principalmente en línea para ofrecerte los mejores precios. Contamos con centros de servicio en Miami, Nueva York, Los Ángeles, Houston y Chicago. También puedes contactarnos por chat en vivo, WhatsApp o teléfono desde cualquier parte del país.": "We operate primarily online to offer you the best prices. We have service centers in Miami, New York, Los Angeles, Houston, and Chicago. You can also reach us via live chat, WhatsApp, or phone from anywhere in the country.",
+
+      // Contact
+      "Contáctanos": "Contact us",
+      "Estamos aquí para ti": "We're here for you",
+      "Habla con nuestros expertos en viajes. Respuesta garantizada en menos de 2 horas durante horario de oficina.": "Talk to our travel experts. Guaranteed response within 2 hours during business hours.",
+      "Teléfono & WhatsApp": "Phone & WhatsApp",
+      "Teléfono (opcional)": "Phone (optional)",
+      "Horario de atención": "Business hours",
+      "Lun–Vie: 8am–9pm · Sáb–Dom: 9am–6pm": "Mon–Fri: 8am–9pm · Sat–Sun: 9am–6pm",
+      "Oficina principal": "Main office",
+      "Solo digital": "Digital only",
+      "Escríbenos": "Write to us",
+      "Cuéntanos qué necesitas y te respondemos pronto.": "Tell us what you need and we'll get back to you soon.",
+      "Nombre": "First name",
+      "Apellido": "Last name",
+      "Tu nombre": "Your first name",
+      "Tu apellido": "Your last name",
+      "Edad": "Age",
+      "Asunto": "Subject",
+      "Información sobre paquetes de viaje": "Information about travel packages",
+      "Cotización seguro de auto": "Auto insurance quote",
+      "Reserva de vuelo o hotel": "Flight or hotel booking",
+      "Cambio o cancelación": "Change or cancellation",
+      "Reclamación": "Claim",
+      "Otro": "Other",
+      "Mensaje": "Message",
+      "Cuéntanos cómo podemos ayudarte...": "Tell us how we can help you...",
+      "Enviar mensaje": "Send message",
+      "¡Mensaje enviado! Te responderemos pronto.": "Message sent! We'll get back to you soon.",
+
+      // Newsletter
+      "Ofertas exclusivas en tu bandeja": "Exclusive deals in your inbox",
+      "Suscríbete y recibe descuentos de hasta 40%, alertas de precios bajos y guías de destinos. Sin spam.": "Subscribe and get discounts up to 40%, low-price alerts, and destination guides. No spam.",
+      "Suscribirme gratis": "Subscribe for free",
+      "Más de 80,000 viajeros ya están suscritos. Cancela cuando quieras.": "Over 80,000 travelers are already subscribed. Cancel anytime.",
+
+      // Footer
+      "Tu socio de confianza en viajes y seguros de auto desde 2025. Licenciados en Connecticut, EE. UU. Vuelos, hoteles, paquetes y seguros de auto — todo en un solo lugar.": "Your trusted partner in travel and auto insurance since 2025. Licensed in Connecticut, US. Flights, hotels, packages, and car insurance — all in one place.",
+      "Viajes": "Travel",
+      "Vuelos baratos": "Cheap flights",
+      "Hoteles y resorts": "Hotels & resorts",
+      "Paquetes todo incluido": "All-inclusive packages",
+      "Viajes en familia": "Family trips",
+      "Seguro de auto": "Auto insurance",
+      "Seguro de viaje": "Travel insurance",
+      "Responsabilidad civil": "Liability coverage",
+      "Todo riesgo": "Full coverage",
+      "Asistencia vial": "Roadside assistance",
+      "Empresa": "Company",
+      "Sobre nosotros": "About us",
+      "Afiliados": "Affiliates",
+      "Trabaja con nosotros": "Work with us",
+      "© 2025 Stelvio Broker LLC. Todos los derechos reservados.": "© 2025 Stelvio Broker LLC. All rights reserved.",
+      "Términos de uso": "Terms of use",
+      "Privacidad": "Privacy",
+      "Accesibilidad": "Accessibility",
+      "🇺🇸 Licenciados en los 50 estados": "🇺🇸 Licensed in all 50 states",
+
+      // Toasts
+      "Iniciando sesión...": "Signing in...",
+      "¡Suscripción exitosa! Bienvenido a nuestra comunidad.": "Subscription successful! Welcome to our community.",
+      "Guardado en tu lista de deseos ❤️": "Saved to your wishlist ❤️",
+      "Ingresa al menos 5 caracteres del VIN.": "Enter at least 5 characters of the VIN.",
+      "Error al procesar el pago. Intenta de nuevo.": "Error processing payment. Please try again.",
+
+      // Placeholders / examples
+      "Ana García": "John Smith",
+      "ana@email.com": "john@email.com",
+      "tu@email.com": "you@email.com",
+      "tu@correo.com": "you@email.com",
+      "Ej: Camry, F-150, Civic": "E.g. Camry, F-150, Civic",
+      "Ej: 32": "E.g. 32",
+      "Ej: 28": "E.g. 28",
+      "Ej: 1HGBH41JXMN109186": "E.g. 1HGBH41JXMN109186"
+    };
+
+    // ===== I18N ENGINE =====
+    (function () {
+      function normKey(s) {
+        return s.replace(/\s+/g, ' ').trim();
+      }
+
+      function translateTextNode(node) {
+        const raw = node.nodeValue;
+        if (!raw || !raw.trim()) return;
+        const lead = raw.match(/^\s*/)[0];
+        const trail = raw.match(/\s*$/)[0];
+        const core = raw.slice(lead.length, raw.length - trail.length);
+        const key = normKey(core);
+        if (Object.prototype.hasOwnProperty.call(window.I18N_EN, key)) {
+          node.nodeValue = lead + window.I18N_EN[key] + trail;
+        }
+      }
+
+      function translateAttrs(root) {
+        root.querySelectorAll('[placeholder]').forEach(el => {
+          const key = normKey(el.getAttribute('placeholder'));
+          if (Object.prototype.hasOwnProperty.call(window.I18N_EN, key)) {
+            el.setAttribute('placeholder', window.I18N_EN[key]);
+          }
+        });
+        root.querySelectorAll('[aria-label]').forEach(el => {
+          const key = normKey(el.getAttribute('aria-label'));
+          if (Object.prototype.hasOwnProperty.call(window.I18N_EN, key)) {
+            el.setAttribute('aria-label', window.I18N_EN[key]);
+          }
+        });
+        root.querySelectorAll('optgroup[label]').forEach(el => {
+          const key = normKey(el.getAttribute('label'));
+          if (Object.prototype.hasOwnProperty.call(window.I18N_EN, key)) {
+            el.setAttribute('label', window.I18N_EN[key]);
+          }
+        });
+      }
+
+      window.__applyI18n = function (root) {
+        root = root || document.body;
+        const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, null);
+        const nodes = [];
+        let n;
+        while ((n = walker.nextNode())) nodes.push(n);
+        nodes.forEach(translateTextNode);
+        translateAttrs(root);
+      };
+    })();
+  </script>
 
   <!-- SCRIPTS -->
   <script>
@@ -5909,6 +6448,9 @@
     // ===== TOAST =====
     function showToast(msg) {
       const toast = document.getElementById('toast');
+      if (window.__siteLang === 'en' && window.I18N_EN && Object.prototype.hasOwnProperty.call(window.I18N_EN, msg)) {
+        msg = window.I18N_EN[msg];
+      }
       document.getElementById('toastMsg').textContent = msg;
       toast.classList.add('show');
       setTimeout(() => toast.classList.remove('show'), 3500);
