@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="is-loading">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <script type="module" src="https://unpkg.com/@lottiefiles/dotlottie-wc@latest/dist/dotlottie-wc.js"></script>
   <style>
     /* ===== RESET & BASE ===== */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -3929,9 +3930,93 @@
     .trust-logo { padding: 6px 10px; font-size: .7rem; gap: 5px; }
   }
 
+  /* =====================
+     SPLASH SCREEN
+  ===================== */
+  html.is-loading { overflow: hidden; }
+  .splash-screen {
+    position: fixed;
+    inset: 0;
+    z-index: 100000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    background:
+      radial-gradient(900px 500px at 50% 30%, rgba(201,162,75,.10), transparent 60%),
+      #0e1a2b;
+    transition: opacity .6s ease, visibility .6s ease;
+  }
+  .splash-screen.splash-hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+  .splash-anim {
+    width: 220px;
+    height: 220px;
+  }
+  .splash-brand {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-weight: 700;
+    font-size: 1.4rem;
+    letter-spacing: .04em;
+    color: #fff;
+  }
+  .splash-brand em {
+    font-style: italic;
+    color: #c9a24b;
+  }
+  .splash-tag {
+    font-size: .68rem;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.5);
+    margin-top: -10px;
+  }
+
   </style>
 </head>
 <body>
+
+  <!-- SPLASH SCREEN -->
+  <div class="splash-screen" id="splashScreen">
+    <dotlottie-wc
+      class="splash-anim"
+      src="https://lottie.host/cfabd7df-9bb4-45af-9f85-8e4bcf5796e1/yJRfeccWFc.lottie"
+      autoplay
+      loop>
+    </dotlottie-wc>
+    <div class="splash-brand"><em>Stelvio</em> Broker <span style="font-size:.7rem;vertical-align:super;color:rgba(255,255,255,.6)">LLC</span></div>
+    <div class="splash-tag">Cargando tu experiencia de viaje</div>
+  </div>
+  <script>
+    (function () {
+      var MIN_DISPLAY_MS = 1400;
+      var MAX_WAIT_MS = 4500;
+      var start = Date.now();
+      var hidden = false;
+
+      function hideSplash() {
+        if (hidden) return;
+        hidden = true;
+        var splash = document.getElementById('splashScreen');
+        var elapsed = Date.now() - start;
+        var wait = Math.max(0, MIN_DISPLAY_MS - elapsed);
+        setTimeout(function () {
+          if (splash) {
+            splash.classList.add('splash-hidden');
+            splash.addEventListener('transitionend', function () { splash.remove(); }, { once: true });
+          }
+          document.documentElement.classList.remove('is-loading');
+        }, wait);
+      }
+
+      window.addEventListener('load', hideSplash);
+      setTimeout(hideSplash, MAX_WAIT_MS);
+    })();
+  </script>
 
   <!-- PROMO BANNER -->
   <div class="promo-banner" id="promoBanner">
