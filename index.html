@@ -698,15 +698,17 @@
       box-shadow: 0 6px 24px rgba(11, 31, 58, .06);
     }
     .chase-logo-mini {
-      width: 48px; height: 48px;
-      border-radius: 10px;
-      background: linear-gradient(135deg, #0033a0, #0057c2);
-      color: #fff;
+      width: 56px; height: 56px;
+      border-radius: 12px;
+      background: #fff;
+      border: 1px solid #e6ebf3;
+      color: #0033a0;
       display: grid; place-items: center;
       font-weight: 800; letter-spacing: .5px;
       font-size: 13px;
-      box-shadow: inset 0 -2px 0 rgba(0,0,0,.15);
       flex-shrink: 0;
+      padding: 8px;
+      overflow: hidden;
     }
     .chase-inline-title { font-weight: 700; font-size: .95rem; color: var(--dark); }
     .chase-inline-sub { font-size: .78rem; color: var(--gray); margin-top: 2px; }
@@ -756,6 +758,25 @@
       border-radius: 999px;
       z-index: 2;
       backdrop-filter: blur(6px);
+    }
+    .cruise-location {
+      position: absolute;
+      bottom: 12px; left: 14px;
+      color: #fff;
+      font-weight: 600;
+      font-size: .82rem;
+      letter-spacing: .02em;
+      z-index: 2;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      text-shadow: 0 1px 4px rgba(0,0,0,.6);
+    }
+    .cruise-location i { font-size: .78rem; opacity: .9; }
+    .chase-logo-img {
+      max-width: 80%;
+      max-height: 68%;
+      object-fit: contain;
     }
     .cruise-body {
       padding: 20px 22px 22px;
@@ -838,7 +859,7 @@
       z-index: 1;
     }
     .chase-strip-badge {
-      width: 68px; height: 68px;
+      width: 76px; height: 76px;
       background: #fff;
       color: #0033a0;
       border-radius: 16px;
@@ -848,6 +869,8 @@
       font-size: 1rem;
       letter-spacing: .5px;
       flex-shrink: 0;
+      padding: 12px;
+      overflow: hidden;
     }
     .chase-strip-title {
       font-size: 1.25rem;
@@ -3976,7 +3999,11 @@
           <p class="section-subtitle">Créditos a bordo, experiencias en destino y regalos por reservar con nuestros aliados seleccionados.</p>
         </div>
         <div class="chase-inline">
-          <div class="chase-logo-mini">CHASE</div>
+          <div class="chase-logo-mini">
+            <img class="chase-logo-img" src="https://logo.clearbit.com/chase.com"
+                 alt="Chase"
+                 onerror="this.onerror=null;this.src='https://upload.wikimedia.org/wikipedia/commons/a/a4/JPMorgan_Chase_logo.svg';this.onerror=function(){this.replaceWith(Object.assign(document.createElement('span'),{textContent:'CHASE'}))};" />
+          </div>
           <div>
             <div class="chase-inline-title">Respaldados por Chase</div>
             <div class="chase-inline-sub">Reservas protegidas · Ultimate Rewards&reg;</div>
@@ -3987,8 +4014,9 @@
       <div class="cruise-grid reveal">
 
         <article class="cruise-card" onclick="openWhatsApp('AmaWaterways — Reserva con beneficio Stelvio')" style="cursor:pointer">
-          <div class="cruise-media" style="background-image: url('https://images.unsplash.com/photo-1502920917128-1aa500764cbd?auto=format&fit=crop&w=900&q=70');">
+          <div class="cruise-media" style="background-image: url('https://images.unsplash.com/photo-1467269204594-9661b134dd2b?auto=format&fit=crop&w=900&q=70');">
             <span class="cruise-tag">River cruise</span>
+            <span class="cruise-location"><i class="fa-solid fa-location-dot"></i> Rin &amp; Danubio · Europa</span>
           </div>
           <div class="cruise-body">
             <h3 class="cruise-name">AmaWaterways</h3>
@@ -4003,6 +4031,7 @@
         <article class="cruise-card" onclick="openWhatsApp('Celebrity Cruises — Reserva con beneficio Stelvio')" style="cursor:pointer">
           <div class="cruise-media" style="background-image: url('https://images.unsplash.com/photo-1548574505-5e239809ee19?auto=format&fit=crop&w=900&q=70');">
             <span class="cruise-tag">Premium ocean</span>
+            <span class="cruise-location"><i class="fa-solid fa-location-dot"></i> Alaska &amp; Caribe</span>
           </div>
           <div class="cruise-body">
             <h3 class="cruise-name">Celebrity Cruises</h3>
@@ -4015,8 +4044,9 @@
         </article>
 
         <article class="cruise-card" onclick="openWhatsApp('Explora Journeys — Reserva con beneficio Stelvio')" style="cursor:pointer">
-          <div class="cruise-media" style="background-image: url('https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=900&q=70');">
+          <div class="cruise-media" style="background-image: url('https://images.unsplash.com/photo-1523592121529-f6dde35f079e?auto=format&fit=crop&w=900&q=70');">
             <span class="cruise-tag">Luxury</span>
+            <span class="cruise-location"><i class="fa-solid fa-location-dot"></i> Costa Amalfitana · Mediterráneo</span>
           </div>
           <div class="cruise-body">
             <h3 class="cruise-name">Explora Journeys</h3>
@@ -4029,8 +4059,9 @@
         </article>
 
         <article class="cruise-card" onclick="openWhatsApp('Norwegian — Reserva con beneficio Stelvio')" style="cursor:pointer">
-          <div class="cruise-media" style="background-image: url('https://images.unsplash.com/photo-1566375638485-6f2d5c56e5c2?auto=format&fit=crop&w=900&q=70');">
+          <div class="cruise-media" style="background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=900&q=70');">
             <span class="cruise-tag">Contemporary</span>
+            <span class="cruise-location"><i class="fa-solid fa-location-dot"></i> Bahamas &amp; Caribe</span>
           </div>
           <div class="cruise-body">
             <h3 class="cruise-name">Norwegian</h3>
@@ -4043,8 +4074,9 @@
         </article>
 
         <article class="cruise-card" onclick="openWhatsApp('Oceania Cruises — Reserva con beneficio Stelvio')" style="cursor:pointer">
-          <div class="cruise-media" style="background-image: url('https://images.unsplash.com/photo-1587381420270-3e1a5b9e6904?auto=format&fit=crop&w=900&q=70');">
+          <div class="cruise-media" style="background-image: url('https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=900&q=70');">
             <span class="cruise-tag">Upper-premium</span>
+            <span class="cruise-location"><i class="fa-solid fa-location-dot"></i> Santorini · Islas Griegas</span>
           </div>
           <div class="cruise-body">
             <h3 class="cruise-name">Oceania Cruises</h3>
@@ -4059,6 +4091,7 @@
         <article class="cruise-card" onclick="openWhatsApp('Regent Seven Seas — Reserva con beneficio Stelvio')" style="cursor:pointer">
           <div class="cruise-media" style="background-image: url('https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=900&q=70');">
             <span class="cruise-tag">Ultra-luxury</span>
+            <span class="cruise-location"><i class="fa-solid fa-location-dot"></i> Cabo San Lucas · Vuelta al mundo</span>
           </div>
           <div class="cruise-body">
             <h3 class="cruise-name">Regent Seven Seas Cruises</h3>
@@ -4074,7 +4107,11 @@
 
       <div class="chase-strip reveal">
         <div class="chase-strip-left">
-          <div class="chase-strip-badge">CHASE</div>
+          <div class="chase-strip-badge">
+            <img class="chase-logo-img" src="https://logo.clearbit.com/chase.com"
+                 alt="Chase"
+                 onerror="this.onerror=null;this.src='https://upload.wikimedia.org/wikipedia/commons/a/a4/JPMorgan_Chase_logo.svg';this.onerror=function(){this.replaceWith(Object.assign(document.createElement('span'),{textContent:'CHASE'}))};" />
+          </div>
           <div>
             <p class="chase-strip-title">Cada reserva, respaldada por Chase</p>
             <p class="chase-strip-sub">Protección de reserva, atención 24/7 y puntos Ultimate Rewards&reg; aplicables a tu viaje. Confianza institucional para cada crucero.</p>
