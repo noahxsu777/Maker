@@ -669,6 +669,216 @@
     }
 
     /* =====================
+       CRUISES SECTION
+    ===================== */
+    .cruises-section {
+      padding: 96px 0;
+      background:
+        radial-gradient(1200px 500px at 90% -10%, rgba(0, 51, 160, .06), transparent 60%),
+        radial-gradient(900px 500px at -10% 20%, rgba(0, 166, 153, .05), transparent 60%),
+        #fbfbfd;
+      position: relative;
+    }
+    .cruises-section .section-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 32px;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+    .chase-inline {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: #fff;
+      border: 1px solid #eef1f6;
+      border-radius: 14px;
+      padding: 12px 16px;
+      box-shadow: 0 6px 24px rgba(11, 31, 58, .06);
+    }
+    .chase-logo-mini {
+      width: 48px; height: 48px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #0033a0, #0057c2);
+      color: #fff;
+      display: grid; place-items: center;
+      font-weight: 800; letter-spacing: .5px;
+      font-size: 13px;
+      box-shadow: inset 0 -2px 0 rgba(0,0,0,.15);
+      flex-shrink: 0;
+    }
+    .chase-inline-title { font-weight: 700; font-size: .95rem; color: var(--dark); }
+    .chase-inline-sub { font-size: .78rem; color: var(--gray); margin-top: 2px; }
+
+    .cruise-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 24px;
+    }
+    .cruise-card {
+      background: #fff;
+      border: 1px solid #eef1f6;
+      border-radius: 20px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+      position: relative;
+    }
+    .cruise-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 24px 50px rgba(11, 31, 58, .12);
+      border-color: #d9e2f0;
+    }
+    .cruise-media {
+      aspect-ratio: 16 / 10;
+      background-color: #dbe6f2;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+    .cruise-media::after {
+      content: "";
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,0) 55%, rgba(11,31,58,.35));
+    }
+    .cruise-tag {
+      position: absolute;
+      top: 14px; left: 14px;
+      background: rgba(255,255,255,.95);
+      color: #0033a0;
+      font-weight: 700;
+      font-size: .68rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      padding: 6px 10px;
+      border-radius: 999px;
+      z-index: 2;
+      backdrop-filter: blur(6px);
+    }
+    .cruise-body {
+      padding: 20px 22px 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      flex: 1;
+    }
+    .cruise-name {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: var(--dark);
+      letter-spacing: -0.01em;
+      line-height: 1.1;
+      margin: 0;
+    }
+    .cruise-benefit {
+      color: var(--gray);
+      font-size: .95rem;
+      margin: 0;
+      flex: 1;
+    }
+    .cruise-foot {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 12px;
+      border-top: 1px dashed #e6ebf3;
+      margin-top: 6px;
+    }
+    .credit-pill {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(0, 51, 160, .08);
+      color: #0033a0;
+      font-weight: 700;
+      font-size: .78rem;
+      padding: 6px 10px;
+      border-radius: 999px;
+    }
+    .cruise-cta {
+      color: #0033a0;
+      font-weight: 600;
+      font-size: .85rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: gap var(--transition);
+    }
+    .cruise-card:hover .cruise-cta { gap: 8px; }
+
+    .chase-strip {
+      margin-top: 48px;
+      background: linear-gradient(135deg, #001f66 0%, #0033a0 45%, #0a5cff 100%);
+      color: #fff;
+      border-radius: 24px;
+      padding: 28px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+      box-shadow: 0 30px 60px rgba(0, 51, 160, .25);
+      position: relative;
+      overflow: hidden;
+    }
+    .chase-strip::before {
+      content: "";
+      position: absolute;
+      right: -80px; top: -80px;
+      width: 260px; height: 260px;
+      background: radial-gradient(circle, rgba(255,255,255,.14), transparent 70%);
+      border-radius: 50%;
+    }
+    .chase-strip-left {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      position: relative;
+      z-index: 1;
+    }
+    .chase-strip-badge {
+      width: 68px; height: 68px;
+      background: #fff;
+      color: #0033a0;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+      font-size: 1rem;
+      letter-spacing: .5px;
+      flex-shrink: 0;
+    }
+    .chase-strip-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin: 0;
+    }
+    .chase-strip-sub {
+      font-size: .92rem;
+      opacity: .88;
+      margin: 4px 0 0;
+      max-width: 560px;
+    }
+    .chase-strip .btn-primary {
+      background: #fff;
+      color: #0033a0;
+      position: relative;
+      z-index: 1;
+    }
+    .chase-strip .btn-primary:hover {
+      background: #f0f4ff;
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 768px) {
+      .cruises-section { padding: 64px 0; }
+      .cruises-section .section-header { flex-direction: column; align-items: flex-start; }
+      .chase-strip { padding: 22px; }
+      .chase-strip-title { font-size: 1.1rem; }
+    }
+
+    /* =====================
        INSURANCE SECTION
     ===================== */
     .insurance-section {
@@ -3338,6 +3548,7 @@
         <ul class="nav-links">
           <li><a href="#offers" class="active">Vuelos</a></li>
           <li><a href="#destinations">Destinos</a></li>
+          <li><a href="#cruises">Cruceros</a></li>
           <li><a href="#insurance">Seguros</a></li>
           <li><a href="#vin">VIN Report</a></li>
           <li><a href="#blog">Blog</a></li>
@@ -3360,6 +3571,7 @@
   <div class="mobile-menu" id="mobileMenu">
     <a href="#offers" onclick="closeMenu()">✈️ Vuelos</a>
     <a href="#destinations" onclick="closeMenu()">🗺️ Destinos</a>
+    <a href="#cruises" onclick="closeMenu()">🚢 Cruceros</a>
     <a href="#insurance" onclick="closeMenu()">🛡️ Seguros de Auto</a>
     <a href="#vin" onclick="closeMenu()">🔍 VIN Report</a>
     <a href="#benefits" onclick="closeMenu()">⭐ Beneficios</a>
@@ -3750,6 +3962,127 @@
             <div class="dest-fact"><i class="fa-solid fa-lightbulb"></i> En los años 60 era un pueblo pesquero. Hoy alberga el <strong>edificio más alto del mundo</strong>: el Burj Khalifa con 828 metros.</div>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CRUISE PARTNERS -->
+  <section class="cruises-section" id="cruises">
+    <div class="container">
+      <div class="section-header reveal">
+        <div>
+          <div class="badge">Nuevos partners · Cruceros</div>
+          <h2 class="section-title">Beneficios exclusivos en cruceros premium</h2>
+          <p class="section-subtitle">Créditos a bordo, experiencias en destino y regalos por reservar con nuestros aliados seleccionados.</p>
+        </div>
+        <div class="chase-inline">
+          <div class="chase-logo-mini">CHASE</div>
+          <div>
+            <div class="chase-inline-title">Respaldados por Chase</div>
+            <div class="chase-inline-sub">Reservas protegidas · Ultimate Rewards&reg;</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cruise-grid reveal">
+
+        <article class="cruise-card" onclick="openWhatsApp('AmaWaterways — Reserva con beneficio Stelvio')" style="cursor:pointer">
+          <div class="cruise-media" style="background-image: url('https://images.unsplash.com/photo-1502920917128-1aa500764cbd?auto=format&fit=crop&w=900&q=70');">
+            <span class="cruise-tag">River cruise</span>
+          </div>
+          <div class="cruise-body">
+            <h3 class="cruise-name">AmaWaterways</h3>
+            <p class="cruise-benefit">Crédito a bordo de <strong>$150 por persona</strong> y servicio de lavandería de cortesía.</p>
+            <div class="cruise-foot">
+              <span class="credit-pill"><i class="fa-solid fa-ship"></i> $150 crédito</span>
+              <span class="cruise-cta">Reservar <i class="fa-solid fa-arrow-right"></i></span>
+            </div>
+          </div>
+        </article>
+
+        <article class="cruise-card" onclick="openWhatsApp('Celebrity Cruises — Reserva con beneficio Stelvio')" style="cursor:pointer">
+          <div class="cruise-media" style="background-image: url('https://images.unsplash.com/photo-1548574505-5e239809ee19?auto=format&fit=crop&w=900&q=70');">
+            <span class="cruise-tag">Premium ocean</span>
+          </div>
+          <div class="cruise-body">
+            <h3 class="cruise-name">Celebrity Cruises</h3>
+            <p class="cruise-benefit">Recibe <strong>hasta $300 en crédito a bordo</strong> por reserva confirmada.</p>
+            <div class="cruise-foot">
+              <span class="credit-pill"><i class="fa-solid fa-ship"></i> Hasta $300</span>
+              <span class="cruise-cta">Reservar <i class="fa-solid fa-arrow-right"></i></span>
+            </div>
+          </div>
+        </article>
+
+        <article class="cruise-card" onclick="openWhatsApp('Explora Journeys — Reserva con beneficio Stelvio')" style="cursor:pointer">
+          <div class="cruise-media" style="background-image: url('https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=900&q=70');">
+            <span class="cruise-tag">Luxury</span>
+          </div>
+          <div class="cruise-body">
+            <h3 class="cruise-name">Explora Journeys</h3>
+            <p class="cruise-benefit">Crédito de <strong>$250 por persona</strong> para experiencias en destino (Destination Experience Credit).</p>
+            <div class="cruise-foot">
+              <span class="credit-pill"><i class="fa-solid fa-map-location-dot"></i> $250 experiencia</span>
+              <span class="cruise-cta">Reservar <i class="fa-solid fa-arrow-right"></i></span>
+            </div>
+          </div>
+        </article>
+
+        <article class="cruise-card" onclick="openWhatsApp('Norwegian — Reserva con beneficio Stelvio')" style="cursor:pointer">
+          <div class="cruise-media" style="background-image: url('https://images.unsplash.com/photo-1566375638485-6f2d5c56e5c2?auto=format&fit=crop&w=900&q=70');">
+            <span class="cruise-tag">Contemporary</span>
+          </div>
+          <div class="cruise-body">
+            <h3 class="cruise-name">Norwegian</h3>
+            <p class="cruise-benefit">Elige entre <strong>$100 de crédito de excursión</strong>, noche extra de cena especial o paquete ilimitado de Starbucks por camarote.</p>
+            <div class="cruise-foot">
+              <span class="credit-pill"><i class="fa-solid fa-mug-hot"></i> $100 · dining</span>
+              <span class="cruise-cta">Reservar <i class="fa-solid fa-arrow-right"></i></span>
+            </div>
+          </div>
+        </article>
+
+        <article class="cruise-card" onclick="openWhatsApp('Oceania Cruises — Reserva con beneficio Stelvio')" style="cursor:pointer">
+          <div class="cruise-media" style="background-image: url('https://images.unsplash.com/photo-1587381420270-3e1a5b9e6904?auto=format&fit=crop&w=900&q=70');">
+            <span class="cruise-tag">Upper-premium</span>
+          </div>
+          <div class="cruise-body">
+            <h3 class="cruise-name">Oceania Cruises</h3>
+            <p class="cruise-benefit">Crédito a bordo de <strong>$400 por camarote</strong> aplicable a experiencias y bebidas.</p>
+            <div class="cruise-foot">
+              <span class="credit-pill"><i class="fa-solid fa-ship"></i> $400 crédito</span>
+              <span class="cruise-cta">Reservar <i class="fa-solid fa-arrow-right"></i></span>
+            </div>
+          </div>
+        </article>
+
+        <article class="cruise-card" onclick="openWhatsApp('Regent Seven Seas — Reserva con beneficio Stelvio')" style="cursor:pointer">
+          <div class="cruise-media" style="background-image: url('https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=900&q=70');">
+            <span class="cruise-tag">Ultra-luxury</span>
+          </div>
+          <div class="cruise-body">
+            <h3 class="cruise-name">Regent Seven Seas Cruises</h3>
+            <p class="cruise-benefit">Crédito a bordo de <strong>$200 por persona</strong> y kit de productos spa Elemis de cortesía.</p>
+            <div class="cruise-foot">
+              <span class="credit-pill"><i class="fa-solid fa-spa"></i> $200 · Elemis</span>
+              <span class="cruise-cta">Reservar <i class="fa-solid fa-arrow-right"></i></span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+      <div class="chase-strip reveal">
+        <div class="chase-strip-left">
+          <div class="chase-strip-badge">CHASE</div>
+          <div>
+            <p class="chase-strip-title">Cada reserva, respaldada por Chase</p>
+            <p class="chase-strip-sub">Protección de reserva, atención 24/7 y puntos Ultimate Rewards&reg; aplicables a tu viaje. Confianza institucional para cada crucero.</p>
+          </div>
+        </div>
+        <button class="btn btn-primary" onclick="scrollTo('#contact')">
+          <i class="fa-solid fa-shield-halved"></i> Reservar con confianza
+        </button>
       </div>
     </div>
   </section>
