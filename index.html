@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cruise Partners &mdash; Beneficios Exclusivos</title>
+  <style>
+    :root {
+      --ink: #0b1f3a;
+      --ink-2: #1c3660;
+      --muted: #5a6b83;
+      --line: #e4ebf4;
+      --bg: #f6f8fb;
+      --card: #ffffff;
+      --accent: #0a5cff;
+      --accent-2: #0033a0; /* Chase-like navy */
+      --gold: #c9a24b;
+      --shadow: 0 10px 30px rgba(11, 31, 58, 0.08);
+      --radius: 16px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Top bar */
+    .topbar {
+      background: #fff;
+      border-bottom: 1px solid var(--line);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+    .topbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 20px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 18px;
+      letter-spacing: -0.01em;
+    }
+    .brand-mark {
+      width: 30px; height: 30px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, var(--accent-2), var(--accent));
+      display: grid; place-items: center;
+      color: #fff; font-size: 16px;
+    }
+    .nav {
+      display: flex; gap: 22px;
+      color: var(--muted); font-size: 14px;
+    }
+    .nav a:hover { color: var(--ink); }
+
+    /* Hero */
+    .hero {
+      position: relative;
+      padding: 72px 0 48px;
+      background:
+        radial-gradient(1000px 500px at 80% -10%, rgba(10, 92, 255, 0.10), transparent 60%),
+        radial-gradient(800px 400px at -10% 20%, rgba(0, 51, 160, 0.10), transparent 60%),
+        #fff;
+      border-bottom: 1px solid var(--line);
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(0, 51, 160, 0.08);
+      color: var(--accent-2);
+      font-weight: 600;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 6px 12px;
+      border-radius: 999px;
+    }
+    .hero h1 {
+      font-size: clamp(32px, 4.4vw, 52px);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin: 16px 0 14px;
+    }
+    .hero p.lead {
+      color: var(--muted);
+      font-size: 18px;
+      max-width: 560px;
+      margin: 0 0 24px;
+    }
+    .hero-cta {
+      display: flex; gap: 12px; flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 12px 20px;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 14px;
+      transition: transform .15s ease, box-shadow .15s ease, background .2s ease;
+      border: 1px solid transparent;
+      cursor: pointer;
+    }
+    .btn-primary {
+      background: var(--ink);
+      color: #fff;
+    }
+    .btn-primary:hover { transform: translateY(-1px); box-shadow: var(--shadow); }
+    .btn-secondary {
+      background: #fff;
+      color: var(--ink);
+      border-color: var(--line);
+    }
+    .btn-secondary:hover { border-color: var(--ink-2); }
+
+    /* Chase badge (in hero) */
+    .chase-card {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 22px;
+      display: grid;
+      gap: 14px;
+    }
+    .chase-row {
+      display: flex; align-items: center; gap: 14px;
+    }
+    .chase-logo {
+      width: 56px; height: 56px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #0033a0, #0057c2);
+      color: #fff;
+      display: grid; place-items: center;
+      font-weight: 800; letter-spacing: 0.5px;
+      font-size: 15px;
+      box-shadow: inset 0 -2px 0 rgba(0,0,0,.15);
+    }
+    .chase-title {
+      font-weight: 700;
+      font-size: 16px;
+    }
+    .chase-sub {
+      color: var(--muted); font-size: 13px;
+    }
+    .chase-points {
+      display: grid; gap: 8px; margin: 0; padding: 0; list-style: none;
+      font-size: 14px;
+    }
+    .chase-points li {
+      display: flex; align-items: flex-start; gap: 8px;
+      color: var(--ink-2);
+    }
+    .chase-points svg { flex: 0 0 auto; margin-top: 2px; }
+
+    /* Sections */
+    section { padding: 64px 0; }
+    .section-head {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto 40px;
+    }
+    .section-head h2 {
+      font-size: clamp(26px, 3vw, 36px);
+      letter-spacing: -0.02em;
+      margin: 12px 0 10px;
+    }
+    .section-head p {
+      color: var(--muted);
+      font-size: 16px;
+      margin: 0;
+    }
+
+    /* Partner grid */
+    .partner-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 20px;
+    }
+    .partner {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+    }
+    .partner:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow);
+      border-color: #d5deec;
+    }
+    .partner-media {
+      aspect-ratio: 16 / 9;
+      background: #dbe6f2 center/cover no-repeat;
+      position: relative;
+    }
+    .partner-media::after {
+      content: "";
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,0) 55%, rgba(11,31,58,0.35));
+    }
+    .partner-body {
+      padding: 18px 20px 20px;
+      display: flex; flex-direction: column; gap: 10px;
+      flex: 1;
+    }
+    .partner-name {
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      margin: 0;
+    }
+    .partner-benefit {
+      color: var(--muted);
+      font-size: 14.5px;
+      margin: 0;
+      flex: 1;
+    }
+    .partner-foot {
+      display: flex; align-items: center; justify-content: space-between;
+      padding-top: 10px;
+      border-top: 1px dashed var(--line);
+      margin-top: 4px;
+    }
+    .credit-pill {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(10, 92, 255, 0.08);
+      color: var(--accent-2);
+      font-weight: 700;
+      font-size: 12.5px;
+      padding: 5px 10px;
+      border-radius: 999px;
+    }
+    .arrow-link {
+      color: var(--accent-2);
+      font-weight: 600;
+      font-size: 13px;
+      display: inline-flex; align-items: center; gap: 4px;
+    }
+    .arrow-link:hover { color: var(--accent); }
+
+    /* Backed-by strip */
+    .backed {
+      background: linear-gradient(135deg, #0033a0 0%, #0a5cff 100%);
+      color: #fff;
+      border-radius: 20px;
+      padding: 28px 32px;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+      box-shadow: 0 20px 40px rgba(0, 51, 160, 0.20);
+    }
+    .backed-left { display: flex; align-items: center; gap: 18px; }
+    .backed-badge {
+      width: 60px; height: 60px;
+      background: #fff;
+      color: #0033a0;
+      border-radius: 14px;
+      display: grid; place-items: center;
+      font-weight: 800; font-size: 17px;
+      letter-spacing: 0.5px;
+    }
+    .backed-title { font-size: 20px; font-weight: 700; margin: 0; }
+    .backed-sub { font-size: 14px; opacity: 0.85; margin: 4px 0 0; max-width: 520px; }
+    .backed-cta {
+      background: #fff;
+      color: #0033a0;
+      padding: 12px 22px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 14px;
+    }
+    .backed-cta:hover { background: #f0f4ff; }
+
+    /* Footer */
+    footer {
+      padding: 40px 0 60px;
+      color: var(--muted);
+      font-size: 13px;
+      text-align: center;
+      border-top: 1px solid var(--line);
+      background: #fff;
+    }
+    footer .disclaimer {
+      max-width: 780px;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 860px) {
+      .hero-grid { grid-template-columns: 1fr; }
+      .hero { padding: 56px 0 32px; }
+      section { padding: 48px 0; }
+      .nav { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <div class="brand">
+        <div class="brand-mark">C</div>
+        <span>Cruise Partners</span>
+      </div>
+      <nav class="nav">
+        <a href="#partners">Partners</a>
+        <a href="#beneficios">Beneficios</a>
+        <a href="#respaldo">Respaldo</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <span class="eyebrow">Nuevos partners &middot; 2026</span>
+        <h1>Beneficios exclusivos en las mejores líneas de crucero del mundo.</h1>
+        <p class="lead">
+          Créditos a bordo, experiencias en destino, cenas especiales y más &mdash;
+          disponibles solo para nuestros miembros a trav&eacute;s de aliados
+          seleccionados y respaldados por Chase.
+        </p>
+        <div class="hero-cta">
+          <a href="#partners" class="btn btn-primary">
+            Ver partners
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
+          <a href="#respaldo" class="btn btn-secondary">Cómo funciona</a>
+        </div>
+      </div>
+
+      <!-- Chase card -->
+      <aside class="chase-card" id="respaldo">
+        <div class="chase-row">
+          <div class="chase-logo">CHASE</div>
+          <div>
+            <div class="chase-title">Respaldados por Chase</div>
+            <div class="chase-sub">Confianza institucional para cada reserva.</div>
+          </div>
+        </div>
+        <ul class="chase-points">
+          <li>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0033a0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+            Protección de reserva y garantía de mejor precio.
+          </li>
+          <li>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0033a0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+            Puntos Ultimate Rewards&reg; aplicables al viaje.
+          </li>
+          <li>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0033a0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+            Atención al cliente 24/7 en español e inglés.
+          </li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <!-- PARTNERS -->
+  <section id="partners">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Cruise partners</span>
+        <h2>Nuevos aliados. Beneficios reales.</h2>
+        <p>Reserva con cualquiera de estas líneas y recibe créditos y experiencias
+           adicionales sin costo.</p>
+      </div>
+
+      <div class="partner-grid" id="beneficios">
+
+        <!-- AmaWaterways -->
+        <article class="partner">
+          <div class="partner-media" style="background-image: url('https://images.unsplash.com/photo-1502920917128-1aa500764cbd?auto=format&fit=crop&w=800&q=60');"></div>
+          <div class="partner-body">
+            <h3 class="partner-name">AmaWaterways</h3>
+            <p class="partner-benefit">Crédito a bordo de $150 por persona y servicio de lavandería de cortesía.</p>
+            <div class="partner-foot">
+              <span class="credit-pill">$150 crédito a bordo</span>
+              <a href="#" class="arrow-link">Reservar <span aria-hidden="true">&rsaquo;</span></a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Celebrity Cruises -->
+        <article class="partner">
+          <div class="partner-media" style="background-image: url('https://images.unsplash.com/photo-1548574505-5e239809ee19?auto=format&fit=crop&w=800&q=60');"></div>
+          <div class="partner-body">
+            <h3 class="partner-name">Celebrity Cruises</h3>
+            <p class="partner-benefit">Recibe hasta $300 en cr&eacute;dito a bordo por reserva.</p>
+            <div class="partner-foot">
+              <span class="credit-pill">Hasta $300 crédito</span>
+              <a href="#" class="arrow-link">Reservar <span aria-hidden="true">&rsaquo;</span></a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Explora Journeys -->
+        <article class="partner">
+          <div class="partner-media" style="background-image: url('https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=800&q=60');"></div>
+          <div class="partner-body">
+            <h3 class="partner-name">Explora Journeys</h3>
+            <p class="partner-benefit">Crédito de $250 por persona para experiencias en destino (Destination Experience Credit).</p>
+            <div class="partner-foot">
+              <span class="credit-pill">$250 experiencia</span>
+              <a href="#" class="arrow-link">Reservar <span aria-hidden="true">&rsaquo;</span></a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Norwegian -->
+        <article class="partner">
+          <div class="partner-media" style="background-image: url('https://images.unsplash.com/photo-1566375638485-6f2d5c56e5c2?auto=format&fit=crop&w=800&q=60');"></div>
+          <div class="partner-body">
+            <h3 class="partner-name">Norwegian</h3>
+            <p class="partner-benefit">Elige entre $100 de crédito para excursiones, una noche extra de cena especial o paquete ilimitado de Starbucks por camarote.</p>
+            <div class="partner-foot">
+              <span class="credit-pill">$100 · dining · Starbucks</span>
+              <a href="#" class="arrow-link">Reservar <span aria-hidden="true">&rsaquo;</span></a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Oceania -->
+        <article class="partner">
+          <div class="partner-media" style="background-image: url('https://images.unsplash.com/photo-1587381420270-3e1a5b9e6904?auto=format&fit=crop&w=800&q=60');"></div>
+          <div class="partner-body">
+            <h3 class="partner-name">Oceania Cruises</h3>
+            <p class="partner-benefit">Crédito a bordo de $400 por camarote.</p>
+            <div class="partner-foot">
+              <span class="credit-pill">$400 crédito a bordo</span>
+              <a href="#" class="arrow-link">Reservar <span aria-hidden="true">&rsaquo;</span></a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Regent Seven Seas -->
+        <article class="partner">
+          <div class="partner-media" style="background-image: url('https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=800&q=60');"></div>
+          <div class="partner-body">
+            <h3 class="partner-name">Regent Seven Seas Cruises</h3>
+            <p class="partner-benefit">Cr&eacute;dito a bordo de $200 por persona y kit de productos spa Elemis de cortes&iacute;a.</p>
+            <div class="partner-foot">
+              <span class="credit-pill">$200 · kit Elemis</span>
+              <a href="#" class="arrow-link">Reservar <span aria-hidden="true">&rsaquo;</span></a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- BACKED STRIP -->
+  <section id="contacto" style="padding-top: 20px;">
+    <div class="container">
+      <div class="backed">
+        <div class="backed-left">
+          <div class="backed-badge">CHASE</div>
+          <div>
+            <p class="backed-title">Respaldados por Chase</p>
+            <p class="backed-sub">
+              Cada reserva realizada con nuestros partners cuenta con la
+              seguridad, atenci&oacute;n y beneficios financieros de Chase.
+            </p>
+          </div>
+        </div>
+        <a href="#" class="backed-cta">Conocer más</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container disclaimer">
+      &copy; 2026 Cruise Partners. Los beneficios pueden estar sujetos a
+      disponibilidad, fechas y condiciones espec&iacute;ficas de cada l&iacute;nea
+      de crucero. Chase&reg; es una marca registrada de JPMorgan Chase &amp; Co.
+    </div>
+  </footer>
+
+</body>
+</html>
